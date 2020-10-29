@@ -1,0 +1,9 @@
+.DS_Store
+Thumbs.db
+/.idea/
+/bitrix/*
+/upload/*
+.htaccess
+robots.txt
+gulpfile.js
+/node_modules

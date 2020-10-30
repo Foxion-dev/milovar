@@ -1,0 +1,210 @@
+// Общие стили
+h2{
+  font-size: 36px;
+  @include museo700;  
+  color: $content; 
+  @include flex($j-sb,$a-ic);  
+  @include max-screen (426px) {
+    font-size: 30px;
+  }
+  @include max-screen (321px) {
+    font-size: 28px;
+  }
+  // margin-top: 60px;
+  .line {
+    flex: 1 0;
+    border-bottom: 1px solid #e1e9ee;
+    margin-left: 60px;
+  }
+}
+
+
+// Первый блок(основная информация)
+
+
+.recipes-title {
+  .title-img {
+    margin-bottom: 30px;
+    position: relative;
+    h3{
+      font-size: 36px;
+      color: $content;  
+      position: absolute;
+      top: 50%;
+      transform:translateY(-50%);  
+      left: 75px;
+      p{
+        color: #71a402;
+      }
+      @include max-screen (992px) {
+        left: 20px;
+      }
+      @include max-screen (768px) {
+        font-size: 30px;
+      }
+      @include max-screen (426px) {
+        max-width: 190px;
+      }
+      @include max-screen (321px) {
+        top: 45%;
+      }
+    }
+    @include max-screen (768px) {
+      img{
+        object-fit: cover;
+        min-height: 300px;
+      }
+    }
+    @include max-screen (426px) {
+      img{
+        min-height: 200px;
+      }
+    }
+  }
+  .title-info {
+    p{
+      @include museo500;  
+      color: $content;  
+      font-size: 14px;
+      line-height: 22px;
+      letter-spacing: 0.21px;
+      margin-bottom: 25px;
+    }
+  }
+}
+
+
+// Второй блок( Новые рецепты)
+
+.recipes-new {
+  .new-recipes-list {
+    @include flex($j-sb,$a-fs);
+    margin-bottom: 100px;  
+    @include max-screen (768px) {
+      flex-wrap: wrap;
+      margin-bottom: 50px;
+    }
+  }
+}
+
+
+
+// Стили превьюшки рецепта
+.new-recipes-item {
+  max-width: 270px;
+  position: relative;
+  width: 100%;
+  background-color: $white;
+  box-shadow: 0px 5px 6px 0px rgba(31, 64, 91, 0.05);
+  border-radius: 6px;
+  @include max-screen (1170px) {
+    margin-right: 20px;
+  }
+  @include max-screen (992px) {
+    max-width: 180px;
+  }
+  @include max-screen (768px) {
+    margin-bottom: 30px;
+    max-width: 240px;
+    margin-right: 0;
+  }
+  @include max-screen (426px) {
+    max-width: 100%;
+    width: 100%;
+  }
+  img{
+    width: 100%;
+    border-radius: 6px;
+  }
+  .bottom-info {
+    padding: 25px;
+    @include max-screen (992px) {
+      padding: 20px 15px;
+    }
+    h5{
+      @include museo500;  
+      font-size: 15px;
+      color: $content;  
+      margin-bottom: 20px;
+    }
+    .metka {
+      top: 15px;
+      left: 15px;
+      width: 58px;
+      height: 25px;
+      position: absolute;
+      @include museo500;  
+      font-size: 13px;
+      border-radius: 6px;
+      background-color: #efb288;
+      color: #fff;
+      @include flex($j-cc,$a-ic); 
+    }
+    .more{
+          @include museo500;  
+          color: $func_color3;
+          font-size: 14px;
+          padding-right: 30px;
+          display: block;
+          background-image: url(../images/card-tovar/right-arrow.png);
+          background-position: 95px center;
+          background-repeat: no-repeat;
+        }
+  }
+}
+
+// Третий блок (Каталог рецептов)
+
+.recipes-catalog {
+  padding-bottom: 120px;
+  border-bottom: 1px solid #dbe2e5;  
+   .recipes-catalog-content {
+    @include flex($j-sb,$a-fs);  
+    @include max-screen (768px) {
+      flex-wrap: wrap;
+    }
+      .catalog-left-category {
+        .cat-subitem {
+          summary{
+            @include museo500;  
+          }
+          li a {
+            @include museo500;  
+            opacity: 0.8;
+          }
+        }
+      }
+
+
+    .right-recipes-catalog {
+      flex-basis: 75%;
+      margin-left: 30px;
+      @include flex($j-sb,$a-fs,$fww);  
+      @include max-screen (992px) {
+        margin-left: 20px;
+      }
+      @include max-screen (768px) {
+        margin-left: 0;
+        flex-basis: 100%;
+        margin-top: 50px;
+      }
+      .new-recipes-item{
+        margin-bottom: 30px;
+        @include max-screen (992px) {
+          margin-right: 20px;
+        }
+        @include max-screen (768px) {
+          margin-right: 0;
+        }
+      }
+      .catalog-paginacia{
+        flex-basis: 100%;
+        @include max-screen (992px) {
+          .arrow-prev, .arrow-next{
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+  }
+}

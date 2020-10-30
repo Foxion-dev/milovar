@@ -1,0 +1,174 @@
+// Личный кабинет 
+.personal-area {
+    padding-bottom: 120px;
+    border-bottom: 1px solid #dbe2e5;
+  .personal-area-content {
+    background-color: #fff;
+    padding: 45px 50px;
+    border-radius: 6px;
+    .content-title-tabs {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;  
+      h1{
+        margin-bottom: 0;
+      }
+      .tabs-list {
+        display: flex;
+        justify-content: flex-end;
+        .tabs-link {
+          width: 180px;
+          height: 35px;
+          color: $func_color;
+          padding: 12px 10px;
+          @include museo500;  
+          letter-spacing: 0.45px;
+          font-size: 13px;
+          border: 1px solid $func_color;
+          border-left: none;
+          border-collapse: collapse;
+          border-spacing: 0;
+          display: flex;
+          justify-content: center;
+          align-items: center;  
+          cursor: pointer;
+          &.active-tab{
+            background: $func_color2;
+            color: $white;
+          }
+          &:hover, &:focus{
+            background-color: $func_color2;
+            color: $white;
+          }
+          &:first-child{
+            border-left: 1px solid $func_color;
+            border-radius: 5px 0 0 5px;
+          }
+          &:last-child{
+            border-radius: 0px 5px 5px 0px;
+          }
+        }
+      }
+    }
+    // Общии стили контента табов
+    .content-block-tabs {
+      width: 100%;
+      margin-top: 48px;
+      display: none;
+      &.active-content{
+        display: table;
+      }
+      td,th,tr{
+        padding: 0;
+        margin: 0;
+      }
+      .headlist {
+        padding-bottom: 12px;
+        border-bottom: 1px solid #dbe2e5; 
+       .headlist-item {
+         font-size: 12px;
+         padding-bottom: 12px;
+         text-align: left;
+         width: 130px;
+        @include museo300;
+        color: $content;  
+        opacity: .8;  
+        &.item-act{
+          font-size: 14px;
+          width: 160px;
+          @include museo500;  
+          opacity: 1;
+        }
+        &.item2, &.item3{
+          width: 110px;
+        }
+        &.item5{
+          width: 100px;
+          display: block;
+        }
+        &.item6{
+          width: 160px;
+        }
+        &.item7{
+          width: 80px;
+        }
+        &.pusto{
+          font-size: 0px;
+          opacity: 0;
+          width: 115px;
+          display: flex;
+          justify-content: flex-end;
+        }
+       }
+      }
+      .content-list {
+        border-bottom: 1px solid #dbe2e5; 
+        .content-list-item {
+          font-size: 13px;
+          color: $content;  
+          @include museo300;
+          letter-spacing: 0.24px;
+          padding: 23px 0;
+          &.item-act{
+            @include museo500;  
+          }
+          &.pencil{
+            background-image: url(../images/pencil.png);
+            background-repeat: no-repeat;
+            background-position:center left;
+            padding-left: 28px;
+          }
+          &.item-warn{
+            color: $warn_color;
+          }
+          &.individ-w{
+             width: 100px;
+             display: block;
+          }
+          &.individ-w2{
+             max-width: 80px;
+          }
+
+          &.btn{
+            display: flex;
+            justify-content: flex-end;
+          }
+          .btn_repeat {
+            width: 115px;
+            height: 35px;
+            border:1px solid $func_color2;
+            border-radius: 30px;
+            display: flex;
+            justify-content: center;
+            align-self: end;  
+            align-items: center;  
+            margin-right: 0;
+            color: $func_color2;
+            @include museo500; 
+            transition: all 0.3s linear;   
+            font-size: 14px;
+            &:hover, &:focus{
+              background-color: $func_color2;
+              color: $white;
+            }
+          }
+        }
+      }
+      &.orders-block{ // Мои заказы
+        .orders{ // Таблица
+          width: 100%;
+          border-spacing: 0px;
+          border-collapse: collapse;
+        }
+        .catalog-paginacia{
+          margin-top: 50px;
+        }
+      }
+      &.my-setting-block{
+        .my-setting{
+          
+        }
+      }
+    }
+  }
+}

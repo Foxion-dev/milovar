@@ -1,0 +1,147 @@
+//@mixin museo100() {
+//	@include font-family ($museo100);
+//	font-weight: 100;
+//	font-style: normal;
+//}
+//
+@mixin museo300() {
+	font-family: 'Museo Sans Cyrl 300', sans-serif;
+	font-weight: 300;
+	font-style: normal;
+}
+
+@mixin museo500() {
+	font-family: 'Museo Sans Cyrl 500', sans-serif;
+	font-weight: normal;
+	font-style: normal;
+}
+
+@mixin museo700() {
+	font-family: 'Museo Sans Cyrl 700', sans-serif;
+	font-weight: 700;
+	font-style: normal;
+}
+//
+//
+//@mixin museo900() {
+//	@include font-family ($museo900);
+//	font-weight: 900;
+//	font-style: normal;
+//}
+
+
+
+// Флексы
+
+$j-cc: center;
+$j-sb: space-between;
+$j-sa: space-around;
+$j-fs: flex-start;
+$j-fe: flex-end;
+
+$a-ic: a center;
+$a-sb: space-between;
+$a-sa: space-around;
+$a-fs: flex-start;
+$a-fe: flex-end;
+
+$fww: wrap;
+
+@mixin flex($jc:center, $ai:center, $fw:inherit) {
+	display: flex;
+  	justify-content: $jc;
+  	align-items: $ai;	
+  	flex-wrap: $fw;
+}
+
+
+
+//выравнивание
+
+@mixin center() {
+	top: 50%;
+	left: 50%;
+	transform:translate(-50%,-50%);	
+}
+
+// Псевдоэлементы
+
+
+@mixin psev($width:20,$height:20) {
+	content: "";
+	position: absolute;
+	width: $width+px;
+	height: $height+px;
+}
+
+@mixin psev_circle($size:20,$bg:#000) {
+	content: "";
+	position: absolute;
+	border-radius: 50%;
+	width: $size+px;
+	height: $size+px;
+	background: $bg;
+}
+
+@mixin psev_line_center($width:200,$height:3,$bg:#000) {
+	content: "";
+	position: absolute;
+	width:	$width+px;
+	height: $height+px;
+	background-color: $bg;
+	top: 50%;
+	transform:translateY(-50%);		
+}
+
+@mixin psev_line_bottom($width:200,$height:3,$bg:#000) {
+	content: "";
+	position: absolute;
+	width:	$width+px;
+	height: $height+px;
+	background-color: $bg;
+	left: 50%;
+	transform:translateX(-50%);		
+}
+
+
+
+$top: 315;
+$bottom: 135;
+$left: 225;
+$right: 45;
+
+
+@mixin arrow($size:10,$weight:1,$direct:$bottom,$bg:#000) {
+	width: $size+px;
+	height: $size+px;
+	border-right: $weight+px solid $bg;
+	border-top: $weight+px solid $bg;
+	transform: rotate($direct+deg);
+
+}
+
+
+@mixin psev_arrow($size:10,$bg:#000) {
+	content: "";
+	position: absolute;
+	border: $size+px solid transparent;
+	border-top: $size+px solid $bg;
+	cursor: pointer;
+}
+@mixin psev_full($width:100%,$height:100%,$top:0,$left:0) {
+	content: "";
+	position: absolute;
+	top: $top+px;
+	left: $left+px;
+	width: $width ;
+	height: $height;
+}
+
+// Плэйсхолдеры
+
+@mixin placeholder {
+  &::-webkit-input-placeholder { @content; }
+  &:-moz-placeholder           { @content; }
+  &::-moz-placeholder          { @content; }
+  &:-ms-input-placeholder      { @content; }
+}

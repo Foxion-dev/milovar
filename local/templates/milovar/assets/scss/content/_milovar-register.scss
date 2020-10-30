@@ -1,0 +1,63 @@
+.register-block {
+  padding-bottom: 120px;
+  border-bottom: 1px solid #dbe2e5;  
+  .register-form-content {
+    background-color: $white;
+    border-radius: 6px;
+    padding: 50px;
+    @include max-screen (376px) {
+      padding: 20px;
+    }
+    .entrance{
+      .data-input{
+        max-width: 700px;
+        @include flex($j-sb,$a-fs,$fww);
+        margin-bottom: 30px;
+        p{
+          font-size: 13px;
+          color: $content;  
+          opacity: 0.8;
+          @include museo500;  
+          padding-right: 30px;
+          @include max-screen (768px) {
+            padding-right: 0;
+            margin-top: 20px;
+          }
+        }
+        label{
+          @include flex($j-sb,$a-fs); 
+          flex-direction: column; 
+          input{
+             margin-top: 10px;
+          }
+        }
+        .bottom-form{
+          flex-basis: 100%;
+          @include flex($j-sb,$a-ic); 
+          .contin{
+            width: 255px;
+             margin-bottom: 0;
+          }
+          .forgot {
+            flex-basis: 41%;
+            text-decoration: underline;
+            @include museo500;  
+            color: $func_color;
+            font-size: 13px;
+            @include max-screen (768px) {
+              margin-top: 15px;
+              flex-basis: 100%;
+              text-align: center;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+
+
+

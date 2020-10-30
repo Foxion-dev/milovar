@@ -1,0 +1,61 @@
+
+.help-page-content {
+  padding-bottom: 120px;
+  border-bottom: 1px solid #dbe2e5;  
+  h1{
+    margin-bottom: 30px;
+    @include max-screen (426px) {
+      font-size: 30px;
+    }
+  }
+  .content-block{
+    background-color: $white;
+    border-radius: 6px;
+    padding: 50px 80px 50px 40px;
+    @include max-screen (426px) {
+      padding: 30px;
+      
+    }
+    h4{
+      @include museo700;  
+      font-size: 18px;
+      color: $content;  
+      line-height: 58px;
+      letter-spacing: 0.27px;
+      @include max-screen (992px) {
+        line-height: 28px;
+        margin-bottom: 20px;
+      }
+    }
+    p,li {
+      @include museo500;  
+      font-size: 13px;
+      color: $content;  
+      line-height: 22px;
+      letter-spacing: normal;
+      letter-spacing: 0.2px;
+      opacity: .8;
+    }
+    p{
+      margin-bottom: 16px;
+      a{
+        color: $func_color;
+        text-decoration: underline;
+      }
+    }
+    .help-content-item {
+      .stage-list {
+         li{
+          padding-left: 20px;
+          position: relative;
+          margin-bottom: 18px;
+          &:before{
+            @include psev_circle(10,$func_color2);
+            left: 0;
+            top: 6px;   
+          }
+        }
+      }
+    }
+  }
+}

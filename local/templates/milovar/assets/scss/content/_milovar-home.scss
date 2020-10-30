@@ -1,0 +1,923 @@
+// Общие стили
+
+h2{
+	@include museo700;
+	color: $content;	
+	font-size: 36px;
+	@include max-screen (376px) {
+		font-size: 30px;
+	}
+	@include max-screen (321px) {
+		font-size: 28px;
+	}
+}
+
+
+
+// Первый блок (контент)
+
+
+.head-content-block {
+	background-image: url(../images/home/head-BG.png);
+	background-size: cover;
+	background-repeat: no-repeat;
+	padding: 265px 0;
+	margin-top: -156px;
+	@include max-screen (1600px) {
+		background-position-x: center;
+	}
+	@include max-screen (1200px) {
+		padding-bottom: 100px;
+		background-size: cover;
+	}
+	@include max-screen (768px) {
+		background-position-x: -75px;
+	}
+	@include max-screen (426px) {
+		background-position: right -500px top -40px;
+	}
+	@include max-screen (376px) {
+		    background-position: right -550px top -25px;
+	}
+	@include max-screen (321px) {
+		background-position:right -655px top -70px;
+	}
+	a,i{
+		color: $content;
+	}
+	.head-content-nav {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;	
+		max-width: 1170px;
+		width: 100%;
+		padding-bottom: 200px;
+		@include max-screen (1200px) {
+			padding-bottom: 100px;
+		}
+		@include max-screen (992px) {
+			flex-wrap: wrap;
+		}
+		@include max-screen (768px) {
+			padding-bottom: 50px;
+		}
+		.logo-block {
+			width: 170px;
+			height: 45px;
+			margin-top: -5px;
+			img{
+				width: 100%;
+				height: 100%;
+			}
+			@include max-screen (768px) {
+				margin-top: 0;
+				margin-bottom: 30px;
+			}
+			@include max-screen (426px) {
+				margin-bottom: 20px;
+			}
+		}
+		.head-nav-list {
+			display: flex;
+			justify-content: space-between;
+			padding-left: 35px;
+			@include max-screen (1170px) {
+				padding-left: 5px;
+			}
+			@include max-screen (992px) {
+				order: 1;
+				width: 100%;
+				margin-top: 20px;
+			}
+			@include max-screen (768px) {
+				display: none;
+			}
+			li{
+				margin-right: 45px;
+				@include max-screen (1170px) {
+					margin-right: 10px;
+				}
+				@include max-screen (992px) {
+					margin-right: 0;
+				}
+				a{
+					font-size: 15px;
+					@include museo500;
+					&:hover, &:focus{
+              color: $func_color;
+          }
+					@include max-screen (992px) {
+						font-size: 20px;
+					}
+				}
+			}
+		}
+		.phone-basket-block {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;	
+			font-size: 18px;
+			@include museo500;
+			@include max-screen (321px) {
+				flex-wrap: wrap;
+			}
+			.phone-item {
+				display: flex;
+				align-items: center;	
+				padding-right: 50px;
+				&:hover, &:focus{
+           color: $func_color;
+         }
+				@include max-screen (1170px) {
+					padding-right: 30px;
+				}
+				@include max-screen (376px) {
+					padding-right: 20px;
+					font-size: 15px;
+				}
+				@include max-screen (321px) {
+					margin-bottom: 20px; 
+
+				}
+				i{
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					width: 45px;
+					height: 45px;
+					background-color: #fff;
+					border-radius: 10px;
+					margin-right: 15px;	
+					&::before{
+						font-size: 24px;
+					}		
+				}
+			}
+			.basket-item {
+				display: flex;
+				align-items: center;	
+				&:hover, &:focus:after{
+           color: $func_color;
+         }
+				@include max-screen (376px) {
+					font-size: 15px;
+				}
+				i{
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					width: 45px;
+					height: 45px;
+					background-color: #fff;
+					border-radius: 10px;
+					margin-right: 15px;
+					position: relative;
+					&:after{
+						content: "99";
+						position: absolute;
+						display: flex;
+						padding-top: 2px;
+						padding-left: 1px;
+						justify-content: center;
+						align-items: center;	
+						top: -8px;
+						right: -6px;
+						width: 20px;
+						height: 20px;
+						background-color: $func_color;
+						border-radius: 50%;
+						@include museo500;	
+						font-size: 10px;
+						color: #fff;
+					}	
+					&::before{
+						font-size: 24px;
+					}	
+				}
+			}
+		}
+	}
+
+	.head-title-block {
+		width: 1170px; // временно
+		@include max-screen (1170px) {
+				width: 100%;
+			}
+		h1{
+			// max-width: 650px;
+			@include museo100;
+			line-height: 58px;	
+			font-size: 48px;
+			color: $content;
+			margin-bottom: 45px;
+			strong{
+				@include museo700;	
+			}
+			@include max-screen (1024px) {
+				font-size: 42px;
+			}
+			@include max-screen (768px) {
+				font-size: 40px;
+			}
+			@include max-screen (426px) {
+				line-height: 48px;
+			}
+			@include max-screen (321px) {
+				font-size: 36px;
+				line-height: 40px;
+			}
+			
+		}
+		.goto-catalog {
+
+			@include museo500;	
+			font-size: 16px;
+			color: #fff;
+			display: flex;
+			justify-content: center;
+			align-items: center;	
+			width: 240px;
+			height: 60px;
+			border-radius: 50px;
+			text-align: center;
+			background: $bg_btn;
+			position: relative;
+			z-index: 10;
+			&:after{
+				@include psev_full;
+				border-radius: 50px;
+				background: $bg_btn_hover;
+				opacity: 0;
+				z-index: -1;
+				transition: all .7s ;
+			}
+			 &:hover:after, &:focus:after{
+			 	opacity: 1;
+			 	
+			 }
+		}
+	}
+}
+
+
+
+// Второй блок (каталог)
+
+.home-catalog {
+	@include museo700;
+	color: $content;	
+	padding-top: 90px;
+	@include max-screen (426px) {
+			padding-top: 50px;
+		}	
+		@include max-screen (321px) {
+			padding-top: 0;
+		}
+	h2{	
+		padding-bottom: 50px;
+	}
+	.home-catalog-content {
+		.content-top {
+			display: flex;
+			justify-content: space-between;
+			@include max-screen (500px) {
+				flex-wrap: wrap;
+				justify-content: center;
+			}
+			h5{
+				font-size: 30px;
+				margin-bottom: 10px;
+				@include max-screen (768px) {
+					font-size: 20px;
+				}
+				@include max-screen (500px) {
+					font-size: 30px;
+				}
+				@include max-screen (321px) {
+					font-size: 24px;
+				}
+			}
+			p{
+				font-size: 16px;
+				max-width: 180px;
+				@include museo300;	
+				line-height: 24px;
+				letter-spacing: .24px;
+				@include max-screen (992px) {
+					max-width: 150px;
+				}
+				@include max-screen (768px) {
+					font-size: 13px;
+					line-height: 18px;
+					max-width: 100px;
+				}
+				@include max-screen (500px) {
+					font-size: 16px;
+					max-width: 160px;
+					line-height: 24px;
+				}
+			}
+			.content-top-left {
+				position: relative;
+				flex-basis: 50%;
+				height: 333px;
+				display: flex;
+				color: $content;	
+				flex-direction: column;
+				padding: 60px;
+				justify-content: center;
+				align-items: flex-start;	
+				cursor: pointer;	
+				border-radius: 6px;
+				@include max-screen (992px) {
+					height: 100%;
+					padding-left: 20px;
+					padding-top: 30px;
+				}
+				@include max-screen (768px) {
+					padding-bottom: 0;
+					padding-top: 10px;
+				}
+				@include max-screen (500px) {
+					flex-basis: 100%;
+					margin-bottom: 130px; // условно
+					padding: 40px;
+				}
+				@include max-screen (426px) {
+					margin-bottom: 60px;
+				}
+				@include max-screen (376px) {
+					margin-bottom: 30px;
+				}
+				@include max-screen (321px) {
+					padding: 10px;
+					margin-bottom: 60px;
+				}
+				img{
+					position: absolute;
+					top: 0;
+					left: 0;
+					z-index: -1;
+				}
+			}
+			.content-top-right {
+				position: relative;
+				flex-basis: 50%;
+				margin-left: 30px;
+				height: 333px;
+				display: flex;
+				color: $content;	
+				flex-direction: column;
+				padding: 60px;
+				justify-content: center;
+				align-items: flex-start;	
+				border-radius: 6px;
+				cursor: pointer;
+				@include max-screen (992px) {
+					height: 100%;
+					padding-left: 20px;
+					padding-top: 30px;
+				}
+				@include max-screen (768px) {
+					padding-bottom: 0;
+					padding-top: 10px;
+				}
+				@include max-screen (500px) {
+					flex-basis: 100%;
+					margin-left: 0;
+					margin-bottom: 100px;
+					padding: 40px;
+				}
+				@include max-screen (426px) {
+					margin-bottom: 50px;
+				}
+				@include max-screen (376px) {
+					margin-bottom: 60px;
+				}
+				@include max-screen (321px) {
+					padding: 10px;
+					margin-bottom: 80px;
+				}
+				img{
+					right: 0;
+					top: 0;
+					position: absolute;
+					z-index: -1;
+				}
+			}
+		}
+		.content-bottom {
+			display: flex;
+			 flex-wrap: wrap;
+			justify-content: space-between;
+			margin-bottom: 60px;
+			.content-bottom-item {
+				width: 270px;
+				height: 163px;
+				border-radius: 6px;
+				margin-right: 30px;
+				margin-top: 30px;
+				padding-left: 30px;
+				display: flex;
+				position: relative;
+				width: 23%;
+				color: $content;	
+				align-items: center;	
+				background-color: #f9f9f9;
+				z-index: 2;
+				cursor: pointer;
+				&:nth-child(4), &:nth-child(8), &:nth-child(12){
+					margin-right: 0;
+					@include max-screen (768px) {
+						margin-right: 10px
+					}
+				}
+				@include max-screen (1170px) {
+					margin-right: 0;
+				}
+				@include max-screen (992px) {
+					align-items: flex-start;	
+				}
+				@include max-screen (768px) {
+					margin-right: 10px;
+					margin-left: 10px;
+					width: 29%;
+					padding-left: 15px;
+					height: 130px;
+					// width: 44%;
+				}
+				@include max-screen (426px) {
+					width: 44%;
+				}
+				@include max-screen (376px) {
+					width: 100%;
+					margin: 10px 0;
+					height: 170px;
+				}
+				h6{
+						max-width: 100px;
+						z-index: 2;
+						font-size: 18px;
+						position: relative;
+						@include max-screen (992px) {
+							margin-top: 30px;
+						}
+						@include max-screen (768px) {
+							margin-top: 15px;
+						}
+				}
+				img{
+					position: absolute;
+					right: 0;
+					bottom: 0;
+					z-index: 1;
+					@include max-screen (376px) {
+						height: 100%;
+						width: 100%;
+					}
+				}
+			}
+		}
+	}
+
+	.goto-catalog {	
+			@include museo500;	
+			margin: 0 auto;
+			font-size: 16px;
+			color: #fff;
+			display: flex;
+			justify-content: center;
+			align-items: center;	
+			width: 270px;
+			height: 60px;
+			border-radius: 50px;
+			text-align: center;
+			background: $bg_btn;
+			transition: background .7s ease;
+			position: relative;
+			z-index: 10;
+			&:after{
+				@include psev_full;
+				border-radius: 50px;
+				background: $bg_btn_hover;
+				opacity: 0;
+				z-index: -1;
+				transition: all .7s ;
+			}
+			 &:hover:after, &:focus:after{
+			 	opacity: 1;
+			 	
+			 }
+	}
+}
+
+// Третий блок (О магазине)
+	
+.home-about {
+	padding-bottom: 148px;
+	padding-top: 80px;
+	@include max-screen (426px) {
+		padding-bottom: 70px;
+	}
+	@include max-screen (321px) {
+		padding-top: 60px;
+	}
+	.about-content {
+		display: flex;
+		justify-content: space-between;
+		@include max-screen (992px) {
+			flex-wrap: wrap;
+		}
+		.about-content-left {
+			flex-basis: 50%;
+			@include max-screen (992px) {
+				flex-basis: 100%;
+			}
+			h2{	
+				margin-bottom: 30px;
+			}
+			p{
+				@include museo500;	
+				font-size: 16px;
+				padding-right: 30px;
+				color: $content;	
+				letter-spacing: 0.24px;
+				@include max-screen (992px) {
+					padding-right: 0;
+				}
+			}
+		}
+		.about-content-right {
+			flex-basis: 50%;
+			@include max-screen (992px) {
+				flex-basis: 100%;
+			}
+			img{
+				margin-top: -60px;
+				@include max-screen (1170px) {
+					margin-top: 0;
+				}
+			}
+		}
+	}
+}
+
+
+// Четвёртый блок (новости)
+
+.home-news {
+	margin-bottom: 40px;
+	h2{
+		margin-bottom: 50px;
+	}
+	.home-news-content {
+		display: flex;
+		justify-content: space-between;
+		@include max-screen (768px) {
+			flex-wrap: wrap;
+			width: 100%;
+		}
+		.news-content-item {
+			margin-right: 30px;
+			position: relative;
+			transition: all 0.5s linear;	
+			&:hover h5, &:focus h5{
+				color: $func_color;
+			}
+			&:last-child{
+				margin-right: 0;
+			}
+			@include max-screen (768px) {
+				margin-bottom: 40px;
+				width: 100%;
+				margin-right: 0;
+			}
+			img{
+				@include max-screen (768px) {
+					width: 100%;
+
+				}
+			}
+			h5{
+				@include museo700;
+				font-size: 16px;
+				color: $content;	
+				width: 100%;
+				border-bottom: 1px solid #eef5f9;
+				padding-bottom: 15px;
+				padding-top: 15px;
+				transition: all 0.3s linear;	
+				@include max-screen (1170px) {
+					@include museo500;
+				}
+				@include max-screen (992px) {
+					height: 35%;
+				}
+				@include max-screen (768px) {
+					height: 20%;
+				}
+			}
+			.datanews {
+				position: absolute;
+				top: 15px;
+				right: 15px;
+				height: 24px;
+				width: 95px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				@include museo700;
+				color: #fff;
+				font-size: 13px;
+				background-color: #70c4fe;
+				border-radius: 3px;	
+
+			}
+		}
+	}
+}
+
+// Пятый блок (мастер-класс)
+
+
+.home-masterclass {
+	width: 100%;
+	background-image: url(../images/home/master-class-bg.png);
+	background-size: cover;
+	background-repeat: no-repeat;
+	// padding-bottom: 100px;
+	color: $content;	
+	@include max-screen (1500px) {
+		background-position: left -300px top;
+	}
+	@include max-screen (1170px) {
+		background-position: left -450px top;
+	}
+	@include max-screen (1024px) {
+		background-position: left -500px top;
+	}
+	@include max-screen (768px) {
+		 // background-position: left -440px top;
+		 background-image: url(../images/home/list2.png);
+		 background-position: right top 30px;
+		  background-size: 200px;
+		 background-color: #ecf2f8;
+	}
+	@include max-screen (426px) {
+		background-position: right bottom;
+		background-size: 150px;
+	}
+	@include max-screen (321px) {
+		background-size: 150px;
+		background-position: right bottom 20px;
+	}
+	.master-class-content {
+		padding-top: 200px;
+		padding-bottom: 100px;
+		@include max-screen (426px) {
+			padding-top: 50px;
+			// margin-top: 50px;
+			padding-bottom: 50px;
+			// margin-top: -100px;
+		}
+		@include max-screen (321px) {
+			// margin-top: -130px;
+		}
+		h2{
+			margin-bottom: 30px;
+		}
+		p{
+			max-width: 500px;
+			letter-spacing: 0.24px;
+			@include museo500;	
+			margin-bottom: 50px;
+			
+		}
+		.goto-mc {
+			@include museo500;	
+			font-size: 16px;
+			color: #fff;
+			display: flex;
+			justify-content: center;
+			align-items: center;	
+			width: 180px;
+			height: 60px;
+			border-radius: 50px;
+			text-align: center;
+			background: $bg_btn;
+			transition: background .7s ease;
+			position: relative;
+			z-index: 10;
+			&:after{
+				@include psev_full;
+				border-radius: 50px;
+				background: $bg_btn_hover;
+				opacity: 0;
+				z-index: -1;
+				transition: all .7s ;
+			}
+			 &:hover:after, &:focus:after{
+			 	opacity: 1;
+			 	
+			 }
+		}
+	}
+}
+// Шестой блок (Хиты продаж)
+
+.home-bestsellers, .milovar-catalog .catalog-full .catalog-right {
+	@include museo500;
+	color: $content;		
+	padding-bottom: 100px;
+	@include max-screen (376px) {
+		padding-bottom: 70px;
+	}
+	h2{
+		margin-bottom: 45px;
+		margin-top: 90px;
+		@include max-screen (426px) {
+			margin-top: 70px;
+		}
+	}
+	.categ {
+		@include flex($j-sb);
+		@include max-screen (992px) {
+			flex-wrap: wrap;
+		}
+		.best-content-item {
+			box-shadow: 0px 5px 6px 0px rgba(31, 64, 91, 0.05);
+			max-width: 270px;
+			@include max-screen (1170px) {
+				max-width: 200px;
+			}
+			@include max-screen (992px) {
+				max-width: 50%;
+				margin-bottom: 30px;
+			}
+			@include max-screen (768px) {
+				margin-right: 10px;
+				margin-left: 10px;
+				max-width: 45%;
+			}
+			@include max-screen (426px) {
+				max-width: 100%;
+				width: 100%;
+			}
+			.best-top-content {
+				width: 270px;
+				height: 240px;
+				background-color: #eef5f9;
+				border-radius: 5px;
+				@include flex;
+				@include max-screen (1170px) {
+					width: 100%;
+				}
+			}
+
+			.best-bottom-content {
+				padding: 25px;
+				h5{
+					max-width: 220px;
+					font-size: 15px;
+					letter-spacing: 0.24px;
+					margin-bottom: 20px;
+				}
+				.bottom-func {
+					@include flex($j-sb,$a-ic,$fww);
+					@include max-screen (1170px) {
+						flex-direction: column;
+						align-items: center;	
+					}
+					span.fasov{
+						@include museo500;
+						flex-basis: 100%;	
+						font-size: 13px;
+						color: #949daf;
+						margin-bottom: 5px;
+						position: relative;
+						 &:after{
+						 	@include psev;
+						 	background-image: url(../images/home/arr.png);
+						 	background-repeat: no-repeat;
+						 	left: 83%;
+						 	top: 225%;
+						 	z-index: 2;
+						 	cursor: pointer;
+						 	pointer-events: none;
+						 	@include max-screen (1170px) {
+						 		left: 125%;
+						 	}
+						 	@include max-screen (992px) {
+						 		left: 160%;
+						 	}
+						 }
+
+					}
+					.fas-select{
+						flex-basis: 100%;
+						display: block;
+						padding: 10px;
+						max-width: 100%;
+						border-radius: 5px;
+						 -moz-appearance: none;
+						 -webkit-appearance: none;
+						 appearance: none;
+						 border: 1px solid #dde0e6;
+						 @include museo700;
+						 font-size: 13px;
+						 color: $content;	
+						 position: relative;
+						 z-index: 1;
+						 cursor: pointer;
+						 @include max-screen (1170px) {
+						 	padding-right: 40px;
+						 }	
+						 &:focus{
+						 	outline: none;
+						 }
+					}
+					.colvo {
+						margin-top: 20px;
+						outline: none;
+						border: none;
+						input[type=number]::-webkit-inner-spin-button,
+						input[type=number]::-webkit-outer-spin-button {
+						    -webkit-appearance: none;
+						    -moz-appearance: none;
+						    appearance: none;
+						    margin: 0;
+							}
+						input{
+							text-align: center;
+							@include museo700;	
+							font-size: 13px;
+							border: none;
+							color: #949daf;
+							&:focus{
+								outline: none;
+
+							}
+						}	
+						.quan-plus, .quan-minus{
+							border-radius: 50%;
+							border: none;
+							width: 26px;
+							height: 26px;
+							background-color: #949daf;
+							color: #fff;
+							font-size: 16px;
+							font-weight: 600;
+							text-align: center;
+							vertical-align: middle;
+							cursor: pointer;
+							&:focus{
+								outline: none;
+
+							}
+						}
+					}
+					.into-basket {
+						@include museo500;	
+						font-size: 14px;
+						color: #fff;
+						display: flex;
+						justify-content: center;
+						align-items: center;	
+						width: 115px;
+						height: 35px;
+						border-radius: 50px;
+						text-align: center;
+						background: $bg_btn;
+						margin-top: 20px;
+						transition: background .7s ease;
+						position: relative;
+						z-index: 10;
+						&:after{
+							@include psev_full;
+							border-radius: 50px;
+							background: $bg_btn_hover;
+							opacity: 0;
+							z-index: -1;
+							transition: all .7s ;
+						}
+						&:hover:after, &:focus:after{
+			 					opacity: 1;
+			 	
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+
+
+// Футер
+
+
+// Первый блок (контент)
+
+
+
+// Первый блок (контент)

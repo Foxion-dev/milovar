@@ -1,0 +1,497 @@
+.home-bestsellers { // cтили для главной
+	@include museo500;
+	color: $content;		
+	padding-bottom: 100px;
+	@include max-screen (376px) {
+		padding-bottom: 70px;
+	}
+	h2{
+		margin-bottom: 45px;
+		margin-top: 90px;
+		@include max-screen (426px) {
+			margin-top: 70px;
+		}
+	}
+	.bestsell-content.categ {
+		@include flex($j-sb);
+		@include max-screen (992px) {
+			flex-wrap: wrap;
+		}
+
+		.cat_item-content-item {
+			box-shadow: 0px 5px 6px 0px rgba(31, 64, 91, 0.05);
+			max-width: 270px;
+			border-radius: 6px;
+			@include max-screen (1170px) {
+				max-width: 200px;
+			}
+			@include max-screen (992px) {
+				max-width: 50%;
+				margin-bottom: 30px;
+			}
+			@include max-screen (768px) {
+				margin-right: 10px;
+				margin-left: 10px;
+				max-width: 45%;
+			}
+			@include max-screen (426px) {
+				max-width: 100%;
+				width: 100%;
+			}
+			.cat_item-top-content {
+				width: 270px;
+				height: 240px;
+				background-color: #eef5f9;
+				@include flex;
+				@include max-screen (1170px) {
+					width: 100%;
+				}
+			}
+			// h5{
+			// 		// max-width: 220px;
+			// 		padding: 25px 25px 0 25px;
+			// 		font-size: 15px;
+			// 		letter-spacing: 0.24px;
+			// 		// margin-bottom: 20px;
+			// 		display: flex;
+			// 		@include max-screen (425px) {
+			// 			max-width: 280px;
+			// 		}
+			// 	}
+			.cat_item-bottom-content {
+				padding: 25px;
+				a h5{
+					max-width: 220px;
+					font-size: 15px;
+					color: $content;	
+					letter-spacing: 0.24px;
+					margin-bottom: 20px;
+					transition: all 0.3s linear;	
+					&:hover, &:focus{
+						color: $func_color;
+					}
+					@include max-screen (425px) {
+						max-width: 280px;
+					}
+				}
+				.bottom-func {
+					@include flex($j-sb,$a-ic,$fww);
+					@include max-screen (1170px) {
+						flex-direction: column;
+						align-items: center;	
+					}
+					@include max-screen (426px) {
+						flex-direction: row;
+					}
+					span.fasov{
+						@include museo500;
+						flex-basis: 100%;	
+						font-size: 13px;
+						color: #949daf;
+						margin-bottom: 5px;
+						position: relative;
+						 &:after{
+						 	@include psev;
+						 	background-image: url(../images/home/arr.png);
+						 	background-repeat: no-repeat;
+						 	left: 83%;
+						 	top: 225%;
+						 	z-index: 2;
+						 	cursor: pointer;
+						 	pointer-events: none;
+						 	@include max-screen (1170px) {
+						 		left: 125%;
+						 	}
+						 	@include max-screen (992px) {
+						 		left: 160%;
+						 	}
+						 	@include max-screen (426px) {
+						 		left: 90%;
+						 	}
+						 }
+					}
+					.fas-select{
+						flex-basis: 100%;
+						display: block;
+						padding: 10px;
+						max-width: 100%;
+						border-radius: 5px;
+						 -moz-appearance: none;
+						 -webkit-appearance: none;
+						 appearance: none;
+						 border: 1px solid #dde0e6;
+						 @include museo700;
+						 font-size: 13px;
+						 color: $content;	
+						 position: relative;
+						 z-index: 1;
+						 cursor: pointer;
+						 @include max-screen (1170px) {
+						 	padding-right: 40px;
+						 }	
+						 &:focus{
+						 	outline: none;
+						 }
+					}
+					.colvo {
+						margin-top: 20px;
+						outline: none;
+						border: none;
+						input[type=number]::-webkit-inner-spin-button,
+						input[type=number]::-webkit-outer-spin-button {
+						    -webkit-appearance: none;
+						    -moz-appearance: none;
+						    appearance: none;
+						    margin: 0;
+							}
+						input{
+							text-align: center;
+							@include museo700;	
+							font-size: 13px;
+							border: none;
+							color: #949daf;
+							&:focus{
+								outline: none;
+
+							}
+						}	
+						.quan-plus, .quan-minus{
+							border-radius: 50%;
+							border: none;
+							width: 26px;
+							height: 26px;
+							background-color: #949daf;
+							color: #fff;
+							font-size: 16px;
+							font-weight: 600;
+							text-align: center;
+							vertical-align: middle;
+							cursor: pointer;
+							&:focus{
+								outline: none;
+
+							}
+						}
+					}
+					.into-basket {
+						@include museo500;	
+						font-size: 14px;
+						color: #fff;
+						display: flex;
+						justify-content: center;
+						align-items: center;	
+						width: 115px;
+						height: 35px;
+						border-radius: 50px;
+						text-align: center;
+						background: $bg_btn;
+						margin-top: 20px;
+						transition: background .7s ease;
+						position: relative;
+						z-index: 10;
+						&:after{
+							@include psev_full;
+							border-radius: 50px;
+							background: $bg_btn_hover;
+							opacity: 0;
+							z-index: -1;
+							transition: all .7s ;
+						}
+						&:hover:after, &:focus:after{
+			 					opacity: 1;
+			 	
+						}
+					}
+				}
+			}
+			&.page_cat{
+				background-color: #fff;
+				flex-wrap: wrap;
+			}
+		}
+	}
+}
+
+
+
+// Карточка товара без вложенности
+
+
+.cat_item-content-item {
+	box-shadow: 0px 5px 6px 0px rgba(31, 64, 91, 0.05);
+	max-width: 270px;
+	border-radius: 6px;
+	margin-bottom: 30px;
+	// @include max-screen (1170px) {
+	// 	max-width: 200px;
+	// }
+	@include max-screen (1170px) {
+		margin: 22px; // могла на главной поломаться
+	}
+	@include max-screen (992px) {
+		// max-width: 50%;
+		margin-bottom: 30px;
+	}
+	@include max-screen (768px) {
+		margin: 15px 5px;
+		max-width: 45%;
+	}
+	@include max-screen (426px) {
+		max-width: 100%;
+		width: 100%;
+	}
+	.cat_item-top-content {
+		width: 270px;
+		height: 240px;
+		background-color: #eef5f9;
+		@include flex;
+		@include max-screen (1170px) {
+			width: 100%;
+		}
+		&.page_cat{   //   ===  СТИЛИ ДЛЯ СТРАНИЦЫ КАТАЛОГа ===
+			background-color: #fff;
+			position: relative;
+			border-radius:6px;
+			.like{
+				position: absolute;
+				right: 15px;
+				top: 15px;
+				transition: all 0.3s linear;	
+				cursor: pointer;
+				&:after{
+					@include psev(25,25);	
+					background-image: url(../images/catalog/heart.png);
+					background-repeat: no-repeat;
+					right: 0;
+					top: 0;
+					@include max-screen (426px) {
+						right: 30px;
+					}
+					
+				}
+				&:hover:after, &:focus:after{
+					background-image: url(../images/catalog/heart-bl.png);
+				}
+			}
+			span.metka{
+				position: absolute;
+				top: 15px;
+				left: 15px;
+				width: 58px;
+				height: 25px;
+				border-radius: 6px;
+				background-color: #efb288;
+				color: #fff;
+				@include flex($j-cc,$a-ic);	
+			}
+		}
+	}
+
+	.cat_item-bottom-content {
+		height: 234px;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+		@include max-screen (1170px) {
+			height: 300px;
+		}
+		@include max-screen (426px) {
+			height: 260px;
+		}
+		&.homepage{
+			h5{
+				padding-left: 0;
+				padding-right: 0;
+			}
+		}
+		padding: 25px;
+		@include max-screen (768px) {
+			padding: 10px;
+		}
+		a{
+			h5{
+				&:hover, &:focus{
+					color: $func_color;
+				}
+			}
+		}
+		h5{
+			max-width: 220px;
+			font-size: 15px;
+			letter-spacing: 0.24px;
+			margin-bottom: 20px;
+			color: $content;	
+			transition: all 0.3s linear;	
+			@include museo500;	
+			@include max-screen (426px) {
+				max-width: 100%;
+				padding-left: 30px;
+				padding-right: 30px;
+			}
+		}
+		.bottom-func {
+			@include flex($j-sb,$a-ic,$fww);
+			@include max-screen (1170px) {
+				flex-direction: column;
+				align-items: center;	
+			}
+			@include max-screen (426px) {
+				flex-direction: row;
+				padding-bottom: 20px;
+			}	
+			span.fasov{
+				@include museo500;
+				flex-basis: 100%;	
+				font-size: 13px;
+				color: #949daf;
+				margin-bottom: 5px;
+				position: relative;
+				 &:after{
+				 	@include psev;
+				 	background-image: url(../images/home/arr.png);
+				 	background-repeat: no-repeat;
+				 	left: 83%;
+				 	top: 225%;
+				 	z-index: 2;
+				 	cursor: pointer;
+				 	pointer-events: none;
+				 	@include max-screen (1170px) {
+				 		left: 160%;
+				 	}
+				 	@include max-screen (992px) {
+				 		left: 160%;
+				 	}
+				 	@include max-screen (426px) {
+				 		left: 90%;
+				 	}
+				 }
+			}
+			.fas-select{
+				flex-basis: 100%;
+				display: block;
+				padding: 10px;
+				max-width: 100%;
+				border-radius: 5px;
+				 -moz-appearance: none;
+				 -webkit-appearance: none;
+				 appearance: none;
+				 border: 1px solid #dde0e6;
+				 @include museo700;
+				 font-size: 13px;
+				 color: $content;	
+				 position: relative;
+				 z-index: 1;
+				 cursor: pointer;
+				 @include max-screen (1170px) {
+				 	padding-right: 40px;
+				 }	
+				 &:focus{
+				 	outline: none;
+				 }
+			}
+			.colvo {
+				margin-top: 20px;
+				outline: none;
+				border: none;
+				@include max-screen (426px) {
+					margin-left: 10px;
+				}
+				input[type=number]::-webkit-inner-spin-button,
+				input[type=number]::-webkit-outer-spin-button {
+				    -webkit-appearance: none;
+				    -moz-appearance: none;
+				    appearance: none;
+				    margin: 0;
+					}
+				input{
+					text-align: center;
+					@include museo700;	
+					font-size: 13px;
+					border: none;
+					color: #949daf;
+					&:focus{
+						outline: none;
+
+					}
+				}	
+				.quan-plus, .quan-minus{
+					border-radius: 50%;
+					border: none;
+					width: 26px;
+					height: 26px;
+					background-color: #949daf;
+					color: #fff;
+					font-size: 16px;
+					font-weight: 600;
+					text-align: center;
+					vertical-align: middle;
+					cursor: pointer;
+					&:focus{
+						outline: none;
+
+					}
+				}
+			}
+			.into-basket {
+				@include museo500;	
+				font-size: 14px;
+				color: #fff;
+				display: flex;
+				justify-content: center;
+				align-items: center;	
+				width: 115px;
+				height: 35px;
+				border-radius: 50px;
+				text-align: center;
+				background: $bg_btn;
+				margin-top: 20px;
+				transition: background .7s ease;
+				position: relative;
+				z-index: 10;
+				&:after{
+					@include psev_full;
+					border-radius: 50px;
+					background: $bg_btn_hover;
+					opacity: 0;
+					z-index: -1;
+					transition: all .7s ;
+				}
+				&:hover:after, &:focus:after{
+	 					opacity: 1;
+	 	
+				}
+			}
+		}
+	}
+	&.page_cat{
+		background-color: #fff;
+	}
+}
+
+
+
+// Селект фасовки без вложенности
+
+.fas-select{
+						flex-basis: 100%;
+						display: block;
+						padding: 10px;
+						max-width: 100%;
+						border-radius: 5px;
+						 -moz-appearance: none;
+						 -webkit-appearance: none;
+						 appearance: none;
+						 border: 1px solid #dde0e6;
+						 @include museo700;
+						 font-size: 13px;
+						 color: $content;	
+						 position: relative;
+						 z-index: 1;
+						 cursor: pointer;
+						 @include max-screen (1170px) {
+						 	padding-right: 40px;
+						 }	
+						 &:focus{
+						 	outline: none;
+						 }
+					}

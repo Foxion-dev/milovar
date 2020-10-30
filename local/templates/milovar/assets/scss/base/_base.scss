@@ -1,0 +1,134 @@
+/* Указываем box sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Убираем внутренние отступы */
+ul[class],
+ol[class] {
+  padding: 0;
+}
+
+/* Убираем внешние отступы */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Выставляем основные настройки по-умолчанию для body */
+body {
+  scroll-behavior: smooth;
+  //text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  //letter-spacing: 1px;
+  box-sizing: border-box;
+  @include museo300;
+  font-size: 16px;
+}
+
+// Прижимаем футер к низу страницы
+header{
+  flex: 0 0 auto;
+}
+
+main {
+  flex: 1 0 auto;
+}
+footer {
+  flex: 0 0 auto;
+}
+
+
+// Задаём стили Контенту
+
+.container {
+  max-width: 1170px;
+  margin: 0 auto;
+
+  @include max-screen (1170px) {
+    max-width: 960px;
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+
+  @include max-screen (992px) {
+    max-width: 720px;
+  }
+
+  @include max-screen (768px) {
+    max-width: 540px;
+  }
+
+  @include max-screen (576px) {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+/* Удаляем стандартную стилизацию для всех ul и il, у которых есть атрибут class*/
+ul[class],
+ol[class] {
+  list-style: none;
+}
+
+/* Элементы a, у которых нет класса, сбрасываем до дефолтных стилей */
+a{
+  text-decoration: none;
+  border: none;
+  outline: none;
+  color: #000;
+  cursor: pointer;
+  a:focus{
+    text-decoration: none;
+    border: none;
+    outline: none;
+  }
+}
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Упрощаем работу с изображениями */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Указываем понятную периодичность в потоке данных у article*/
+article > * + * {
+  margin-top: 1em;
+}
+
+/* Наследуем шрифты для инпутов и кнопок */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Удаляем все анимации и переходы для людей, которые предпочитай их не использовать */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

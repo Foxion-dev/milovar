@@ -6,4 +6,4 @@ Thumbs.db
 .htaccess
 robots.txt
 gulpfile.js
-/node_modules
+node_modules

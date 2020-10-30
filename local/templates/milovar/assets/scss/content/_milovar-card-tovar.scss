@@ -1,0 +1,516 @@
+.wrap-bg{
+  background: $bg_full;
+}
+h3{
+  @include museo700;  
+      font-size: 24px;
+      line-height: 1.2;
+      letter-spacing: 0.84px;
+      color: $content;  
+}
+
+// Хлебные крошки
+
+.breadcrumbs {
+  .prev {
+    padding: 28px 30px;
+    float: left;
+    @include museo500;  
+    font-size: 14px;
+    color: $func_color;
+    background-image: url(../images/card-tovar/down-arrow.png);
+    background-repeat: no-repeat;
+    background-position: 0 center;
+  }
+  .bread {
+    @include max-screen (992px) {
+      width: 100%;
+    }
+  }
+  @include max-screen (426px) {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+
+// Блок самой карточки товара с характеристиками
+.block-gallery-product{
+  @include flex($j-sb,$a-fs); 
+  background-color: $white;
+  border-radius: 10px;
+  height: 560px;
+  padding: 0 60px 0 30px;
+  margin-bottom: 25px;
+  @include max-screen (1200px) {
+    height: 100%;
+  }
+  @include max-screen (992px) {
+    flex-wrap: wrap;
+  }
+  @include max-screen (321px) {
+    padding: 0 10px;
+  }
+  .left-gallery {
+    margin-right: 40px;
+    flex-basis: 50%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    @include flex($j-sb,$a-fs,$fww); 
+    @include max-screen (1170px) {
+      margin-right: 20px;
+    }
+    @include max-screen (992px) {
+      margin-right: 0;
+    }
+    @include max-screen (768px) {
+      margin-bottom: 15px;
+    }
+    .slider-for{
+      background-color: #fff;
+      max-width: 540px;
+      margin-bottom: 10px;
+      @include max-screen (992px) {
+        max-width: 630px;
+        width: 100%;
+      }
+      @include max-screen (768px) {
+        max-width: 450px;
+      }
+      @include max-screen (426px) {
+        max-width: 335px;
+      }
+      @include max-screen (375px) {
+        max-width: 290px;
+      }
+      @include max-screen (321px) {
+        max-width: 270px;
+      }
+      .funcybox{
+        width: 100%;
+        cursor: pointer;
+        position: relative;
+        &:before{
+          content: "";
+          position: absolute;
+          width: 50px;
+          height: 50px;
+          left: 10px;
+          top: 10px;
+          background-image: url(../images/card-tovar/big.png);
+          background-repeat: no-repeat;
+        }
+        img{
+          width: 100%;
+          max-height: 400px;
+        }
+      }
+    }
+    .slider-nav{
+      max-width: 560px;
+      margin-left: -10px;
+      // @include flex($j-sb,$a-ic); 
+      @include max-screen (992px) {
+         max-width: 650px;
+         width: 100%;
+       } 
+       @include max-screen (768px) {
+        max-width: 470px;
+      }
+      @include max-screen (426px) {
+        display: none;
+      }
+      .funcybox2{
+        background-color: #fff;
+        margin: 10px;
+        display: block;
+        // border: 2px solid transparent;
+        border-radius: 6px;
+        img{
+          width: 100%;
+        }
+      }
+      @include max-screen (426px) {
+        display: none;
+      }
+      .slick-track{
+        max-height: 100px;
+        overflow-y: hidden;
+      }
+      .slick-current{
+        border: 2px solid $func_color;
+        border-radius: 6px;
+      }
+      // .slick-cloned{
+      //   transform: scale(0);
+      // }
+    } 
+    .funcybox{
+      display: flex;
+      justify-content: center;
+      align-items: center;  
+      background-color: #fff;
+    }
+  }
+
+
+
+  .right-info {
+    flex-basis: 50%;
+    margin-top: 30px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+    @include max-screen (992px) {
+      flex-basis: 100%;
+    }
+    @include max-screen (768px) {
+      margin-top: 0;
+    }
+    @include max-screen (426px) {
+      margin-top: 0;
+    }
+    .navigation-btn{
+      @include flex($j-fs,$a-ic); 
+      margin-bottom: 14px; 
+      @include max-screen (768px) {
+        margin-bottom: 25px;
+      }
+        .prev-prod, .next-prod {
+          @include museo500;  
+          font-size: 12px;
+          color: $gray_btn;
+          width: 65px;
+          height: 25px;
+          margin-right: 15px;
+          border: 1px solid $gray_btn;
+          border-radius: 30px;
+          opacity: 0.5;
+          @include flex($j-cc,$a-ic);  
+        }
+      }
+    h3{
+      
+      margin-bottom: 25px;
+    }
+    .specifications {
+
+      h6{
+        @include museo300;  
+        font-size: 13px;
+        color: $content;  
+        letter-spacing: 0.19px;
+        line-height: 13px;
+        margin-bottom: 10px;
+        position: relative;
+        @include flex($j-sb,$a-ic); 
+        .line-dotted{
+          flex: 1 0;
+          border-bottom: 1px dashed #e2e5e8;
+          height: 1em;
+          margin: 0 5px;
+        }
+        span{
+          @include max-screen (1170px) {
+            text-align: right;
+          }
+        }
+      }
+    }
+    .fasov-colvo{
+      @include flex($j-sb,$a-ic);  
+      margin-top: 20px;
+      @include max-screen (321px) {
+        flex-wrap: wrap;
+      }
+      span.fasov{
+        @include museo500;
+        flex-basis: 100%; 
+        font-size: 16px;
+        color: $content;  
+        // margin-bottom: 5px;
+        position: relative;
+         &:after{
+          @include psev;
+          background-image: url(../images/home/arr.png);
+          background-repeat: no-repeat;
+          top: 90%;
+          transform:translateY(-50%); 
+          left: 190%; 
+          z-index: 2;
+          cursor: pointer;
+          pointer-events: none;
+          @include max-screen (1170px) {
+            left: 350%;
+            top: 83%;
+          }
+          @include max-screen (992px) {
+            left: 200%;
+          }
+          @include max-screen (768px) {
+            left: 210%;
+          }
+          @include max-screen (426px) {
+            left: 350%;
+          }
+          @include max-screen (321px) {
+            left: 90%;
+            top: 50px;
+          }
+         }
+      }
+      .fas-select{
+          display: block;
+          padding: 10px;
+          max-width: 100%;
+          border-radius: 5px;
+           -moz-appearance: none;
+           -webkit-appearance: none;
+           appearance: none;
+           border: 1px solid #dde0e6;
+           @include museo700;
+           font-size: 13px;
+           color: $content; 
+           position: relative;
+           z-index: 1;
+           cursor: pointer;
+           @include max-screen (1170px) {
+            padding-right: 40px;
+            margin-left: 20px;
+           }  
+           @include max-screen (321px) {
+             margin-left: 0;
+           }
+           &:focus{
+            outline: none;
+           }
+        }
+      }
+    .buy-price {
+      margin-top: 25px;
+      margin-bottom: 50px;
+      @include flex($j-sb,$a-ic); 
+      @include max-screen (1170px) {
+         flex-wrap: wrap;
+       } 
+       @include max-screen (1024px) {
+         margin-bottom: 20px;
+       }
+      .price {
+        font-size: 24px;
+        @include museo700;  
+        color: $content;  
+      }
+      .colvo {
+        outline: none;
+        border: none;
+        margin-right: -40px;
+        @include max-screen (1170px) {
+          margin-right: 0;
+        }
+        input[type=number]::-webkit-inner-spin-button,
+        input[type=number]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            margin: 0;
+          }
+        input{
+          text-align: center;
+          @include museo700;  
+          font-size: 13px;
+          border: none;
+          color: #949daf;
+          &:focus{
+            outline: none;
+
+          }
+        } 
+        .quan-plus, .quan-minus{
+          border-radius: 50%;
+          border: none;
+          width: 26px;
+          height: 26px;
+          background-color: #949daf;
+          color: #fff;
+          font-size: 16px;
+          font-weight: 600;
+          text-align: center;
+          vertical-align: middle;
+          cursor: pointer;
+          &:focus{
+            outline: none;
+          }
+        }
+      }
+      .into-basket {
+        @include museo500;  
+        font-size: 16px;
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;  
+        width: 170px;
+        height: 60px;
+        border-radius: 50px;
+        text-align: center;
+        background: $bg_btn;
+        transition: background .7s ease;
+        position: relative;
+        z-index: 10;
+        @include max-screen (1170px) {
+          height: 45px;
+          margin-bottom: 10px;
+          margin-top: 10px;
+        }
+        &:after{
+          @include psev_full;
+          border-radius: 50px;
+          background: $bg_btn_hover;
+          opacity: 0;
+          z-index: -1;
+          transition: all .7s ;
+        }
+        &:hover:after{
+            opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+
+
+// Информационный блок
+
+.info-product{
+  .info-product-content {
+    background-color: $white;
+    border-radius: 10px;
+    padding: 50px 60px;
+    @include max-screen (426px) {
+      padding: 40px 30px;
+    }
+    @include max-screen (321px) {
+      padding: 30px 20px;
+    }
+    .info-product-item {
+      &:first-child h3{
+            margin-top: 0;
+      }
+      h3{
+        margin-bottom: 30px;
+        margin-top: 45px;
+      }
+      p,li{
+        @include museo500;
+        font-size: 14px;
+        color: $content;  
+        opacity: 0.8;  
+        letter-spacing: 0.21px;
+        line-height: 24px;
+      }
+      .recom-list, .dop-info-list {
+        li{
+          padding-left: 20px;
+          position: relative;
+          margin-bottom: 18px;
+          &:before{
+            @include psev_circle(10,$func_color2);
+            left: 0;
+            top: 6px;   
+          }
+
+        }
+      }
+
+      .dop-info-list {
+        li{
+          a{
+            color: $func_color2;
+            text-decoration: underline;
+          }
+        }
+      }
+      .label-block {
+        padding: 25px;
+        background: $bg_full;
+        border-left: 2px solid $func_color2;
+        p{
+          max-width: 840px;
+          opacity: 1;
+          margin-bottom: 12px;
+        }
+        .label-dashed {
+          margin-bottom: 0;
+          padding: 12px 20px;
+          border: 1px dashed #bec7d0;
+          border-radius: 10px;
+          max-width: 630px;
+        }
+      }
+    }
+  }
+}
+
+
+// Похожие товары 
+
+.similar-products {
+  margin-top: 100px;
+  padding-bottom: 80px;
+  border-bottom: 1px solid #dbe2e5;
+  @include max-screen (768px) {
+    margin-top: 50px;
+  }
+  h2{
+    margin-bottom: 50px;
+    @include max-screen (768px) {
+      margin-bottom: 30px;
+    }
+  }
+  .categ {
+    @include flex($j-sb,$a-ic);  
+    @include max-screen (992px) {
+      flex-wrap: wrap;
+    }
+    .cat_item-content-item {
+      background-color: #fff;
+      border-radius: 10px;
+      @include max-screen (1170px) {
+        max-width: 200px;
+      }
+      @include max-screen (992px) {
+        max-width: 270px;
+        width: 100%;
+      }
+      @include max-screen (768px) {
+        max-width: 230px;
+      }
+      @include max-screen (425px) {
+        max-width: 380px;
+      }
+      .cat_item-top-content{
+        background-color: #fff;
+        border-radius: 10px;
+      }
+      span.fasov{
+          &:after{
+            // left: 125%;
+            left: 90%;
+            @include max-screen (1024px) {
+              left: 80px;
+            }
+            @include max-screen (992px) {
+              left: 165%;
+            }
+            @include max-screen (426px) {
+              left: 90%;
+            }
+          }
+      }
+    }
+  }
+}
+

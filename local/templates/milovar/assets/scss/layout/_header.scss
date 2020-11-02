@@ -1,16 +1,18 @@
+.header{
 
-// Хэдэр
-
-header{
+	&__top{
+		background-color: $c_white;
+	}
 
 	.header-block {
 		display: flex;
 		justify-content: space-between;
-		padding: 20px 0;
+		padding: 10px 0;
 		font-size: 13px;
 		align-items: center;
-		color: $content;
+		color: $c_content;
 		position: relative;
+
 		@include max-screen (992px) {
 			text-align: center;
 		}
@@ -22,27 +24,64 @@ header{
 			display: flex;
 			align-items: center;
 			position: relative;
-			padding-right: 10px;
+			cursor: pointer;
+
+			&__list{
+				position: absolute;
+				top: 100%;
+				right: 0;
+				max-width: 200px;
+				width: max-content;
+				height: auto;
+				padding: 8px 10px;
+				border-radius: 10px;
+				background-color: $c_white;
+				border: 1px solid $c_func_color;
+			}
+
+			&__item{
+				padding: 2px 0;
+			}
+
+			&__ico{
+				display: flex;
+				width: 15px;
+				height: 20px;
+				@include back_strip(-137, -6);
+				margin-right: 8px;
+			}
+
+			&::after{
+				content: "";
+				display: block;
+				border: 7px solid $c_func_color;
+				border-bottom: 0;
+				border-left-color: transparent;
+				border-right-color: transparent;
+				margin-left: 8px;
+				transition: all .6s;
+
+			}
+
 			@include max-screen (1170px) {
 				padding-right: 35px;
 			}
-			i::before{
-				font-size: 13px;
-				position: absolute;
-				top: 50%;
-				transform:translateY(-50%);	
-				color: $func_color;
-				margin-left: 10px;
-			}
-			img{
-				display: inline;
-				margin-right: 7px;
-				vertical-align: middle;
-			}
+
 			@include max-screen (768px) {
 				display: none;
 			}
 		}
+
+		.is-open{
+
+			&.adress{
+
+				&::after{
+					transform: rotateX(180deg);
+				}
+			}
+		}
+
 		.nav-items {
 			@include max-screen (768px) {
 					order: 1;
@@ -59,10 +98,10 @@ header{
 						// margin-right: 0;
 					}
 					a{
-						color: $content;
+						color: $c_content;
             transition: all 0.3s linear;  
             &:hover, &:focus{
-              color: $func_color;
+              color: $c_func_color;
             }
 					}
 				}
@@ -72,7 +111,8 @@ header{
 			}
 		}
 		.register {
-			padding-right: 100px;
+
+
 			@include max-screen (1170px) {
 				padding-right: 30px;
 			}
@@ -80,101 +120,59 @@ header{
 				padding-right: 50px;
 			}
 			a{
-				color: $content;
+				color: $c_content;
         transition: all 0.3s linear;  
         &:hover, &:focus{
-              color: $func_color;
+              color: $c_func_color;
         }
 			}
 		}
-		.search {
-			position: absolute;
-			transition:all 1s ease 0s;
-			// height: 20px;
-			// width: 45px;
-			cursor: pointer;
-			right: 0;
-			top: 20px;
-			input{
-				opacity: 0;
-				transform: scale(0);
-				border: none;
-				outline: none;
-        display: none;
-				color: $content;	
-				font-size: 13px;
-				&:focus{
-					outline: none;
-				}
+
+	}
+
+	.head-content-nav{
+		display: flex;
+		padding-top: 25px;
+		align-items: center;
+
+		.logo-block{
+			width: 100%;
+			max-width: 17.9487%;
+
+			a{
+				display: flex;
 			}
-			i{
-				z-index: 10;
-				position: relative;
-				@include center;
-				transition: all 1s ease;
-				left: 0;
-					&:after{
-					@include psev_circle(43,$bg_btn);
-					@include center;
-					left: 48%;
-					top: 38%;	
-					z-index: -1;	
-					}	
+
+			img{
+				margin-left: -7px;
 			}
-			i::before{
-				font-size: 18px;
-				color: #fff;
-				z-index: 10;
-			}
-			@include max-screen (768px) {
-				margin-right: 20px;
-			}
-			@include max-screen (426px) {
-				margin-right: 75px;
-			}
-			span{
-				display: none;
-			}
-			
-			&.open{
-				width: 300px;
-				height: 45px;
-				// margin: 20px 0;
-				border-radius: 50px;
-				position: absolute;
-				right: 0;
-				top: 8px;
-				border: 1px solid $func_color;
-				z-index: 20;
-				background-color: #fff;
-				@include flex($j-fs,$a-ic);	
-				input{
-					transform: scale(1);
-					opacity: 1;
-          display: block;
-					margin-left: 45px;
-				}
-				i{
-					left: 15px;
-					position: absolute;
-					&:after{
-						display: none;
-					}
-				}
-				i::before{
-					color: $content;
-					padding-left: 15px;	
-					
-				}
-				
-				span{
-					display: block;
-					padding-left: 10px;
-				}
+		}
+	}
+
+	.head-nav{
+
+		&__list{
+			display: flex;
+			width: 100%;
+			max-width: 49.5727%;
+		}
+
+		&__item{
+			padding: 0 20px;
+		}
+
+		&__link{
+			@include museo500;
+			font-size: 15px;
+			color: $c_content;
+
+			&.red-label{
+				color: $c_red;
 			}
 		}
 	}
 }
+
 // бургер  и мобильное меню
 
 
@@ -240,7 +238,7 @@ header{
 					font-size: 24px;
           transition: all 0.3s linear;  
 					@include museo500;
-					color: $content;	
+					color: $c_content;	
 					@include max-screen (376px) {
 						font-size: 22px;
 					}
@@ -248,11 +246,11 @@ header{
 						font-size: 18px;
 					}
 					i{
-						color: $func_color;
+						color: $c_func_color;
 						padding-left: 10px;
 					}
           &:hover, &:focus{
-              color: $func_color;
+              color: $c_func_color;
           }
 				}
 			}
@@ -280,7 +278,7 @@ header{
     right: 100px;
     top: 20px;
     cursor: pointer;
-    background:  $content;
+    background:  $c_content;
     box-sizing: border-box;
     background-clip: content-box;
     width: 20px;
@@ -304,7 +302,7 @@ header{
     &:after {
         content: "";
         position: absolute;
-        background: $content;
+        background: $c_content;
         height: 2px;
         width: 100%;
         right: 0;
@@ -330,223 +328,167 @@ header{
         -webkit-transform: rotate(135deg);
         transform: rotate(135deg);
         top: 0;
-        background:  $content;
+        background:  $c_content;
         width: 110%;
     }
     &.active:after {
         bottom: 0;
         -webkit-transform: rotate(-135deg);
         transform: rotate(-135deg);
-        background:  $content;
+        background:  $c_content;
         width: 110%;
     }
 }
 
+.breadcrumbs {
+	margin-top: 37px;
 
-
-
-
-
-.milo-head{
-	background-color: #eff6f9;
-	padding: 37px 0 0 0; // проверить на остальных,могли слететь отступы
-	color: $content;
-  &.index-style{
-    padding: 37px 0;
-    background-color: transparent;  
-  }
-	.breadcrumbs { // Хлебные крошки
-		margin-top: 37px;	
-
-		.bread {
-			@include flex($j-fs,$a-ic);	
-			border-top: 1px solid #e1e9ee;
-			padding: 28px 0;
-			@include max-screen (376px) {
-				padding: 15px 0;
-			}
-			li{
-				@include museo500;
-				font-size: 13px;	
-				padding-right: 6px;
-				cursor: pointer;
-        a{
-          color: $content;  
-          transition: all 0.3s linear;  
-          &:hover, &:focus{
-            color: $func_color;
-          }
-        } 
-				@include max-screen (376px) {
-					padding-right: 1px;
-				}
-				@include max-screen (321px) {
-					font-size: 10px;
-				}
-			}
+	.bread {
+		@include flex($j-fs,$a-ic);
+		border-top: 1px solid #e1e9ee;
+		padding: 28px 0;
+		@include max-screen (376px) {
+			padding: 15px 0;
 		}
-	}	
-	.head-content-nav {	
-		display: flex;
-		justify-content: space-between;
-		align-items: center;	
-		max-width: 1170px;
-		width: 100%;
-		
-		@include max-screen (1200px) {
-			// padding-bottom: 100px;
-		}
-		@include max-screen (992px) {
-			flex-wrap: wrap;
-		}
-		@include max-screen (768px) {
-			// padding-bottom: 50px;
-		}
-		.logo-block {
-			width: 170px;
-			height: 45px;
-			margin-top: -5px;
-			img{
-				width: 100%;
-				height: 100%;
-			}
-			@include max-screen (768px) {
-				margin-top: 0;
-				margin-bottom: 30px;
-			}
-			@include max-screen (426px) {
-				margin-bottom: 20px;
-			}
-		}
-		.head-nav-list {
-			display: flex;
-			justify-content: space-between;
-			padding-left: 35px;
-			@include max-screen (1170px) {
-				padding-left: 5px;
-			}
-			@include max-screen (992px) {
-				order: 1;
-				width: 100%;
-				margin-top: 20px;
-			}
-			@include max-screen (768px) {
-				display: none;
-			}
-			li{
-				margin-right: 45px;
-				@include max-screen (1170px) {
-					margin-right: 10px;
-				}
-				@include max-screen (992px) {
-					margin-right: 0;
-				}
-				a{
-					font-size: 15px;
-					@include museo500;
-					color: $content;
-          transition: all 0.3s linear;  
-          &:hover, &:focus{
-            color: $func_color;
-          }
-					@include max-screen (992px) {
-						font-size: 20px;
-					}      
-				}
-			}
-		}
-		.phone-basket-block {
-			display: flex;
-			justify-content: space-between;
-			align-items: center;	
-			font-size: 18px;
-			color: $content;
+		li{
 			@include museo500;
+			font-size: 13px;
+			padding-right: 6px;
+			cursor: pointer;
+	a{
+	  color: $c_content;
+	  transition: all 0.3s linear;
+	  &:hover, &:focus{
+		color: $c_func_color;
+	  }
+	}
+			@include max-screen (376px) {
+				padding-right: 1px;
+			}
 			@include max-screen (321px) {
-				flex-wrap: wrap;
+				font-size: 10px;
 			}
-			.phone-item {
-				display: flex;
-				align-items: center;	
-				color: $content;
-				padding-right: 50px;
-        transition: all 0.3s linear;  
-        &:hover, &:focus{
-            color: $func_color;
-        }
-				@include max-screen (1170px) {
-					padding-right: 30px;
-				}
-				@include max-screen (376px) {
-					padding-right: 20px;
-					font-size: 15px;
-				}
-				@include max-screen (321px) {
-					margin-bottom: 20px; 
+		}
+	}
+}
 
-				}
-				i{
-					display: flex;
-					justify-content: center;
-					align-items: center;
-					width: 45px;
-					height: 45px;
-					background-color: #fff;
-					border-radius: 10px;
-					margin-right: 15px;	
-					&::before{
-						font-size: 24px;
-					}		
-				}
-			}
-			.basket-item {
+#serch-form{
+	margin-bottom: 0;
+	position: relative;
+
+	&::before{
+		position: absolute;
+		content: "";
+		display: flex;
+		width: 18px;
+		height: 18px;
+		@include back_strip(-107, -38);
+		top: 50%;
+		margin-top: -9px;
+		left: 14px;
+	}
+
+	input{
+		border: 1px solid $c_func_color;
+		height: 40px;
+		width: 260px;
+		display: flex;
+		border-radius: 20px;
+		padding: 0 15px 0 40px;
+
+		&:focus{
+			outline: 0;
+		}
+	}
+}
+
+.phone-basket-block{
+	display: flex;
+	width: 100%;
+	max-width: 32.4786%;
+	justify-content: space-between;
+
+	.phone-item{
+		display: flex;
+		align-items: center;
+
+		&__ico{
+			display: flex;
+			width: 46px;
+			height: 46px;
+			background-color: $c_white;
+			border-radius: 8px;
+			margin-right: 15px;
+			position: relative;
+
+			&::after{
+				position: absolute;
+				content: "";
 				display: flex;
-				align-items: center;
-				color: $content;	
-        transition: all 0.3s linear; 
-        position: relative;
-        .basket-col{
-          position: absolute;
-          display: flex;
-          justify-content: center;
-          align-items: center;  
-          top: -8px;
-          left: 35px;
-          padding-top: 1px;
-          padding-left: 1px;
-          width: 20px;
-          height: 20px;
-          background-color: $func_color;
-          border-radius: 50%;
-          @include museo500;  
-          font-size: 10px;
-          color: #fff;
-          @include max-screen (768px) {
-            padding-left: 1px;
-          }
-        } 
-        &:hover, &:focus{
-           color: $func_color;
-         }
-				@include max-screen (376px) {
-					font-size: 15px;
-				}
-				i{
-					display: flex;
-					justify-content: center;
-					align-items: center;
-					width: 45px;
-					height: 45px;
-					background-color: #fff;
-					border-radius: 10px;
-					margin-right: 15px;
-					position: relative;	
-					&::before{
-						font-size: 24px;
-					}	
-				}
+				height: 26px;
+				width: 26px;
+				top: 50%;
+				left: 50%;
+				@include back_strip(-74, -38);
+				transform: translate(-50%, -50%);
 			}
 		}
 
+		&__text{
+			font-size: 18px;
+			@include museo500();
+			color: $c_content;
+		}
+	}
+
+	.basket-item{
+		display: flex;
+		align-items: center;
+
+		&__ico{
+			display: flex;
+			width: 46px;
+			height: 46px;
+			background-color: $c_white;
+			border-radius: 8px;
+			margin-right: 15px;
+			position: relative;
+
+			&::after{
+				position: absolute;
+				content: "";
+				display: flex;
+				height: 26px;
+				width: 26px;
+				top: 50%;
+				left: 50%;
+				@include back_strip(-108, -3);
+				transform: translate(-50%, -50%);
+			}
+		}
+
+		&__text{
+			font-size: 18px;
+			@include museo500();
+			color: $c_content;
+		}
+
+		&__col{
+			position: absolute;
+			display: flex;
+			padding: 5px 3px 4px;
+			background-color: $c_func_color;
+			font-size: 10px;
+			line-height: 10px;
+			color: $c_white;
+			z-index: 1;
+			border-radius: 10px;
+			min-width: 19px;
+			justify-content: center;
+			align-items: center;
+			top: 0;
+			right: 0;
+			transform: translate(28%, -28%);
+		}
 	}
 }

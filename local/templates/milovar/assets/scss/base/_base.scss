@@ -9,6 +9,7 @@
 ul[class],
 ol[class] {
   padding: 0;
+  list-style: none;
 }
 
 /* Убираем внешние отступы */
@@ -32,25 +33,37 @@ dd {
 }
 
 /* Выставляем основные настройки по-умолчанию для body */
+html,
+body{
+  height: 100%;
+}
+
 body {
   scroll-behavior: smooth;
-  //text-rendering: optimizeSpeed;
   line-height: 1.5;
-  //letter-spacing: 1px;
   box-sizing: border-box;
   @include museo300;
   font-size: 16px;
+  overflow-x: hidden;
+  background-color: $c_back;
+  color: $c_content;
 }
 
-// Прижимаем футер к низу страницы
-header{
+#wrapper{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.header{
   flex: 0 0 auto;
 }
 
-main {
+.main{
   flex: 1 0 auto;
 }
-footer {
+
+.footer{
   flex: 0 0 auto;
 }
 
@@ -81,12 +94,6 @@ footer {
   }
 }
 
-/* Удаляем стандартную стилизацию для всех ul и il, у которых есть атрибут class*/
-ul[class],
-ol[class] {
-  list-style: none;
-}
-
 /* Элементы a, у которых нет класса, сбрасываем до дефолтных стилей */
 a{
   text-decoration: none;
@@ -94,6 +101,7 @@ a{
   outline: none;
   color: #000;
   cursor: pointer;
+
   a:focus{
     text-decoration: none;
     border: none;
@@ -107,7 +115,6 @@ a:not([class]) {
 /* Упрощаем работу с изображениями */
 img {
   max-width: 100%;
-  display: block;
 }
 
 /* Указываем понятную периодичность в потоке данных у article*/
@@ -132,3 +139,4 @@ select {
     scroll-behavior: auto !important;
   }
 }
+

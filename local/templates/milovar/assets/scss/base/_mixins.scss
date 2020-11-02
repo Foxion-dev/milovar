@@ -12,7 +12,7 @@
 
 @mixin museo500() {
 	font-family: 'Museo Sans Cyrl 500', sans-serif;
-	font-weight: normal;
+	font-weight: 500;
 	font-style: normal;
 }
 
@@ -144,4 +144,9 @@ $right: 45;
   &:-moz-placeholder           { @content; }
   &::-moz-placeholder          { @content; }
   &:-ms-input-placeholder      { @content; }
+}
+
+@mixin back_strip($top:0, $left:0){
+	background-image: url("../images/strip.png");
+	background-position: $top+px $left+px;
 }

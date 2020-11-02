@@ -18,7 +18,7 @@
     url('MuseoSansCyrl-500.woff') format('woff'),
     url('MuseoSansCyrl-500.ttf') format('truetype'),
     url('MuseoSansCyrl-500.svg#MuseoSansCyrl-500') format('svg');
-    font-weight: normal;
+    font-weight: 500;
     font-style: normal;
     font-display: swap;
 }

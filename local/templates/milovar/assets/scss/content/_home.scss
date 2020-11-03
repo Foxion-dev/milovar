@@ -1,9 +1,8 @@
-// Общие стили
-
 h2{
 	@include museo700;
-	color: $content;	
+	color: $c_content;	
 	font-size: 36px;
+
 	@include max-screen (376px) {
 		font-size: 30px;
 	}
@@ -12,39 +11,51 @@ h2{
 	}
 }
 
+.home{
 
-
-// Первый блок (контент)
-
+	.head-content-nav{
+		padding-bottom: 0;
+		border-bottom: 0;
+	}
+}
 
 .head-content-block {
 	background-image: url(../images/home/head-BG.png);
-	background-size: cover;
+	background-size: contain;
 	background-repeat: no-repeat;
 	padding: 265px 0;
-	margin-top: -156px;
+	margin-top: -80px;
+	background-position: center;
+
 	@include max-screen (1600px) {
 		background-position-x: center;
 	}
+
 	@include max-screen (1200px) {
 		padding-bottom: 100px;
 		background-size: cover;
 	}
+
 	@include max-screen (768px) {
 		background-position-x: -75px;
 	}
+
 	@include max-screen (426px) {
 		background-position: right -500px top -40px;
 	}
+
 	@include max-screen (376px) {
 		    background-position: right -550px top -25px;
 	}
+
 	@include max-screen (321px) {
 		background-position:right -655px top -70px;
 	}
+
 	a,i{
-		color: $content;
+		color: $c_content;
 	}
+
 	.head-content-nav {
 		display: flex;
 		justify-content: space-between;
@@ -104,7 +115,7 @@ h2{
 					font-size: 15px;
 					@include museo500;
 					&:hover, &:focus{
-              color: $func_color;
+              color: $c_func_color;
           }
 					@include max-screen (992px) {
 						font-size: 20px;
@@ -126,7 +137,7 @@ h2{
 				align-items: center;	
 				padding-right: 50px;
 				&:hover, &:focus{
-           color: $func_color;
+           color: $c_func_color;
          }
 				@include max-screen (1170px) {
 					padding-right: 30px;
@@ -157,7 +168,7 @@ h2{
 				display: flex;
 				align-items: center;	
 				&:hover, &:focus:after{
-           color: $func_color;
+           color: $c_func_color;
          }
 				@include max-screen (376px) {
 					font-size: 15px;
@@ -184,7 +195,7 @@ h2{
 						right: -6px;
 						width: 20px;
 						height: 20px;
-						background-color: $func_color;
+						background-color: $c_func_color;
 						border-radius: 50%;
 						@include museo500;	
 						font-size: 10px;
@@ -199,16 +210,17 @@ h2{
 	}
 
 	.head-title-block {
-		width: 1170px; // временно
+
 		@include max-screen (1170px) {
 				width: 100%;
 			}
 		h1{
 			// max-width: 650px;
 			@include museo100;
+
 			line-height: 58px;	
 			font-size: 48px;
-			color: $content;
+			color: $c_content;
 			margin-bottom: 45px;
 			strong{
 				@include museo700;	
@@ -240,17 +252,18 @@ h2{
 			height: 60px;
 			border-radius: 50px;
 			text-align: center;
-			background: $bg_btn;
+			background: $c_bg_btn;
 			position: relative;
 			z-index: 10;
+
 			&:after{
 				@include psev_full;
 				border-radius: 50px;
-				background: $bg_btn_hover;
+				background: $c_bg_btn_hover;
 				opacity: 0;
 				z-index: -1;
-				transition: all .7s ;
 			}
+
 			 &:hover:after, &:focus:after{
 			 	opacity: 1;
 			 	
@@ -259,23 +272,26 @@ h2{
 	}
 }
 
-
-
-// Второй блок (каталог)
-
 .home-catalog {
 	@include museo700;
-	color: $content;	
+	color: $c_content;	
 	padding-top: 90px;
+	background-color: $c_white;
+	position: relative;
+	z-index: 1;
+
 	@include max-screen (426px) {
 			padding-top: 50px;
-		}	
-		@include max-screen (321px) {
-			padding-top: 0;
-		}
-	h2{	
+	}
+
+	@include max-screen (321px) {
+		padding-top: 0;
+	}
+
+	h2{
 		padding-bottom: 50px;
 	}
+
 	.home-catalog-content {
 		.content-top {
 			display: flex;
@@ -322,7 +338,7 @@ h2{
 				flex-basis: 50%;
 				height: 333px;
 				display: flex;
-				color: $content;	
+				color: $c_content;	
 				flex-direction: column;
 				padding: 60px;
 				justify-content: center;
@@ -366,7 +382,7 @@ h2{
 				margin-left: 30px;
 				height: 333px;
 				display: flex;
-				color: $content;	
+				color: $c_content;	
 				flex-direction: column;
 				padding: 60px;
 				justify-content: center;
@@ -421,7 +437,7 @@ h2{
 				display: flex;
 				position: relative;
 				width: 23%;
-				color: $content;	
+				color: $c_content;	
 				align-items: center;	
 				background-color: #f9f9f9;
 				z-index: 2;
@@ -492,17 +508,17 @@ h2{
 			height: 60px;
 			border-radius: 50px;
 			text-align: center;
-			background: $bg_btn;
+			background: $c_bg_btn;
 			transition: background .7s ease;
 			position: relative;
 			z-index: 10;
+
 			&:after{
 				@include psev_full;
 				border-radius: 50px;
-				background: $bg_btn_hover;
+				background: $c_bg_btn_hover;
 				opacity: 0;
 				z-index: -1;
-				transition: all .7s ;
 			}
 			 &:hover:after, &:focus:after{
 			 	opacity: 1;
@@ -516,37 +532,48 @@ h2{
 .home-about {
 	padding-bottom: 148px;
 	padding-top: 80px;
+	background-color: $c_white;
+
 	@include max-screen (426px) {
 		padding-bottom: 70px;
 	}
+
 	@include max-screen (321px) {
 		padding-top: 60px;
 	}
+
 	.about-content {
 		display: flex;
 		justify-content: space-between;
+
 		@include max-screen (992px) {
 			flex-wrap: wrap;
 		}
+
 		.about-content-left {
 			flex-basis: 50%;
+
 			@include max-screen (992px) {
 				flex-basis: 100%;
 			}
+
 			h2{	
 				margin-bottom: 30px;
 			}
+
 			p{
 				@include museo500;	
 				font-size: 16px;
 				padding-right: 30px;
-				color: $content;	
+				color: $c_content;	
 				letter-spacing: 0.24px;
+
 				@include max-screen (992px) {
 					padding-right: 0;
 				}
 			}
 		}
+
 		.about-content-right {
 			flex-basis: 50%;
 			@include max-screen (992px) {
@@ -562,61 +589,70 @@ h2{
 	}
 }
 
-
-// Четвёртый блок (новости)
-
 .home-news {
-	margin-bottom: 40px;
+	background-color: $c_white;
+	padding-bottom: 40px;
+
 	h2{
 		margin-bottom: 50px;
 	}
+
 	.home-news-content {
 		display: flex;
 		justify-content: space-between;
+
 		@include max-screen (768px) {
 			flex-wrap: wrap;
 			width: 100%;
 		}
+
 		.news-content-item {
 			margin-right: 30px;
 			position: relative;
-			transition: all 0.5s linear;	
+
 			&:hover h5, &:focus h5{
-				color: $func_color;
+				color: $c_func_color;
 			}
+
 			&:last-child{
 				margin-right: 0;
 			}
+
 			@include max-screen (768px) {
 				margin-bottom: 40px;
 				width: 100%;
 				margin-right: 0;
 			}
+
 			img{
 				@include max-screen (768px) {
 					width: 100%;
 
 				}
 			}
+
 			h5{
 				@include museo700;
 				font-size: 16px;
-				color: $content;	
+				color: $c_content;	
 				width: 100%;
 				border-bottom: 1px solid #eef5f9;
 				padding-bottom: 15px;
 				padding-top: 15px;
-				transition: all 0.3s linear;	
+
 				@include max-screen (1170px) {
 					@include museo500;
 				}
+
 				@include max-screen (992px) {
 					height: 35%;
 				}
+
 				@include max-screen (768px) {
 					height: 20%;
 				}
 			}
+
 			.datanews {
 				position: absolute;
 				top: 15px;
@@ -637,62 +673,60 @@ h2{
 	}
 }
 
-// Пятый блок (мастер-класс)
-
-
 .home-masterclass {
 	width: 100%;
-	background-image: url(../images/home/master-class-bg.png);
-	background-size: cover;
-	background-repeat: no-repeat;
-	// padding-bottom: 100px;
-	color: $content;	
+	background: url(../images/home/master-class-bg.png) $c_white no-repeat center;
+	color: $c_content;
+
 	@include max-screen (1500px) {
 		background-position: left -300px top;
 	}
+
 	@include max-screen (1170px) {
 		background-position: left -450px top;
 	}
+
 	@include max-screen (1024px) {
 		background-position: left -500px top;
 	}
+
 	@include max-screen (768px) {
-		 // background-position: left -440px top;
 		 background-image: url(../images/home/list2.png);
 		 background-position: right top 30px;
 		  background-size: 200px;
 		 background-color: #ecf2f8;
 	}
+
 	@include max-screen (426px) {
 		background-position: right bottom;
 		background-size: 150px;
 	}
+
 	@include max-screen (321px) {
 		background-size: 150px;
 		background-position: right bottom 20px;
 	}
+
 	.master-class-content {
 		padding-top: 200px;
 		padding-bottom: 100px;
+
 		@include max-screen (426px) {
 			padding-top: 50px;
-			// margin-top: 50px;
 			padding-bottom: 50px;
-			// margin-top: -100px;
 		}
-		@include max-screen (321px) {
-			// margin-top: -130px;
-		}
+
 		h2{
 			margin-bottom: 30px;
 		}
+
 		p{
 			max-width: 500px;
 			letter-spacing: 0.24px;
 			@include museo500;	
 			margin-bottom: 50px;
-			
 		}
+
 		.goto-mc {
 			@include museo500;	
 			font-size: 16px;
@@ -704,22 +738,23 @@ h2{
 			height: 60px;
 			border-radius: 50px;
 			text-align: center;
-			background: $bg_btn;
+			background: $c_bg_btn;
 			transition: background .7s ease;
 			position: relative;
 			z-index: 10;
+
 			&:after{
 				@include psev_full;
 				border-radius: 50px;
-				background: $bg_btn_hover;
+				background: $c_bg_btn_hover;
 				opacity: 0;
 				z-index: -1;
-				transition: all .7s ;
 			}
-			 &:hover:after, &:focus:after{
-			 	opacity: 1;
-			 	
-			 }
+
+			&:hover:after, &:focus:after{
+				opacity: 1;
+
+			}
 		}
 	}
 }
@@ -727,7 +762,7 @@ h2{
 
 .home-bestsellers, .milovar-catalog .catalog-full .catalog-right {
 	@include museo500;
-	color: $content;		
+	color: $c_content;		
 	padding-bottom: 100px;
 	@include max-screen (376px) {
 		padding-bottom: 70px;
@@ -735,6 +770,7 @@ h2{
 	h2{
 		margin-bottom: 45px;
 		margin-top: 90px;
+
 		@include max-screen (426px) {
 			margin-top: 70px;
 		}
@@ -825,7 +861,7 @@ h2{
 						 border: 1px solid #dde0e6;
 						 @include museo700;
 						 font-size: 13px;
-						 color: $content;	
+						 color: $c_content;	
 						 position: relative;
 						 z-index: 1;
 						 cursor: pointer;
@@ -847,17 +883,20 @@ h2{
 						    appearance: none;
 						    margin: 0;
 							}
+
 						input{
 							text-align: center;
 							@include museo700;	
 							font-size: 13px;
 							border: none;
 							color: #949daf;
+
 							&:focus{
 								outline: none;
 
 							}
-						}	
+						}
+
 						.quan-plus, .quan-minus{
 							border-radius: 50%;
 							border: none;
@@ -870,12 +909,14 @@ h2{
 							text-align: center;
 							vertical-align: middle;
 							cursor: pointer;
+
 							&:focus{
 								outline: none;
 
 							}
 						}
 					}
+
 					.into-basket {
 						@include museo500;	
 						font-size: 14px;
@@ -887,19 +928,20 @@ h2{
 						height: 35px;
 						border-radius: 50px;
 						text-align: center;
-						background: $bg_btn;
+						background: $c_bg_btn;
 						margin-top: 20px;
 						transition: background .7s ease;
 						position: relative;
 						z-index: 10;
+
 						&:after{
 							@include psev_full;
 							border-radius: 50px;
-							background: $bg_btn_hover;
+							background: $c_bg_btn_hover;
 							opacity: 0;
 							z-index: -1;
-							transition: all .7s ;
 						}
+
 						&:hover:after, &:focus:after{
 			 					opacity: 1;
 			 	

@@ -9,6 +9,8 @@ global $site_set;
 <html>
     <head>
         <title><?$APPLICATION->ShowTitle()?></title>
+
+        <?$APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH . "/fonts/MuseoSansCyrl/stylesheet.css");?>
         <?$APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH . "/css/libs.min.css");?>
         <?$APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH . "/css/main.min.css");?>
 
@@ -18,7 +20,7 @@ global $site_set;
 
         <?$APPLICATION->ShowHead();?>
     </head>
-    <body>
+    <body class="<?$APPLICATION->ShowProperty("BODY_CLASS")?>">
         <?$APPLICATION->ShowPanel()?>
 
         <div id="wrapper">
@@ -108,7 +110,7 @@ global $site_set;
                                     <span class="basket-item__ico">
                                         <span class="basket-item__col">0</span>
                                     </span>
-                                    <span class="basket-item__text">100 000 Р</span>
+                                    <span class="basket-item__text">0 Р</span>
                                 </a>
                             </div>
                         </div>

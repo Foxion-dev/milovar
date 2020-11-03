@@ -1,29 +1,28 @@
-// Страница 404
-
 .page404_content_block {
   width: 100%;
-  border-bottom: 1px solid #e1e9ee;
-  background-image: url(../images/404bumble.png);
+  background-image: url(../images/404/404bumble.png);
   background-repeat: no-repeat;
-  background-size: 1260px; // сделать  cover или contain при адаптации
+  background-size: 1260px;
   background-position: top 100px center;
-  // max-width: 1260px;
   margin: 0 auto;
+
   @include max-screen (768px) {
     background-size: contain;
   }
-  .page404_content {  
-      margin-top: 25px;
-      padding-top: 220px;
+
+  .page404_content {
       padding-bottom: 140px;
-      border-top: 1px solid #e1e9ee;
+      padding-top: 230px;
+
       @include max-screen (768px) {
         padding-top: 120px;
         padding-bottom: 70px;
       }
+
       @include max-screen (321px) {
         padding-top: 70px;
       }
+
       h1{
         display: flex;
         justify-content: center;
@@ -32,17 +31,20 @@
         line-height: 200px;
         margin-bottom: 30px;
         @include museo700;
-        color: $content;  
+        color: $c_content;
+
         img{
           margin-left: 15px;
           margin-right: 15px;
-        }  
+        }
+
         @include max-screen (600px) {
           font-size: 150px;
           img{
             max-width: 150px;
           }
         }
+
         @include max-screen (321px) {
           font-size: 100px;
           img{
@@ -50,16 +52,18 @@
           }
         }
       }
+
       p{
         max-width: 560px;
         text-align: center;
         margin: 0 auto;
-        color: $content;  
+        color: $c_content;
         letter-spacing: 0.24px;
         margin-bottom: 35px;
         @include museo500;  
         font-size: 16px;
       }
+
     .goto-home {
       @include museo500;  
       font-size: 16px;
@@ -71,21 +75,21 @@
       height: 60px;
       border-radius: 50px;
       text-align: center;
-      background: $bg_btn;
+      background: $c_bg_btn;
       position: relative;
       z-index: 10;
       margin: 0 auto;
+
       &:after{
         @include psev_full;
         border-radius: 50px;
-        background: $bg_btn_hover;
+        background: $c_bg_btn_hover;
         opacity: 0;
         z-index: -1;
-        transition: all .7s ;
       }
+
        &:hover:after, &:focus:after{
         opacity: 1;
-        
        }
     }
   }

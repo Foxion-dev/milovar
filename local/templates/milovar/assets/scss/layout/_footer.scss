@@ -4,6 +4,7 @@
 	color: $c_content;
 	font-size: 15px;
 	letter-spacing: 0.24px;
+	border-top: 1px solid $c_grey_border;
 
 	li{
 		@include museo500;
@@ -18,7 +19,6 @@
 
 	a{
 		color: $c_content;
-		transition: all 0.3s linear;
 
 		&:hover, &:focus{
 			color: $c_func_color;
@@ -35,8 +35,6 @@
 		}
 
 		@include max-screen (426px) {
-			//flex-direction: column;
-			//align-items: center;
 			justify-content: center;
 		}
 
@@ -219,7 +217,7 @@
 		height: 1px;
 		border: 0px none;
 		color: #dee1e5;
-		background-color: #dee1e5;
+		background-color: $c_grey_border;
 	}
 
 	.footer-prava {
@@ -287,19 +285,19 @@
 			}
 
 			&.soc_tel{
-				@include back_strip(-39, -38);
+				@include back_strip(-3, -39);
 			}
 
 			&.soc_insta{
-				@include back_strip(-3, -38);
+				@include back_strip(-3, -75);
 			}
 
 			&.soc_yt{
-				@include back_strip(-39, -3);
+				@include back_strip(-3, -111);
 			}
 
 			&.soc_tt{
-				@include back_strip(-75, -3);
+				@include back_strip(-3, -147);
 			}
 		}
 	}

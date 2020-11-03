@@ -1,15 +1,15 @@
 @import
 'media-queries',
 
-'base/fonts',
 'base/variables',
 'base/mixins',
 'base/base',
 
 'layout/header',
-'layout/footer';
+'layout/footer',
 
-//'content/milovar-home',
+'content/home',
+'content/404';
 //'content/milovar-catalog',
 //'content/milovar-tovar',
 //'content/milovar-card-tovar',
@@ -20,7 +20,6 @@
 //'content/milovar-register',
 //'content/milovar-entrance',
 //'content/milovar-help-page',
-//'content/milovar-page404',
 //'content/milovar-personal-area',
 //'content/news-item',
 //'content/milovar-form',

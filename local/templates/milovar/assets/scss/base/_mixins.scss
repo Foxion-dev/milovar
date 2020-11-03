@@ -1,9 +1,9 @@
-//@mixin museo100() {
-//	@include font-family ($museo100);
-//	font-weight: 100;
-//	font-style: normal;
-//}
-//
+@mixin museo100() {
+	font-family: 'Museo Sans Cyrl 100', sans-serif;
+	font-weight: 100;
+	font-style: normal;
+}
+
 @mixin museo300() {
 	font-family: 'Museo Sans Cyrl 300', sans-serif;
 	font-weight: 300;

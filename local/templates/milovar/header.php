@@ -62,7 +62,7 @@ global $site_set;
                         <div class="header-mobile-menu">
                             <div class="container">
                                 <ul class="header-mobile-nav">
-                                    <li><a href="catalog.html">Каталог товаров</a></li>
+                                    <li><a href="/catalog/">Каталог товаров</a></li>
                                     <li><a href="recipes.html">Рецепты</a></li>
                                     <li><a href="#">Статьи</a></li>
                                     <li><a href="news.html">Новости</a></li>
@@ -85,7 +85,7 @@ global $site_set;
 
                             <ul class="head-nav__list">
                                 <li class="head-nav__item">
-                                    <a class="head-nav__link" href="#">Каталог товаров</a>
+                                    <a class="head-nav__link" href="/catalog/">Каталог товаров</a>
                                 </li>
                                 <li class="head-nav__item">
                                     <a class="head-nav__link" href="#">Рецепты</a>
@@ -116,6 +116,20 @@ global $site_set;
                         </div>
                     </div>
                 </div>
+
+                <? if ($APPLICATION->GetCurPage(false) !== '/'): ?>
+                    <div class="breadcrumbs">
+                        <div class="container">
+                            <?$APPLICATION->IncludeComponent("bitrix:breadcrumb", "milovar", Array(
+                                "PATH" => "",
+                                "SITE_ID" => "s1",
+                                "START_FROM" => "0"
+                                ),
+                            false
+                            );?>
+                        </div>
+                    </div>
+                <? endif; ?>
             </header>
 
             <main class="main">

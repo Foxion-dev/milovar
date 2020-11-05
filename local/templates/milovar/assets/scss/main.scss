@@ -1,6 +1,5 @@
 @import
 'media-queries',
-
 'base/variables',
 'base/mixins',
 'base/base',
@@ -9,8 +8,10 @@
 'layout/footer',
 
 'content/home',
-'content/404';
-//'content/milovar-catalog',
+'content/404',
+
+'catalog/index';
+
 //'content/milovar-tovar',
 //'content/milovar-card-tovar',
 //'content/milovar-news',

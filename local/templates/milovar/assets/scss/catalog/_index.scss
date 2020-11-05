@@ -1,0 +1,325 @@
+.milovar-catalog {
+	background-color: #eff6f9;
+	color: $c_content;
+	@include museo500;
+
+	h1{
+		@include museo700;
+		font-size: 36px;
+		line-height: 40px;
+		margin-bottom: 0;
+
+		@include max-screen (426px) {
+			font-size: 28px;
+		}
+
+		@include max-screen (376px) {
+			font-size: 24px;
+		}
+
+		@include max-screen (321px) {
+			font-size: 20px;
+		}
+	}
+
+	.milivar-catalog-title {
+		@include flex($j-sb,$a-ic);
+
+		@include max-screen (768px) {
+			flex-wrap: wrap;
+		}
+
+
+		&-colvo{
+			@include museo500;
+			color: #acbdd1;
+			font-size: 36px;
+			line-height: 40px;
+			margin-right: auto;
+			margin-left: 15px;
+		}
+
+		.view-catalog {
+			display: flex;
+			align-items: center;
+
+			&__title{
+				font-size: 15px;
+			}
+
+			.sort-view{
+				display: flex;
+
+				&__link{
+					margin-left: 15px;
+					display: flex;
+					height: 26px;
+					width: 26px;
+
+					&-tab{
+						@include back_strip(-3, -321);
+					}
+
+					&-pli{
+						@include back_strip(-3, -353);
+					}
+
+					&-gor{
+						@include back_strip(-3, -385);
+					}
+
+					&.is-select{
+						background-position-x: -35px;
+					}
+				}
+			}
+		}
+	}
+
+	.catalog-full {
+
+		@include flex($j-sb,$a-fs);	
+		margin-top: 58px;
+		width: 100%;
+		position: relative;
+
+		@include max-screen (768px) {
+			flex-wrap: wrap;
+			flex-direction: column;
+			margin-top: 30px;
+		}
+
+		h4{
+			padding: 20px 0 30px 0;
+			flex-basis: 100%;		
+			@include museo700;
+			font-size: 18px;	
+			position: relative;
+
+			&:after{
+				@include psev_line_center(680,1,#e1e9ee);
+				top: 45%;
+				right: 0;	
+			}	
+		}
+
+		.catalog-right {
+			margin-left: 30px;
+			flex-basis: 75%;
+
+			@include max-screen (426px) {
+				margin-left: 0;
+			}
+
+			.catalog-right-title-category {
+				@include flex($j-sb,$a-ic);
+				padding-right: 40px;
+				padding-top: 17px;
+				padding-bottom: 17px;
+				border-bottom: 1px solid #e1e9ee;
+				border-top: 1px solid #e1e9ee;
+
+				@include max-screen (1170px) {
+					flex-wrap: wrap;
+					justify-content: center;
+				}
+
+				@include max-screen (992px) {
+					padding-right: 0;
+				}
+
+				@include max-screen (768px) {
+					margin-left: -30px;
+					margin-right: -30px;
+					justify-content: space-between;
+					border-top: none;
+				}
+
+				@include max-screen (426px) {
+					flex-direction: column;
+					align-items: center;
+					padding-left: 30px;
+					margin: 0;
+				}
+
+				a{
+					width: 85px;
+					height: 30px;
+					border-radius: 6px;
+					border: 1px solid #949daf;
+					background: transparent;
+					@include flex($j-cc,$a-ic);
+					font-size: 13px;
+					color: #949daf;
+
+					@include max-screen (1170px) {
+						margin-bottom: 15px;
+						margin-right: 30px;
+					}
+
+					@include max-screen (768px) {
+						width: 240px;
+						text-align: left;
+						justify-content: flex-start;
+						padding-left: 15px;
+					}
+
+					&.active{
+						background: $c_bg_btn;
+						border: 1px solid $c_func_color;
+						color: #fff;
+					}
+
+					&:hover{
+						background: $c_bg_btn;
+						border: 1px solid $c_func_color;
+						color: #fff;
+					}
+				}
+
+				.new-select{
+					position: relative;
+
+					@include max-screen (1170px) {
+						margin-bottom: 15px;
+						margin-right: 30px;
+					}
+
+					select{
+						border-radius: 6px;
+						background: transparent;
+						padding: 7px 35px 8px 15px;
+						height: 30px;
+						border: 1px solid #949daf;
+						font-size: 13px;
+						color: #949daf;
+						line-height: 1;
+						cursor: pointer;
+						-webkit-appearance: none;
+
+						@include max-screen (768px) {
+							width: 240px;
+						}
+
+						&:focus{
+							outline: none;
+							// color: #fff;
+							border: none;
+							background: $c_bg_btn;
+						}
+					}
+
+					&:after{
+						@include psev_arrow(6,#949daf);
+						right: 15px;
+						pointer-events: none;
+						top: 60%;
+						transform:translateY(-50%);
+
+					}
+
+					&:first-child{
+						color: #fff;
+					}
+				}
+			}
+
+			.catalog-right-title-result {
+				@include flex($j-sb,$a-ic);
+				color: #949daf;
+
+				@include max-screen (1170px) {
+					flex-wrap: wrap;
+				}
+
+				.results{
+					@include museo700;
+					font-size: 13px;
+					padding: 20px 0 28px 0;
+					span{
+						@include museo500;
+					}
+					@include max-screen (1170px) {
+						margin-right: 30px;
+						padding-bottom: 15px;
+					}
+				}
+
+				.btn-clear{
+					color: $c_content;
+					@include museo500;
+					font-size: 13px;
+					line-height: 20px;
+					text-decoration: underline;
+				}
+			}
+
+			.catalog-right-items  {
+				flex-wrap: wrap;
+				@include max-screen (992px) {
+					justify-content: center;
+				}
+				@include max-screen (768px) {
+					justify-content: space-between;
+				}
+			}
+		}
+	}
+}
+
+.milovar-catalog-info {
+	@include museo500;	
+	color: $c_content;
+	padding: 100px 0 120px 0;
+
+	@include max-screen (376px) {
+		padding: 50px 0;
+	}
+
+	h3{
+		@include museo700;
+		font-size: 36px;
+		margin-bottom: 31px;
+
+		@include max-screen (376px) {
+			font-size: 24px;
+			margin-bottom: 20px;
+			letter-spacing: .5px;
+		}
+
+		@include max-screen (321px) {
+			font-size: 20px;
+		}
+	}
+
+	p,
+	li{
+		letter-spacing: 0.24px;
+		@include max-screen (376px) {
+			font-size: 14px;
+		}
+	}
+
+	.title-content {
+		margin-bottom: 60px;
+	}
+
+	.advan-content {
+
+		.advantages {
+			padding-left: 20px;
+
+			li{
+				margin-bottom: 30px;
+				position: relative;
+
+				&:after{
+					@include psev_circle(10,$c_func_color);
+					left: -20px;
+					top: 50%;
+					transform:translateY(-50%);		
+				}
+			}
+		}
+	}
+}

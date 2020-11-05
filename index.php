@@ -1,10 +1,5 @@
-<?
-require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/header.php");
-$APPLICATION->SetPageProperty("description", "Интернет-магазин товаров для мыловарения, изготовления мыла ручной работы. У нас вы можете купить все для мыловарения с доставкой в Москве, Санкт-Петербурге и других регионах России.");
-$APPLICATION->SetPageProperty("title", "Интернет-магазин мыловарения – Купить товары для мыла ручной работы в домашних условиях");
-$APPLICATION->SetPageProperty("NOT_SHOW_NAV_CHAIN", "Y");
+<?require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/header.php");
 $APPLICATION->SetTitle("Главная");
-
 $APPLICATION->SetPageProperty("BODY_CLASS", "home");
 
 ?>

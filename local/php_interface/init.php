@@ -18,4 +18,16 @@ if (\Bitrix\Main\Loader::includeModule('iblock')) {
     }
 }
 
+$site_set['style_file'] = null;
+
+if (CHTTP::GetLastStatus() == "404 Not Found"){
+    $site_set['style_file'] = "404";
+
+} elseif ($APPLICATION->GetCurPage(false) == "/"){
+    $site_set['style_file'] = "home";
+
+} elseif ($APPLICATION->GetCurPage(false) == "/catalog/"){
+    $site_set['style_file'] = "catalog-category";
+}
+
 $site_set = (object)$site_set;

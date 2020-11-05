@@ -12,7 +12,9 @@ global $site_set;
 
         <?$APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH . "/fonts/MuseoSansCyrl/stylesheet.css");?>
         <?$APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH . "/css/libs.min.css");?>
-        <?$APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH . "/css/main.min.css");?>
+        <?$APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH . "/css/" . $site_set->style_file . ".min.css");?>
+
+
 
         <?CJSCore::Init(array('jquery3'));?>
         <?Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . '/js/libs.min.js');?>
@@ -116,7 +118,9 @@ global $site_set;
                         </div>
                     </div>
                 </div>
+            </header>
 
+            <main class="main">
                 <? if ($APPLICATION->GetCurPage(false) !== '/'): ?>
                     <div class="breadcrumbs">
                         <div class="container">
@@ -124,13 +128,10 @@ global $site_set;
                                 "PATH" => "",
                                 "SITE_ID" => "s1",
                                 "START_FROM" => "0"
-                                ),
-                            false
+                            ),
+                                false
                             );?>
                         </div>
                     </div>
                 <? endif; ?>
-            </header>
-
-            <main class="main">
                 

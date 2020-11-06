@@ -19,6 +19,8 @@ if (\Bitrix\Main\Loader::includeModule('iblock')) {
 }
 
 $site_set['style_file'] = null;
+$site_set['style_file'] = "catalog-category";
+
 
 if (CHTTP::GetLastStatus() == "404 Not Found"){
     $site_set['style_file'] = "404";

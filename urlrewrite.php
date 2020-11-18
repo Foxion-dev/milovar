@@ -1,9 +1,9 @@
 <?php
 $arUrlRewrite=array (
-  12 => 
+  14 => 
   array (
     'CONDITION' => '#^/examples/my-components/news/#',
-    'RULE' => NULL,
+    'RULE' => '',
     'ID' => 'demo:news',
     'PATH' => '/examples/my-components/news_sef.php',
     'SORT' => 100,
@@ -24,7 +24,7 @@ $arUrlRewrite=array (
     'PATH' => '/bitrix/services/ymarket/index.php',
     'SORT' => 100,
   ),
-  6 => 
+  12 => 
   array (
     'CONDITION' => '#^/e-store/books/reviews/#',
     'RULE' => '',
@@ -32,15 +32,7 @@ $arUrlRewrite=array (
     'PATH' => '/e-store/books/reviews/index.php',
     'SORT' => 100,
   ),
-  7 => 
-  array (
-    'CONDITION' => '#^/e-store/xml_catalog/#',
-    'RULE' => '',
-    'ID' => 'bitrix:catalog',
-    'PATH' => '/e-store/xml_catalog/index.php',
-    'SORT' => 100,
-  ),
-  8 => 
+  5 => 
   array (
     'CONDITION' => '#^/communication/forum/#',
     'RULE' => '',
@@ -48,7 +40,15 @@ $arUrlRewrite=array (
     'PATH' => '/communication/forum/index.php',
     'SORT' => 100,
   ),
-  11 => 
+  13 => 
+  array (
+    'CONDITION' => '#^/e-store/xml_catalog/#',
+    'RULE' => '',
+    'ID' => 'bitrix:catalog',
+    'PATH' => '/e-store/xml_catalog/index.php',
+    'SORT' => 100,
+  ),
+  4 => 
   array (
     'CONDITION' => '#^/communication/blog/#',
     'RULE' => '',
@@ -56,7 +56,7 @@ $arUrlRewrite=array (
     'PATH' => '/communication/blog/index.php',
     'SORT' => 100,
   ),
-  3 => 
+  6 => 
   array (
     'CONDITION' => '#^/content/articles/#',
     'RULE' => '',
@@ -64,7 +64,7 @@ $arUrlRewrite=array (
     'PATH' => '/content/articles/index.php',
     'SORT' => 100,
   ),
-  10 => 
+  8 => 
   array (
     'CONDITION' => '#^/content/gallery/#',
     'RULE' => '',
@@ -72,7 +72,15 @@ $arUrlRewrite=array (
     'PATH' => '/content/gallery/index.php',
     'SORT' => 100,
   ),
-  5 => 
+  10 => 
+  array (
+    'CONDITION' => '#^/content/photo/#',
+    'RULE' => '',
+    'ID' => 'bitrix:photogallery',
+    'PATH' => '/content/photo/index.php',
+    'SORT' => 100,
+  ),
+  11 => 
   array (
     'CONDITION' => '#^/e-store/books/#',
     'RULE' => '',
@@ -82,34 +90,18 @@ $arUrlRewrite=array (
   ),
   9 => 
   array (
-    'CONDITION' => '#^/content/photo/#',
-    'RULE' => '',
-    'ID' => 'bitrix:photogallery',
-    'PATH' => '/content/photo/index.php',
-    'SORT' => 100,
-  ),
-  4 => 
-  array (
     'CONDITION' => '#^/content/news/#',
     'RULE' => '',
     'ID' => 'bitrix:news',
     'PATH' => '/content/news/index.php',
     'SORT' => 100,
   ),
-  13 => 
+  7 => 
   array (
     'CONDITION' => '#^/content/faq/#',
     'RULE' => '',
     'ID' => 'bitrix:support.faq',
     'PATH' => '/content/faq/index.php',
-    'SORT' => 100,
-  ),
-  14 => 
-  array (
-    'CONDITION' => '#^/catalog/#',
-    'RULE' => '',
-    'ID' => 'bitrix:catalog',
-    'PATH' => '/catalog/index.php',
     'SORT' => 100,
   ),
   1 => 

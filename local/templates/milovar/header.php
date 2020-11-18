@@ -124,13 +124,17 @@ global $site_set;
                 <? if ($APPLICATION->GetCurPage(false) !== '/'): ?>
                     <div class="breadcrumbs">
                         <div class="container">
-                            <?$APPLICATION->IncludeComponent("bitrix:breadcrumb", "milovar", Array(
-                                "PATH" => "",
-                                "SITE_ID" => "s1",
-                                "START_FROM" => "0"
-                            ),
-                                false
-                            );?>
+                            <?$APPLICATION->IncludeComponent(
+	"bitrix:breadcrumb", 
+	"milovar", 
+	array(
+		"PATH" => "",
+		"SITE_ID" => "s1",
+		"START_FROM" => "0",
+		"COMPONENT_TEMPLATE" => "milovar"
+	),
+	false
+);?>
                         </div>
                     </div>
                 <? endif; ?>

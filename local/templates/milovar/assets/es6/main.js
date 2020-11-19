@@ -52,8 +52,6 @@
 
                 localStorage.setItem("vid_catalog_index", elemIndex);
             })
-
-
         }
     }
 

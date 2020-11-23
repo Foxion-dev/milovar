@@ -7,3 +7,5 @@
 
 $component = $this->getComponent();
 $arParams = $component->applyTemplateModifications();
+
+//echo "<pre>",var_dump($arResult['ITEM_ROWS']),"</pre>";

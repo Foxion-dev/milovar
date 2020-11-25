@@ -15,6 +15,7 @@ use \Bitrix\Main\Localization\Loc;
 ?>
 
 <?php foreach ($arResult['ITEMS'] as $item): ?>
+<?php //echo "<pre>",var_dump($item),"</pre>"; ?>
 
     <div class="catalog-product__item">
         <div class="catalog-product__item-container">
@@ -51,7 +52,7 @@ use \Bitrix\Main\Localization\Loc;
 
             <div class="catalog-product__card">
                 <div class="catalog-product__card-price">
-                    <span>99 500 Р</span>
+                    <span><?= number_format($item["CATALOG_PURCHASING_PRICE"], 0, "", " ") ?> Р</span>
                 </div>
 
                 <div class="catalog-product__card-but">

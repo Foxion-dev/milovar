@@ -6,7 +6,7 @@ $APPLICATION->SetTitle("Каталог товаров");
 <div class="container">
 	<div class="milivar-catalog-title">
 		<h1><?$APPLICATION->ShowTitle(false);?></h1>
- <span class="milivar-catalog-title-colvo">(0)</span>
+ <span class="milivar-catalog-title-colvo">(<?= $APPLICATION->ShowProperty("count_prod") ?>)</span>
 		<div class="view-catalog">
 			<div class="view-catalog__title">
 				 Вид каталога
@@ -23,30 +23,38 @@ $APPLICATION->SetTitle("Каталог товаров");
 			</div>
 			<div class="catalog-category__block">
 				 <?$APPLICATION->IncludeComponent(
-                    "bitrix:catalog.section.list",
-                    "milovar",
-                    Array(
-                        "ADD_SECTIONS_CHAIN" => "Y",
-                        "CACHE_FILTER" => "N",
-                        "CACHE_GROUPS" => "Y",
-                        "CACHE_TIME" => "36000000",
-                        "CACHE_TYPE" => "A",
-                        "COMPONENT_TEMPLATE" => "milovar",
-                        "COUNT_ELEMENTS" => "Y",
-                        "COUNT_ELEMENTS_FILTER" => "CNT_ACTIVE",
-                        "FILTER_NAME" => "sectionsFilter",
-                        "IBLOCK_ID" => "20",
-                        "IBLOCK_TYPE" => "xmlcatalog",
-                        "SECTION_CODE" => "",
-                        "SECTION_FIELDS" => array(0=>"",1=>"",),
-                        "SECTION_ID" => $_REQUEST["SECTION_ID"],
-                        "SECTION_URL" => "/catalog/section.php?SECTION_ID=#SECTION_ID#",
-                        "SECTION_USER_FIELDS" => array(0=>"",1=>"UF_BROWSER_TITLE",2=>"",),
-                        "SHOW_PARENT_NAME" => "Y",
-                        "TOP_DEPTH" => "4",
-                        "VIEW_MODE" => "LINE"
-                    )
-                );?>
+	"bitrix:catalog.section.list", 
+	"milovar", 
+	array(
+		"ADD_SECTIONS_CHAIN" => "Y",
+		"CACHE_FILTER" => "N",
+		"CACHE_GROUPS" => "Y",
+		"CACHE_TIME" => "36000000",
+		"CACHE_TYPE" => "A",
+		"COMPONENT_TEMPLATE" => "milovar",
+		"COUNT_ELEMENTS" => "Y",
+		"COUNT_ELEMENTS_FILTER" => "CNT_ACTIVE",
+		"FILTER_NAME" => "sectionsFilter",
+		"IBLOCK_ID" => "26",
+		"IBLOCK_TYPE" => "xmlcatalog",
+		"SECTION_CODE" => "",
+		"SECTION_FIELDS" => array(
+			0 => "",
+			1 => "",
+		),
+		"SECTION_ID" => $_REQUEST["SECTION_ID"],
+		"SECTION_URL" => "/catalog/section.php?SECTION_ID=#SECTION_ID#",
+		"SECTION_USER_FIELDS" => array(
+			0 => "",
+			1 => "UF_BROWSER_TITLE",
+			2 => "",
+		),
+		"SHOW_PARENT_NAME" => "Y",
+		"TOP_DEPTH" => "4",
+		"VIEW_MODE" => "LINE"
+	),
+	false
+);?>
 			</div>
 		</div>
 		<div class="catalog-product-block">
@@ -63,7 +71,7 @@ $APPLICATION->SetTitle("Каталог товаров");
 		"FILTER_NAME" => "arrFilter",
 		"FILTER_VIEW_MODE" => "vertical",
 		"HIDE_NOT_AVAILABLE" => "N",
-		"IBLOCK_ID" => "20",
+		"IBLOCK_ID" => "26",
 		"IBLOCK_TYPE" => "xmlcatalog",
 		"PAGER_PARAMS_NAME" => "arrPager",
 		"POPUP_POSITION" => "left",
@@ -124,7 +132,7 @@ $APPLICATION->SetTitle("Каталог товаров");
 		"FILTER_NAME" => "arrFilter",
 		"HIDE_NOT_AVAILABLE" => "N",
 		"HIDE_NOT_AVAILABLE_OFFERS" => "N",
-		"IBLOCK_ID" => "20",
+		"IBLOCK_ID" => "26",
 		"IBLOCK_TYPE" => "xmlcatalog",
 		"INCLUDE_SUBSECTIONS" => "Y",
 		"LABEL_PROP" => array(
@@ -151,7 +159,7 @@ $APPLICATION->SetTitle("Каталог товаров");
 		"PAGE_ELEMENT_COUNT" => "18",
 		"PARTIAL_PRODUCT_PROPERTIES" => "N",
 		"PRICE_CODE" => array(
-			0 => "RETAIL",
+			0 => "BASE",
 		),
 		"PRICE_VAT_INCLUDE" => "Y",
 		"PRODUCT_BLOCKS_ORDER" => "price,props,sku,quantityLimit,quantity,buttons",

@@ -7,5 +7,4 @@
 
 $component = $this->getComponent();
 $arParams = $component->applyTemplateModifications();
-
-//echo "<pre>",var_dump($arResult['ITEM_ROWS']),"</pre>";
+$APPLICATION->SetPageProperty("count_prod", count($arResult['ITEMS']));

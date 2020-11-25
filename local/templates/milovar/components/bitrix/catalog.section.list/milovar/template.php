@@ -15,9 +15,10 @@ $this->setFrameMode(true);
 $strTitle = "";
 
 $TOP_DEPTH = $arResult["SECTION"]["DEPTH_LEVEL"];
-$CURRENT_DEPTH = $TOP_DEPTH;
+$CURRENT_DEPTH = 0;
 
-foreach($arResult["SECTIONS"] as $arSection) {
+
+foreach($arResult["SECTIONS_CUSTOM"] as $arSection) {
 $this->AddEditAction($arSection['ID'], $arSection['EDIT_LINK'], CIBlock::GetArrayByID($arSection["IBLOCK_ID"], "SECTION_EDIT"));
 $this->AddDeleteAction($arSection['ID'], $arSection['DELETE_LINK'], CIBlock::GetArrayByID($arSection["IBLOCK_ID"], "SECTION_DELETE"), array("CONFIRM" => GetMessage('CT_BCSL_ELEMENT_DELETE_CONFIRM')));
 

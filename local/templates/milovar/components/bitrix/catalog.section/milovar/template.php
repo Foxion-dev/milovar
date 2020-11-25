@@ -45,7 +45,7 @@ use \Bitrix\Main\Localization\Loc;
 
             <div class="catalog-product__variation">
                 <div class="catalog-product__variation-list">
-                    
+
                 </div>
             </div>
 

@@ -268,6 +268,11 @@
 	}
 }
 
+.catalog-product__filters {
+	position: relative;
+	z-index: 1;
+}
+
 .milovar-catalog-info {
 	@include museo500;	
 	color: $c_content;
@@ -453,8 +458,163 @@
 		}
 	}
 }
+
 .catalog-product-block{
 	width: 100%;
 	max-width: calc(100% - 270px);
 	padding-left: 30px;
+}
+
+#filter-form-catalog{
+	margin-bottom: 0;
+}
+
+.filter-block{
+	padding: 18px 0;
+	border-top:1px solid $c_grey_border;
+	border-bottom:1px solid $c_grey_border;
+
+	&__list{
+		display: flex;
+	}
+
+	&__box{
+		display: none;
+		flex-wrap: wrap;
+		position: absolute;
+		left: 0;
+		top: 33px;
+		border: 1px solid $c_gray_btn;
+		background-color: $c_white;
+		border-radius: 0 5px 5px 5px;
+		min-width: calc(100% + 4px);
+	}
+
+	&__title{
+		display: flex;
+		padding: 5px 18px;
+		border-radius: 5px;
+		border: 1px solid $c_gray_btn;
+		align-items: center;
+		color: $c_gray_btn;
+	}
+
+	&__arrow{
+		display: flex;
+		border-top: 6px solid $c_gray_btn;
+		border-left: 6px solid transparent;
+		border-right: 6px solid transparent;
+		margin-left: 8px;
+	}
+
+	&__container{
+		@include museo500();
+		font-size: 14px;
+		cursor: pointer;
+		position: relative;
+
+		&:not(:first-child){
+			margin-left: 14px;
+		}
+
+		&:hover{
+
+			.filter-block{
+
+				&__title{
+					background-color: $c_func_color;
+					border-color: $c_func_color;
+					border-radius: 5px 5px 0 0;
+					color: $c_white;
+				}
+
+				&__arrow{
+					border-top-color: $c_white;
+					transform: rotateX(180deg);
+				}
+
+				&__box{
+					display: flex;
+				}
+			}
+		}
+	}
+
+	&__checkbox{
+		display: flex;
+		width: 100%;
+		align-items: center;
+
+		&-input{
+			display: none;
+
+			&:checked{
+
+				+ .filter-block__checkbox-fufel{
+					background-color: $c_func_color;
+					color: $c_white;
+
+					&:hover{
+
+						.filter-block__checkbox-close{
+
+							&::after,
+							&::before{
+								background-color: $c_red;
+							}
+						}
+					}
+
+					.filter-block__checkbox-close{
+
+						&::after,
+						&::before{
+							background-color: $c_white;
+						}
+					}
+				}
+			}
+		}
+
+		&-fufel{
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			width: 100%;
+			padding: 4px 17px;
+			cursor: pointer;
+			white-space: nowrap;
+			font-size: 13px;
+
+			&:hover{
+				background-color: $c_func_color;
+				color: $c_white;
+			}
+		}
+
+		&-close{
+			display: block;
+			width: 10px;
+			height: 10px;
+			margin-left: 8px;
+			position: relative;
+
+			&::before,
+			&::after{
+				content: "";
+				position: absolute;
+				width: 10px;
+				height: 2px;
+				background-color: transparent;
+				top: 50%;
+				margin-top: -1px;
+				transform-origin: center;
+				transform: rotate(45deg);
+			}
+
+			&::after{
+				transform: rotate(-45deg);
+			}
+		}
+	}
 }

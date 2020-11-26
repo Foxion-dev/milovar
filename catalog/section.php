@@ -61,7 +61,7 @@ $APPLICATION->SetTitle("Раздел");
                     <div class="catalog-product__filters">
                         <?$APPLICATION->IncludeComponent(
 	"bitrix:catalog.smart.filter", 
-	"visual_horizontal", 
+	"milovar", 
 	array(
 		"CACHE_GROUPS" => "Y",
 		"CACHE_TIME" => "36000000",
@@ -87,7 +87,7 @@ $APPLICATION->SetTitle("Раздел");
 		"SEF_MODE" => "N",
 		"TEMPLATE_THEME" => "blue",
 		"XML_EXPORT" => "N",
-		"COMPONENT_TEMPLATE" => "visual_horizontal"
+		"COMPONENT_TEMPLATE" => "milovar"
 	),
 	false
 );?>

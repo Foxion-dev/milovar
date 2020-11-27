@@ -35,7 +35,7 @@ $APPLICATION->SetTitle("Каталог товаров");
 		"COUNT_ELEMENTS" => "Y",
 		"COUNT_ELEMENTS_FILTER" => "CNT_ACTIVE",
 		"FILTER_NAME" => "sectionsFilter",
-		"IBLOCK_ID" => "26",
+		"IBLOCK_ID" => "28",
 		"IBLOCK_TYPE" => "xmlcatalog",
 		"SECTION_CODE" => "",
 		"SECTION_FIELDS" => array(
@@ -59,38 +59,40 @@ $APPLICATION->SetTitle("Каталог товаров");
 		</div>
 		<div class="catalog-product-block">
 			<div class="catalog-product__filters">
-                <?$APPLICATION->IncludeComponent("bitrix:catalog.smart.filter", "milovar", Array(
-	"CACHE_GROUPS" => "Y",	// Учитывать права доступа
-		"CACHE_TIME" => "36000000",	// Время кеширования (сек.)
-		"CACHE_TYPE" => "A",	// Тип кеширования
-		"CONVERT_CURRENCY" => "N",	// Показывать цены в одной валюте
-		"DISPLAY_ELEMENT_COUNT" => "Y",	// Показывать количество
-		"FILTER_NAME" => "arrFilter",	// Имя выходящего массива для фильтрации
+                <?$APPLICATION->IncludeComponent(
+	"bitrix:catalog.smart.filter", 
+	"milovar", 
+	array(
+		"CACHE_GROUPS" => "Y",
+		"CACHE_TIME" => "36000000",
+		"CACHE_TYPE" => "A",
+		"CONVERT_CURRENCY" => "N",
+		"DISPLAY_ELEMENT_COUNT" => "Y",
+		"FILTER_NAME" => "arrFilter",
 		"FILTER_VIEW_MODE" => "vertical",
-		"HIDE_NOT_AVAILABLE" => "N",	// Не отображать недоступные товары
-		"IBLOCK_ID" => "26",	// Инфоблок
-		"IBLOCK_TYPE" => "xmlcatalog",	// Тип инфоблока
-		"PAGER_PARAMS_NAME" => "arrPager",	// Имя массива с переменными для построения ссылок в постраничной навигации
+		"HIDE_NOT_AVAILABLE" => "N",
+		"IBLOCK_ID" => "28",
+		"IBLOCK_TYPE" => "xmlcatalog",
+		"PAGER_PARAMS_NAME" => "arrPager",
 		"POPUP_POSITION" => "left",
-		"PREFILTER_NAME" => "smartPreFilter",	// Имя входящего массива для дополнительной фильтрации элементов
-		"PRICE_CODE" => array(	// Тип цены
+		"PREFILTER_NAME" => "smartPreFilter",
+		"PRICE_CODE" => array(
 			0 => "BASE",
 		),
-		"SAVE_IN_SESSION" => "N",	// Сохранять установки фильтра в сессии пользователя
-		"SECTION_CODE" => "",	// Код раздела
-		"SECTION_DESCRIPTION" => "-",	// Описание
-		"SECTION_ID" => $_REQUEST["SECTION_ID"],	// ID раздела инфоблока
-		"SECTION_TITLE" => "-",	// Заголовок
-		"SEF_MODE" => "N",	// Включить поддержку ЧПУ
-		"TEMPLATE_THEME" => "blue",	// Цветовая тема
-		"XML_EXPORT" => "N",	// Включить поддержку Яндекс Островов
-		"COMPONENT_TEMPLATE" => "visual_horizontal"
+		"SAVE_IN_SESSION" => "N",
+		"SECTION_CODE" => "",
+		"SECTION_DESCRIPTION" => "-",
+		"SECTION_ID" => $_REQUEST["SECTION_ID"],
+		"SECTION_TITLE" => "-",
+		"SEF_MODE" => "N",
+		"TEMPLATE_THEME" => "blue",
+		"XML_EXPORT" => "N",
+		"COMPONENT_TEMPLATE" => "milovar"
 	),
 	false
 );?>
 			</div>
 
-			<div class="catalog-product__list">
 				 <?$APPLICATION->IncludeComponent(
 	"bitrix:catalog.section", 
 	"milovar", 
@@ -129,7 +131,7 @@ $APPLICATION->SetTitle("Каталог товаров");
 		"FILTER_NAME" => "arrFilter",
 		"HIDE_NOT_AVAILABLE" => "N",
 		"HIDE_NOT_AVAILABLE_OFFERS" => "N",
-		"IBLOCK_ID" => "26",
+		"IBLOCK_ID" => "28",
 		"IBLOCK_TYPE" => "xmlcatalog",
 		"INCLUDE_SUBSECTIONS" => "Y",
 		"LABEL_PROP" => array(
@@ -197,11 +199,20 @@ $APPLICATION->SetTitle("Каталог товаров");
 		"USE_ENHANCED_ECOMMERCE" => "N",
 		"USE_MAIN_ELEMENT_SECTION" => "N",
 		"USE_PRICE_COUNT" => "N",
-		"USE_PRODUCT_QUANTITY" => "N"
+		"USE_PRODUCT_QUANTITY" => "N",
+		"OFFERS_SORT_FIELD" => "sort",
+		"OFFERS_SORT_ORDER" => "asc",
+		"OFFERS_SORT_FIELD2" => "id",
+		"OFFERS_SORT_ORDER2" => "desc",
+		"OFFERS_FIELD_CODE" => array(
+			0 => "",
+			1 => "",
+		),
+		"PRODUCT_DISPLAY_MODE" => "N"
 	),
 	false
 );?>
-			</div>
+
 		</div>
 	</div>
 </div>

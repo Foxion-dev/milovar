@@ -17,7 +17,7 @@ $templateData = array(
 	'TEMPLATE_CLASS' => 'bx_'.$arParams['TEMPLATE_THEME']
 );
 ?>
-<div class="filter-block">
+<div class="filter-block" data-count="<? $APPLICATION->ShowProperty("count_prod"); ?>">
 	<div class="bx_filter_section">
 		<form id="filter-form-catalog" name="<?echo $arResult["FILTER_NAME"]."_form"?>" action="<?echo $arResult["FORM_ACTION"]?>" method="get" class="smartfilter">
 			<?foreach($arResult["HIDDEN"] as $arItem):?>
@@ -560,24 +560,20 @@ $templateData = array(
                 }
                 ?>
             </div>
-
-<!--			<div class="bx_filter_button_box active">-->
-<!--				<div class="bx_filter_block">-->
-<!--					<div class="bx_filter_parameters_box_container">-->
-<!--						<input class="bx_filter_search_button" type="submit" id="set_filter" name="set_filter" value="--><?//=GetMessage("CT_BCSF_SET_FILTER")?><!--" />-->
-<!--						<input class="bx_filter_search_reset" type="submit" id="del_filter" name="del_filter" value="--><?//=GetMessage("CT_BCSF_DEL_FILTER")?><!--" />-->
-<!---->
-<!--						<div class="bx_filter_popup_result left" id="modef" --><?//if(!isset($arResult["ELEMENT_COUNT"])) echo 'style="display:none"';?><!-- style="display: inline-block;">-->
-<!--							--><?//echo GetMessage("CT_BCSF_FILTER_COUNT", array("#ELEMENT_COUNT#" => '<span id="modef_num">'.intval($arResult["ELEMENT_COUNT"]).'</span>'));?>
-<!--							<span class="arrow"></span>-->
-<!--							<a href="--><?//echo $arResult["FILTER_URL"]?><!--">--><?//echo GetMessage("CT_BCSF_FILTER_SHOW")?><!--</a>-->
-<!--						</div>-->
-<!--					</div>-->
-<!--				</div>-->
-<!--			</div>-->
 		</form>
 	</div>
 </div>
+
+<div class="filter-itog">
+    <div class="filter-itog__text">
+
+    </div>
+
+    <div class="filter-itog__func">
+        <button type="button" class="filter-itog__but js-filter-res">Сбросить фильтры</button>
+    </div>
+</div>
+
 <script>
 	var smartFilter = new JCSmartFilter('<?echo CUtil::JSEscape($arResult["FORM_ACTION"])?>', 'horizontal');
 </script>

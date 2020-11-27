@@ -35,7 +35,7 @@ $APPLICATION->SetTitle("Раздел");
 		"COUNT_ELEMENTS" => "Y",
 		"COUNT_ELEMENTS_FILTER" => "CNT_ACTIVE",
 		"FILTER_NAME" => "sectionsFilter",
-		"IBLOCK_ID" => "26",
+		"IBLOCK_ID" => "28",
 		"IBLOCK_TYPE" => "xmlcatalog",
 		"SECTION_CODE" => "",
 		"SECTION_FIELDS" => array(
@@ -71,7 +71,7 @@ $APPLICATION->SetTitle("Раздел");
 		"FILTER_NAME" => "arrFilter",
 		"FILTER_VIEW_MODE" => "vertical",
 		"HIDE_NOT_AVAILABLE" => "N",
-		"IBLOCK_ID" => "26",
+		"IBLOCK_ID" => "28",
 		"IBLOCK_TYPE" => "xmlcatalog",
 		"PAGER_PARAMS_NAME" => "arrPager",
 		"POPUP_POSITION" => "left",
@@ -93,7 +93,6 @@ $APPLICATION->SetTitle("Раздел");
 );?>
                     </div>
 
-                    <div class="catalog-product__list">
                         <?$APPLICATION->IncludeComponent(
 	"bitrix:catalog.section", 
 	"milovar", 
@@ -132,7 +131,7 @@ $APPLICATION->SetTitle("Раздел");
 		"FILTER_NAME" => "arrFilter",
 		"HIDE_NOT_AVAILABLE" => "N",
 		"HIDE_NOT_AVAILABLE_OFFERS" => "N",
-		"IBLOCK_ID" => "26",
+		"IBLOCK_ID" => "28",
 		"IBLOCK_TYPE" => "xmlcatalog",
 		"INCLUDE_SUBSECTIONS" => "Y",
 		"LABEL_PROP" => array(
@@ -200,11 +199,20 @@ $APPLICATION->SetTitle("Раздел");
 		"USE_ENHANCED_ECOMMERCE" => "N",
 		"USE_MAIN_ELEMENT_SECTION" => "N",
 		"USE_PRICE_COUNT" => "N",
-		"USE_PRODUCT_QUANTITY" => "N"
+		"USE_PRODUCT_QUANTITY" => "N",
+		"OFFERS_SORT_FIELD" => "sort",
+		"OFFERS_SORT_ORDER" => "asc",
+		"OFFERS_SORT_FIELD2" => "id",
+		"OFFERS_SORT_ORDER2" => "desc",
+		"OFFERS_FIELD_CODE" => array(
+			0 => "",
+			1 => "",
+		),
+		"PRODUCT_DISPLAY_MODE" => "N"
 	),
 	false
 );?>
-                    </div>
+
                 </div>
             </div>
         </div>

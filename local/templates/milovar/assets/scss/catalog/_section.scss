@@ -504,7 +504,11 @@
 		border-top: 6px solid $c_gray_btn;
 		border-left: 6px solid transparent;
 		border-right: 6px solid transparent;
-		margin-left: 8px;
+		margin-left: 4px;
+	}
+
+	&__count{
+		margin-left: 3px;
 	}
 
 	&__container{
@@ -615,6 +619,28 @@
 			&::after{
 				transform: rotate(-45deg);
 			}
+		}
+	}
+}
+
+.filter-itog{
+	padding: 19px 0;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	&__but{
+		font-size: 14px;
+		background-color: transparent;
+		border: 0;
+		text-decoration: underline;
+		cursor: pointer;
+		@include museo500;
+		padding: 0;
+		margin: 6px 0;
+
+		&:focus{
+			outline: 0;
 		}
 	}
 }

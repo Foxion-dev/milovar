@@ -67,9 +67,94 @@
         }
     }
 
+    function catalogFilters(){
+        var formFilter = $('#filter-form-catalog');
+
+        if(formFilter.length > 0){
+            var formGo = true;
+
+            $(document).on('change', ".filter-block__checkbox-input", function(){
+                var blocFilter = $(this).parents('.filter-block__container');
+                var countCheck = 0;
+                var nameFilter = [];
+
+                $.each(blocFilter.find('.filter-block__checkbox-input'), function(){
+
+                    if($(this).prop('checked')){
+                        countCheck++;
+                    }
+                })
+
+                $.each(formFilter.find('.filter-block__checkbox-input'), function(){
+                    if($(this).prop('checked')) {
+                        nameFilter.push($(this).next('.filter-block__checkbox-fufel').find('.filter-block__checkbox-name').text());
+                    }
+                })
+
+                if(countCheck > 0){
+                    countCheck = '(' + countCheck + ')';
+                } else {
+                    countCheck = "";
+                }
+
+                blocFilter.find('.filter-block__count').text(countCheck);
+
+                var link = formFilter.attr('action') + "?";
+                link += formFilter.serialize() + "&set_filter=1"
+
+                if(formGo){
+                    $.get(link, function(data){
+                        var page = $(data);
+                        $('.js-load-prod').empty().append(page.find('.catalog-product__item'));
+
+                        var soob = "<span class='fil-res'>Найдено ";
+                        var textFinal = page.find('.filter-block').attr('data-count') * 1;
+                        var textFinalCol = endingsForm(textFinal, "товар", "товара", "товаров");
+
+                        soob += textFinal + " " + textFinalCol + " по фильтрам:<span>";
+                        soob += " " + nameFilter.join(", ");
+
+                        soob = nameFilter.length > 0 ? soob : "";
+
+                        $('.filter-itog__text').html(soob);
+                    })
+                }
+            })
+
+            $(document).on('click', ".js-filter-res", function(){
+                formGo = false;
+
+                $.each(formFilter.find('.filter-block__checkbox-input'), function(){
+
+                    if($(this).prop('checked')){
+                        $(this).trigger('click');
+                    }
+                })
+                formGo = true;
+                var link = formFilter.attr('action') + "?del_filter=1";
+
+                $.get(link, function(data){
+                    var page = $(data);
+                    $('.js-load-prod').empty().append(page.find('.catalog-product__item'));
+                    $('.filter-itog__text').empty();
+                })
+            })
+        }
+    }
+
+    function endingsForm(n, form1, form2, form5) {
+        var n = Math.abs(n) % 100;
+        var n1 = n % 10;
+        if (n > 10 && n < 20) return form5;
+        if (n1 > 1 && n1 < 5) return form2;
+        if (n1 == 1) return form1;
+        return form5;
+    }
+
     $(function(){
         ourAddress(); //показать адреса в шапке
         catalogVid(); //переключение вида каталога
         catalogMenu(); //анимация меню каталога
+        catalogFilters(); //фильтры каталога
     })
 })(jQuery)

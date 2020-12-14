@@ -20,9 +20,9 @@ use \Bitrix\Main\Localization\Loc;
             <div class="catalog-product__item-container">
                 <div class="catalog-product__img">
                     <div class="catalog-product__label">
-                        <div class="catalog-product__label-new">
-                            <span>New</span>
-                        </div>
+<!--                        <div class="catalog-product__label-new">-->
+<!--                            <span>New</span>-->
+<!--                        </div>-->
 
     <!--                    <div class="catalog-product__label-sale">-->
     <!--                        <span>5</span>-->
@@ -70,3 +70,8 @@ use \Bitrix\Main\Localization\Loc;
         </div>
     <?php endforeach; ?>
 </div>
+<?if($arParams["DISPLAY_BOTTOM_PAGER"]):?>
+    <div class="js-load-paging">
+        <?= $arResult["NAV_STRING"] ?>
+    </div>
+<?endif;?>

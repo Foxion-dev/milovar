@@ -7,4 +7,6 @@
 
 $component = $this->getComponent();
 $arParams = $component->applyTemplateModifications();
-$APPLICATION->SetPageProperty("count_prod", count($arResult['ITEMS']));
+
+
+//echo "<pre>",var_dump($arResult["NAV_STRING"]),"</pre>";

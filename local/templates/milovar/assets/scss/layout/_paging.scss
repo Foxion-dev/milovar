@@ -1,0 +1,76 @@
+.paging-block{
+    display: flex;
+    justify-content: flex-end;
+    margin: 0 -5px;
+
+    &__dots,
+    &__current,
+    a{
+        display: flex;
+        width: 34px;
+        height: 34px;
+        justify-content: center;
+        align-items: center;
+        margin: 0 5px;
+        border-radius: 17px;
+        color: #3e5065;
+        font-size: 15px;
+        @include museo500;
+
+        &:hover{
+            color: $c_func_color;
+        }
+    }
+
+    &__current{
+        pointer-events: none;
+        background-color: $c_func_color;
+        color: $c_white;
+    }
+
+    &__next{
+        margin-right: -5px !important;
+    }
+
+    .scoba{
+        &-left,
+        &-right{
+            display: flex;
+            height: 100%;
+            width: 100%;
+            position: relative;
+
+            &::before,
+            &::after{
+                position: absolute;
+                content: "";
+                width: 8px;
+                height: 1px;
+                background-color: $c_content;
+                top: 50%;
+                left: 50%;
+                transform-origin: right;
+                transform: translateX(-50%) translateY(-50%) rotate(-45deg);
+            }
+
+            &::after{
+                transform: translateX(-50%) translateY(-50%) rotate(45deg);
+            }
+
+            &:hover{
+
+                &::before,
+                &::after{
+                    background-color: $c_func_color;
+                }
+            }
+        }
+
+        &-left{
+            &::before,
+            &::after{
+                transform-origin: left;
+            }
+        }
+    }
+}

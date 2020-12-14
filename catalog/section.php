@@ -153,7 +153,7 @@ $APPLICATION->SetTitle("Раздел");
 		"PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
 		"PAGER_SHOW_ALL" => "N",
 		"PAGER_SHOW_ALWAYS" => "N",
-		"PAGER_TEMPLATE" => ".default",
+		"PAGER_TEMPLATE" => "milovar",
 		"PAGER_TITLE" => "Товары",
 		"PAGE_ELEMENT_COUNT" => "18",
 		"PARTIAL_PRODUCT_PROPERTIES" => "N",

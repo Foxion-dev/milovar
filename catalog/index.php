@@ -42,7 +42,7 @@ $APPLICATION->SetTitle("Каталог товаров");
 			0 => "",
 			1 => "",
 		),
-		"SECTION_ID" => $_REQUEST["SECTION_ID"],
+		"SECTION_ID" => "",
 		"SECTION_URL" => "/catalog/section.php?SECTION_ID=#SECTION_ID#",
 		"SECTION_USER_FIELDS" => array(
 			0 => "",
@@ -82,12 +82,15 @@ $APPLICATION->SetTitle("Каталог товаров");
 		"SAVE_IN_SESSION" => "N",
 		"SECTION_CODE" => "",
 		"SECTION_DESCRIPTION" => "-",
-		"SECTION_ID" => $_REQUEST["SECTION_ID"],
+		"SECTION_ID" => "",
 		"SECTION_TITLE" => "-",
 		"SEF_MODE" => "N",
 		"TEMPLATE_THEME" => "blue",
 		"XML_EXPORT" => "N",
-		"COMPONENT_TEMPLATE" => "milovar"
+		"COMPONENT_TEMPLATE" => "milovar",
+		"SEF_RULE" => "/catalog/#SECTION_CODE_PATH#/filter/#SMART_FILTER_PATH#/apply/",
+		"SECTION_CODE_PATH" => $_REQUEST["SECTION_CODE_PATH"],
+		"SMART_FILTER_PATH" => $_REQUEST["SMART_FILTER_PATH"]
 	),
 	false
 );?>
@@ -153,7 +156,7 @@ $APPLICATION->SetTitle("Каталог товаров");
 		"PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
 		"PAGER_SHOW_ALL" => "N",
 		"PAGER_SHOW_ALWAYS" => "N",
-		"PAGER_TEMPLATE" => ".default",
+		"PAGER_TEMPLATE" => "milovar",
 		"PAGER_TITLE" => "Товары",
 		"PAGE_ELEMENT_COUNT" => "18",
 		"PARTIAL_PRODUCT_PROPERTIES" => "N",
@@ -170,7 +173,7 @@ $APPLICATION->SetTitle("Каталог товаров");
 		"RCM_PROD_ID" => $_REQUEST["PRODUCT_ID"],
 		"RCM_TYPE" => "personal",
 		"SECTION_CODE" => "",
-		"SECTION_ID" => $_REQUEST["SECTION_ID"],
+		"SECTION_ID" => "",
 		"SECTION_ID_VARIABLE" => "SECTION_ID",
 		"SECTION_URL" => "/catalog/section.php?SECTION_ID=#SECTION_ID#",
 		"SECTION_USER_FIELDS" => array(
@@ -208,7 +211,9 @@ $APPLICATION->SetTitle("Каталог товаров");
 			0 => "",
 			1 => "",
 		),
-		"PRODUCT_DISPLAY_MODE" => "N"
+		"PRODUCT_DISPLAY_MODE" => "N",
+		"SEF_RULE" => "/catalog/#SECTION_CODE_PATH#/",
+		"SECTION_CODE_PATH" => $_REQUEST["SECTION_CODE_PATH"]
 	),
 	false
 );?>

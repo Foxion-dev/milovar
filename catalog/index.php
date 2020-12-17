@@ -161,7 +161,7 @@ $APPLICATION->SetTitle("Каталог товаров");
 		"PAGE_ELEMENT_COUNT" => "18",
 		"PARTIAL_PRODUCT_PROPERTIES" => "N",
 		"PRICE_CODE" => array(
-			0 => "BASE",
+			0 => "RETAIL",
 		),
 		"PRICE_VAT_INCLUDE" => "Y",
 		"PRODUCT_BLOCKS_ORDER" => "price,props,sku,quantityLimit,quantity,buttons",
@@ -209,7 +209,8 @@ $APPLICATION->SetTitle("Каталог товаров");
 		"OFFERS_SORT_ORDER2" => "desc",
 		"OFFERS_FIELD_CODE" => array(
 			0 => "",
-			1 => "",
+			1 => "FASOVKA",
+			2 => "",
 		),
 		"PRODUCT_DISPLAY_MODE" => "N",
 		"SEF_RULE" => "/catalog/#SECTION_CODE_PATH#/",

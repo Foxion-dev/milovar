@@ -5,6 +5,19 @@ use Bitrix\Main\Page\Asset;
 Loc::loadMessages(__FILE__);
 global $site_set;
 
+if(CModule::IncludeModule("sale")){
+    $cntBasketItems = CSaleBasket::GetList(
+        array(),
+        array(
+            "FUSER_ID" => CSaleBasket::GetBasketUserID(),
+            "LID" => SITE_ID,
+            "ORDER_ID" => "NULL"
+        ),
+        array()
+    );
+}
+
+
 ?>
 <html>
     <head>
@@ -110,7 +123,7 @@ global $site_set;
 
                                 <a class="basket-item" href="#">
                                     <span class="basket-item__ico">
-                                        <span class="basket-item__col">0</span>
+                                        <span class="basket-item__col"><?= $cntBasketItems ?></span>
                                     </span>
                                     <span class="basket-item__text">0 Р</span>
                                 </a>

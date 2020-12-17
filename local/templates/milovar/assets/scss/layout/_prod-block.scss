@@ -18,6 +18,8 @@
             -moz-box-shadow: 0 0 12px 0 rgba(0,0,0,0.1);
             box-shadow: 0 0 12px 0 rgba(0,0,0,0.1);
             border-radius: 5px;
+            position: relative;
+            padding-bottom: 173px;
         }
     }
 
@@ -91,6 +93,118 @@
             font-size: 15px;
             @include museo500();
             height: 66px;
+        }
+    }
+
+    &__variation{
+        position: absolute;
+        z-index: 1;
+        width: 100%;
+        background-color: $c_white;
+        border-radius: 0 0 5px 5px;
+
+        &.is-show{
+            -webkit-box-shadow: 0 12px 12px 0 rgba(0,0,0,0.1);
+            -moz-box-shadow: 0 12px 12px 0 rgba(0,0,0,0.1);
+            box-shadow: 0 12px 12px 0 rgba(0,0,0,0.1);
+
+            .catalog-product__variation{
+                &-open{
+                    display: none;
+                }
+
+                &-close{
+                    display: flex;
+                }
+            }
+        }
+
+        &-subtitle{
+            font-size: 13px;
+            @include museo500();
+            color: #949daf;
+            padding: 0 25px;
+        }
+
+        &-list{
+            padding: 0 25px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            margin-bottom: 14px;
+        }
+
+        &-item{
+            display: flex;
+            height: 40px;
+            width: 100%;
+            max-width: 47%;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid $c_grey_border;
+            cursor: pointer;
+            border-radius: 5px;
+            color: rgba(62, 80, 101, .7);
+            margin-bottom: 12px;
+            @include museo500();
+
+            &.is-chek{
+                border-color: $c_func_color;
+
+                .catalog-product__variation-title{
+                    color: $c_func_color;
+                }
+            }
+        }
+
+        &-hidden{
+            width: 100%;
+            display: none;
+            justify-content: space-between;
+        }
+
+        &-toggle{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            cursor: pointer;
+            font-size: 13px;
+            color: $c_func_color;
+            position: absolute;
+            bottom: -14px;
+            left: 0;
+
+            &::before{
+                content: "";
+                width: 82%;
+                position: absolute;
+                background-color: $c_grey_border;
+                height: 1px;
+                z-index: -1;
+                top: 50%;
+                left: 50%;
+                transform: translateY(-50%) translateX(-50%);
+            }
+        }
+
+        &-open,
+        &-close{
+            background-color: $c_white;
+            display: flex;
+            padding: 0 20px 0 7px;
+
+            &::before,
+            &::after{
+
+            }
+
+        }
+
+        &-close{
+            display: none;
         }
     }
 

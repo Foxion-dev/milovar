@@ -147,7 +147,7 @@ $APPLICATION->SetTitle("Раздел");
 		"MESS_NOT_AVAILABLE" => "Нет в наличии",
 		"META_DESCRIPTION" => "-",
 		"META_KEYWORDS" => "-",
-		"OFFERS_LIMIT" => "5",
+		"OFFERS_LIMIT" => "0",
 		"PAGER_BASE_LINK_ENABLE" => "N",
 		"PAGER_DESC_NUMBERING" => "N",
 		"PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
@@ -158,7 +158,7 @@ $APPLICATION->SetTitle("Раздел");
 		"PAGE_ELEMENT_COUNT" => "18",
 		"PARTIAL_PRODUCT_PROPERTIES" => "N",
 		"PRICE_CODE" => array(
-			0 => "BASE",
+			0 => "RETAIL",
 		),
 		"PRICE_VAT_INCLUDE" => "Y",
 		"PRODUCT_BLOCKS_ORDER" => "price,props,sku,quantityLimit,quantity,buttons",
@@ -207,6 +207,7 @@ $APPLICATION->SetTitle("Раздел");
 		"OFFERS_FIELD_CODE" => array(
 			0 => "",
 			1 => "",
+			2 => "",
 		),
 		"PRODUCT_DISPLAY_MODE" => "N"
 	),

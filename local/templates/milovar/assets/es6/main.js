@@ -151,10 +151,35 @@
         return form5;
     }
 
+    function addBascet(){
+        $(document).on('click', ".js-sel-product", function(){
+            var buttData = $(this);
+            var blockData = buttData.parents('.js-prod-item');
+            var bigData = JSON.parse(buttData.attr('data-big-data'));
+
+            blockData.find('.js-sel-product').removeClass('is-chek');
+            buttData.addClass('is-chek');
+
+            blockData.find('.js-add-basket').attr('data-link', bigData.basket_link)
+            blockData.find('.price-show').text(new Intl.NumberFormat('ru-RU').format(bigData.price));
+        })
+
+        $(document).on('click', '.js-offers-toggle', function(){
+            var blockData = $(this).parents('.js-prod-item');
+            blockData.find('.js-offers-hid').slideToggle();
+            blockData.find('.js-variation').toggleClass('is-show');
+        })
+
+        $(document).on('click', ".js-add-basket", function(){
+            window.location.href = atob($(this).attr('data-link')).replace(/&amp;/gi, "&");
+        })
+    }
+
     $(function(){
         ourAddress(); //показать адреса в шапке
         catalogVid(); //переключение вида каталога
         catalogMenu(); //анимация меню каталога
         catalogFilters(); //фильтры каталога
+        addBascet(); // добавляем товар в корзину
     })
 })(jQuery)

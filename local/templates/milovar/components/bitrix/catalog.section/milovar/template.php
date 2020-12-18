@@ -12,9 +12,9 @@ use Bitrix\Sale;
  * @var string $templateName
  * @var string $componentPath
  */
-$basket = Sale\Basket::loadItemsForFUser(Sale\Fuser::getId(), Bitrix\Main\Context::getCurrent()->getSite());
-
-echo "<pre>",var_dump($basket),"</pre>";
+//$basket = Sale\Basket::loadItemsForFUser(Sale\Fuser::getId(), Bitrix\Main\Context::getCurrent()->getSite());
+//
+//echo "<pre>",var_dump($basket),"</pre>";
 ?>
 <div class="catalog-product__list js-load-prod">
     <?php foreach ($arResult['ITEMS'] as $item): ?>
@@ -57,8 +57,7 @@ echo "<pre>",var_dump($basket),"</pre>";
                         <div class="catalog-product__variation-list">
 
                             <? foreach($item["OFFERS"] as $num_of => $odin_offer): ?>
-                                <? $name_fas = $odin_offer["PROPERTIES"]["FASOVKA"]["NAME"]; ?>
-                                <? $id_prop = array_search($name_fas, $odin_offer["PROPERTIES"]["CML2_ATTRIBUTES"]["DESCRIPTION"]); ?>
+                                <? $id_prop = array_search("Фасовка", $odin_offer["PROPERTIES"]["CML2_ATTRIBUTES"]["DESCRIPTION"]); ?>
                                 <? $prop_val = $odin_offer["PROPERTIES"]["CML2_ATTRIBUTES"]["VALUE"][$id_prop]; ?>
                                 <? $basket_link = base64_encode($odin_offer["ADD_URL"]) ?>
                                 <? $price_id = $odin_offer["PRICES"]["RETAIL"]["PRICE_ID"]; ?>

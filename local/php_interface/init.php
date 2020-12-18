@@ -30,6 +30,9 @@ if (CHTTP::GetLastStatus() == "404 Not Found"){
 
 } elseif ($APPLICATION->GetCurPage(false) == "/catalog/"){
     $site_set['style_file'] = "catalog-category";
+
+}   elseif ($APPLICATION->GetCurPage(false) == "/personal/cart/"){
+    $site_set['style_file'] = "cart";
 }
 //$_REQUEST['SECTION_ID'] = 141;
 $site_set = (object)$site_set;

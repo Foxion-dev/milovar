@@ -1,0 +1,308 @@
+.cart-title{
+    @include museo700;
+    font-size: 36px;
+    margin-bottom: 75px;
+}
+
+.cart-prod-title{
+    display: flex;
+    padding-bottom: 15px;
+    border-bottom: 1px solid $c_grey_border;
+    margin-bottom: 20px;
+    color: $c_content;
+    font-size: 14px;
+    @include museo500;
+
+    &__name{
+        width: 100%;
+        max-width: 25.9829%;
+    }
+
+    &__category{
+        width: 100%;
+        max-width: 12.6495%;
+    }
+
+    &__packing{
+        width: 100%;
+        max-width: 8.547%;
+    }
+
+    &__price{
+        width: 100%;
+        max-width: 9.4871%;
+    }
+
+    &__sale{
+        width: 100%;
+        max-width: 7.9487%;
+    }
+
+    &__pricesale{
+        width: 100%;
+        max-width: 15.3846%;
+    }
+
+    &__count{
+        width: 100%;
+        max-width: 8.9743%;
+    }
+
+    &__final{
+        width: 100%;
+        max-width: 11.0259%;
+    }
+}
+
+.market-cart{
+
+    .basket{
+
+        &-items{
+
+            &-list{
+                padding: 0;
+
+                &-container{
+                    background-color: transparent;
+                }
+
+                &-wrapper{
+                    border: 0;
+                }
+
+                &-item{
+
+                    &-container{
+                        height: 90px;
+                        display: flex;
+                        margin-bottom: 10px;
+                        background-color: $c_white;
+                        border-radius: 5px;
+                        align-items: center;
+                    }
+
+                    &-descriptions{
+                        height: 100%;
+                        order: 1;
+                        padding: 15px 0 15px 15px;
+                        width: 100%;
+                        max-width: 47.1794%;
+
+                        &-inner{
+                            height: 100%;
+                        }
+                    }
+
+                    &-price{
+                        order: 2;
+                    }
+
+                    &-scidos{
+                        order: 3;
+                        width: 100%;
+                        max-width: 7.9487%;
+                        font-size: 15px;
+                        @include museo500;
+                    }
+
+                    &-amount{
+                        order: 8;
+                        width: 100%;
+                        max-width: 8.9743%;
+                        padding-top: 0;
+                        position: relative;
+                        z-index: 1;
+                    }
+
+                    &-price-full{
+                        order: 9;
+                    }
+
+                    &-remove{
+                        order: 10;
+                        padding-top: 0 !important;
+                        position: absolute;
+                        right: 15px;
+                    }
+                }
+            }
+        }
+
+        &-item{
+
+            &-name{
+                margin: 0;
+                padding: 0;
+                font-size: 13px;
+                @include museo500;
+            }
+
+            &-block{
+
+                &-info{
+                    display: flex;
+                    padding-left: 15px;
+                    align-items: center;
+
+                    &-name{
+                        margin: 0;
+                        padding: 0;
+                        font-size: 13px;
+                        @include museo500;
+                    }
+
+                    .basket-item-actions-remove{
+                        display: none;
+                    }
+                }
+
+                &-image{
+                    padding: 0;
+                    max-width: 60px;
+                    border-radius: 5px;
+                    overflow: hidden;
+                }
+
+                &-info{
+                    width: 100%;
+
+                }
+            }
+
+            &-actions{
+
+                &-remove{
+
+                    &::before,
+                    &::after{
+                        background-color: $c_content;
+                    }
+                }
+            }
+        }
+    }
+
+    .basket-item-info-name{
+        padding: 0;
+        margin: 0 auto 0 0 !important;
+    }
+
+    .basket-item-block-price{
+        padding-top: 0;
+    }
+
+    .basket-item-price-current-text{
+        font-size: 15px;
+        @include museo500;
+    }
+
+    .basket-items-list-item-price-for-one{
+        width: 100%;
+        max-width: 9.4871%;
+    }
+
+    .basket-item-price-current{
+        display: flex;
+    }
+
+    .basket-items-list-item-price-two{
+        order: 4;
+        width: 100%;
+        max-width: 15.3846%;
+    }
+
+    .basket-items-list-item-container > td{
+        border-top: 0;
+    }
+
+    .basket-item-block-amount{
+        padding: 0;
+        align-items: center;
+        left: -30px;
+        position: relative;
+    }
+
+    .basket-item-amount-btn-plus,
+    .basket-item-amount-btn-minus{
+        display: flex;
+        background-color: $c_grey_border;
+        width: 26px;
+        height: 26px;
+        min-width: 26px;
+        border-radius: 13px;
+
+        &::after,
+        &::before{
+            background-color: $c_white;
+        }
+    }
+
+    .basket-item-amount-filed,
+    .basket-item-block-amount.disabled .basket-item-amount-filed:hover{
+        width: 40px;
+        height: 22px;
+        margin: 0 7px;
+        font-size: 13px;
+        background-color: #f2f3f7;
+        border-radius: 3px;
+        border-color: #f2f3f7;
+        color: #949daf;
+    }
+
+    .basket-item-block-actions{
+        display: flex;
+        justify-content: flex-end;
+        opacity: 1;
+    }
+
+    .basket-checkout-container{
+        height: 160px;
+        margin-bottom: 100px;
+        display: flex;
+        align-items: center;
+        border: 0;
+        border-radius: 3px;
+    }
+
+    .basket-coupon-alert-section{
+        display: none;
+    }
+
+    .basket-coupon-section{
+        display: none;
+    }
+
+    .btn.btn-lg.btn-primary.basket-btn-checkout{
+        width: 224px;
+        height: 60px;
+        border: 1px solid $c_func_color;
+        border-radius: 30px;
+        background-color: $c_func_color;
+        color: $c_white;
+        font-size: 16px;
+        @include museo500;
+        cursor: pointer;
+
+        &:hover{
+            background-color: $c_white;
+            color: $c_func_color;
+        }
+    }
+
+    .basket-checkout-block-btn{
+        padding-top: 0;
+    }
+
+    .button-promo{
+        text-align: center;
+        padding-top: 15px;
+
+        &-link{
+            color: $c_func_color;
+            font-size: 16px;
+            @include museo500;
+        }
+    }
+}
+

@@ -13,6 +13,16 @@ if(empty($arResult))
 
 $strReturn = '';
 
+
+foreach($arResult as $keyPag => $item_pag){
+
+    if($item_pag["LINK"] == "/personal/cart/"){
+        unset($arResult[1]);
+    }
+}
+
+$arResult = array_values($arResult);
+
 $itemSize = count($arResult);
 
 $strReturn .= "<div class='breadcrumbs__list' itemprop=\"http://schema.org/breadcrumb\" itemscope itemtype=\"http://schema.org/BreadcrumbList\">";

@@ -121,7 +121,7 @@ if(CModule::IncludeModule("sale")){
                                     <span class="phone-item__text"><?= $site_set->site_phone ?></span>
                                 </a>
 
-                                <a class="basket-item" href="#">
+                                <a class="basket-item" href="/personal/cart/">
                                     <span class="basket-item__ico">
                                         <span class="basket-item__col"><?= $cntBasketItems ?></span>
                                     </span>

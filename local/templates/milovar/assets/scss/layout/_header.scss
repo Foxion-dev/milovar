@@ -4,6 +4,13 @@
 	left: 0;
 	width: 100%;
 
+	a{
+
+		&:hover{
+			text-decoration: none;
+		}
+	}
+
 	&__top{
 		background-color: $c_white;
 	}
@@ -512,6 +519,13 @@
 }
 
 .breadcrumbs{
+	
+	a{
+
+		&:hover{
+			text-decoration: none;
+		}
+	}
 
 	&__list{
 		display: flex;

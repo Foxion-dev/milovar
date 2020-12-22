@@ -16,9 +16,10 @@ $strReturn = '';
 //echo "<pre>",var_dump($arResult),"</pre>";
 
 switch ($APPLICATION->GetCurPage(false)){
+
     case "/personal/cart/":
         unset($arResult[1]);
-        break;
+    break;
 
     case "/personal/order/make/":
         $arResult[1] = [
@@ -26,20 +27,10 @@ switch ($APPLICATION->GetCurPage(false)){
             "LINK" => "/personal/cart/"
         ];
         $arResult[2]['TITLE'] = "Оформление заказа";
-        break;
+    break;
 }
+
 $arResult = array_values($arResult);
-//foreach($arResult as $keyPag => $item_pag){
-//
-//    if($item_pag["LINK"] == "/personal/cart/"){
-//        unset($arResult[1]);
-//
-//    } elseif ($item_pag["LINK"] == "/personal/order/make/"){
-//        echo "<pre>",var_dump($arResult),"</pre>";
-//    }
-//}
-//
-//
 
 $itemSize = count($arResult);
 

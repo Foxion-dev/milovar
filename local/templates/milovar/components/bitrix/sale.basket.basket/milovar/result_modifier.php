@@ -23,6 +23,7 @@ foreach($arResult['ITEMS']["AnDelCanBuy"] as $key_prod => $one_offer){
         } else {
             $cat_path = $cat_path[0];
         }
+
         $final_arr[$one_offer["ID"]]['path'] = $cat_path;
 
         $off_object = CIBlockElement::GetList(Array(), Array("ID"=>$one_offer["PRODUCT_ID"]));
@@ -37,7 +38,6 @@ foreach($arResult['ITEMS']["AnDelCanBuy"] as $key_prod => $one_offer){
     }
 }
 
-
 foreach ($arResult["BASKET_ITEM_RENDER_DATA"] as $keyfdgdfg => $tryr){
     $key_id = $tryr['ID'];
 
@@ -45,4 +45,3 @@ foreach ($arResult["BASKET_ITEM_RENDER_DATA"] as $keyfdgdfg => $tryr){
     $arResult["BASKET_ITEM_RENDER_DATA"][$keyfdgdfg]["COLUMN_LIST"][0]["VALUE_2"] = $final_arr[$key_id]['fasovka'];
     $arResult["BASKET_ITEM_RENDER_DATA"][$keyfdgdfg]["COLUMN_LIST"][0]["NAME"] = "";
 }
-

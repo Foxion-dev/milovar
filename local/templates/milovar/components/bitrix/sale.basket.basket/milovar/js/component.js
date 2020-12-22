@@ -70,8 +70,6 @@
 
 		init: function(parameters){
 
-			console.log(parameters);
-
 			this.initializePrimaryFields();
 
 			this.params = parameters.params || {};

@@ -175,11 +175,23 @@
         })
     }
 
+    function modalCart(){
+        $(document).on('click', '.js-modal-coupon', function(){
+            $('.market-cart').addClass('coupon-show');
+            return false;
+        })
+        
+        $(document).on('click', ".coupon-modal__close", function(){
+            $('.market-cart').removeClass('coupon-show');
+        })
+    }
+
     $(function(){
-        ourAddress(); //показать адреса в шапке
-        catalogVid(); //переключение вида каталога
-        catalogMenu(); //анимация меню каталога
-        catalogFilters(); //фильтры каталога
+        ourAddress(); // показать адреса в шапке
+        catalogVid(); // переключение вида каталога
+        catalogMenu(); // анимация меню каталога
+        catalogFilters(); // фильтры каталога
         addBascet(); // добавляем товар в корзину
+        modalCart(); //
     })
 })(jQuery)

@@ -186,6 +186,12 @@
         })
     }
 
+    function selectInit(){
+        $('.arh-sel-city').selectPlug({
+            class: "order-city-sel"
+        });
+    }
+
     $(function(){
         ourAddress(); // показать адреса в шапке
         catalogVid(); // переключение вида каталога
@@ -193,5 +199,6 @@
         catalogFilters(); // фильтры каталога
         addBascet(); // добавляем товар в корзину
         modalCart(); //
+        selectInit();
     })
 })(jQuery)

@@ -298,9 +298,9 @@ switch (LANGUAGE_ID)
 		$locale = 'en-US'; break;
 }
 
-//$this->addExternalCss('/bitrix/css/main/bootstrap.css');
-//$APPLICATION->SetAdditionalCSS('/bitrix/css/main/themes/'.$arParams['TEMPLATE_THEME'].'/style.css', true);
-//$APPLICATION->SetAdditionalCSS($templateFolder.'/style.css', true);
+$this->addExternalCss('/bitrix/css/main/bootstrap.css');
+$APPLICATION->SetAdditionalCSS('/bitrix/css/main/themes/'.$arParams['TEMPLATE_THEME'].'/style.css', true);
+$APPLICATION->SetAdditionalCSS($templateFolder.'/style.css', true);
 $this->addExternalJs($templateFolder.'/order_ajax.js');
 \Bitrix\Sale\PropertyValueCollection::initJs();
 $this->addExternalJs($templateFolder.'/script.js');
@@ -353,6 +353,9 @@ else
 					<div class="bx-soa-section-content container-fluid"></div>
 				</div>
 
+				<!--	DUPLICATE MOBILE ORDER SAVE BLOCK	-->
+				<div id="bx-soa-total-mobile" style="margin-bottom: 6px;"></div>
+
 				<? if ($arParams['BASKET_POSITION'] === 'before'): ?>
 					<!--	BASKET ITEMS BLOCK	-->
 					<div id="bx-soa-basket" data-visited="false" class="bx-soa-section bx-active">
@@ -365,17 +368,6 @@ else
 						<div class="bx-soa-section-content container-fluid"></div>
 					</div>
 				<? endif ?>
-
-                <!-- COUNTRY BLOCK -->
-                <div id="bx-soa-country" data-visited="false" class="bx-soa-section bx-active">
-                    <div class="bx-soa-section-title-container">
-                        <h2 class="bx-soa-section-title col-sm-9">
-                            <span class="bx-soa-section-title-count"></span><?=$arParams['MESS_COUNTRY_BLOCK_NAME']?>
-                        </h2>
-                        <div class="col-xs-12 col-sm-3 text-right"><a href="" class="bx-soa-editstep"><?=$arParams['MESS_EDIT']?></a></div>
-                    </div>
-                    <div class="bx-soa-section-content container-fluid"></div>
-                </div>
 
 				<!--	REGION BLOCK	-->
 				<div id="bx-soa-region" data-visited="false" class="bx-soa-section bx-active">
@@ -506,7 +498,6 @@ else
 
 				<div style="display: none;">
 					<div id='bx-soa-basket-hidden' class="bx-soa-section"></div>
-                    <div id='bx-soa-country-hidden' class="bx-soa-section"></div>
 					<div id='bx-soa-region-hidden' class="bx-soa-section"></div>
 					<div id='bx-soa-paysystem-hidden' class="bx-soa-section"></div>
 					<div id='bx-soa-delivery-hidden' class="bx-soa-section"></div>
@@ -617,7 +608,6 @@ else
 			orderBlockId: 'bx-soa-order',
 			authBlockId: 'bx-soa-auth',
 			basketBlockId: 'bx-soa-basket',
-            countryBlockId: 'bx-soa-country',
 			regionBlockId: 'bx-soa-region',
 			paySystemBlockId: 'bx-soa-paysystem',
 			deliveryBlockId: 'bx-soa-delivery',

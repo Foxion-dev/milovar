@@ -548,6 +548,12 @@ if ($arCurrentValues['USE_CUSTOM_MAIN_MESSAGES'] == 'Y')
 		"DEFAULT" => GetMessage("BASKET_BLOCK_NAME_DEFAULT"),
 		"PARENT" => "MAIN_MESSAGE_SETTINGS"
 	);
+    $arTemplateParameters["MESS_COUNTRY_BLOCK_NAME"] =  array(
+        "NAME" => GetMessage("COUNTRY_BLOCK_NAME"),
+        "TYPE" => "STRING",
+        "DEFAULT" => GetMessage("COUNTRY_BLOCK_NAME_DEFAULT"),
+        "PARENT" => "MAIN_MESSAGE_SETTINGS"
+    );
 	$arTemplateParameters["MESS_REGION_BLOCK_NAME"] =  array(
 		"NAME" => GetMessage("REGION_BLOCK_NAME"),
 		"TYPE" => "STRING",

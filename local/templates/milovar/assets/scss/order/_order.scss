@@ -4,4 +4,91 @@
         padding-left: 0;
         padding-right: 0;
     }
+
+    &__box{
+        background-color: $c_white;
+        padding: 50px;
+        border-radius: 5px;
+        height: fit-content;
+        margin-bottom: 100px;
+    }
+
+    &__title{
+        font-size: 36px;
+        @include museo700;
+        margin-bottom: 50px;
+    }
+
+    .order{
+        &-row{
+            border-top: 1px solid $c_grey_border;
+            padding-top: 45px;
+
+            &__title{
+                font-size: 18px;
+                @include museo700;
+                margin-bottom: 40px;
+            }
+        }
+
+        &-block{
+
+            &__country{
+                margin-bottom: 25px;
+            }
+        }
+    }
+
+    .order-city-sel{
+
+        &.is-open{
+
+            .sel-plag{
+
+                &__cont{
+                    border-color: $c_func_color;
+                    background-color: $c_white;
+
+                    &-triangl{
+                        border-top-color: $c_func_color;
+                    }
+                }
+
+                &__option{
+                   height: fit-content;
+                    max-height: 206px;
+                    border-color: $c_grey_border;
+                    border-radius: 3px;
+
+                    &-item{
+
+                        &:hover{
+                            background-color: #f6fafe;
+                        }
+                    }
+                }
+            }
+        }
+
+        .sel-plag{
+
+           &__cont{
+               width: 290px;
+               height: 54px;
+               border: 1px solid #f2f3f7;
+               background-color: #f2f3f7;
+               border-radius: 5px;
+               color: rgba(62, 80, 101, .5);
+
+               &-triangl{
+                   border-top-color: rgba(62, 80, 101, .5);
+               }
+           }
+
+            &__option{
+                width: 290px;
+
+            }
+        }
+    }
 }

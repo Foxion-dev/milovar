@@ -1,0 +1,67 @@
+.sel-plag__main{
+    position: relative;
+    display: flex;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.sel-plag__main *{
+    box-sizing: border-box;
+}
+
+.sel-plag__cont{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 5px 10px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.sel-plag__cont-triangl{
+    display: flex;
+    margin-left: 15px;
+    border: 6px solid #000;
+    border-bottom: 0;
+    border-left-color: transparent;
+    border-right-color: transparent;
+    height: 0;
+}
+
+.sel-plag__option{
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    top: 100%;
+    background-color: #fff;
+    width: 100%;
+    border: 1px solid #000;
+    height: 0px;
+    overflow-x: hidden;
+    z-index: -1;
+}
+
+.sel-plag__option-item{
+    display: flex;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.sel-plag__option-item:hover{
+    background-color: rgba(128, 128, 128, .75);
+}
+
+.dis-item{
+    pointer-events: none;
+    opacity: .6;
+}
+
+.is-open .sel-plag__cont-triangl{
+    transform: rotateX(180deg);
+}
+
+.is-open .sel-plag__option{
+    height: 150px;
+    z-index: 100;
+}

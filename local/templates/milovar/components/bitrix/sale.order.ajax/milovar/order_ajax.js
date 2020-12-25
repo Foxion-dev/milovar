@@ -76,8 +76,10 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 		/**
 		 * Initialization of sale.order.ajax component js
 		 */
-		init: function(parameters)
-		{
+		init: function(parameters){
+
+			// console.log(parameters);
+
 			this.initializePrimaryFields();
 
 			this.result = parameters.result || {};
@@ -94,7 +96,7 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 
 			this.orderBlockNode = BX(parameters.orderBlockId);
 			this.totalBlockNode = BX(parameters.totalBlockId);
-			this.mobileTotalBlockNode = BX(parameters.totalBlockId + '-mobile');
+			// this.mobileTotalBlockNode = BX(parameters.totalBlockId + '-mobile');
 			this.savedFilesBlockNode = BX('bx-soa-saved-files');
 			this.orderSaveBlockNode = BX('bx-soa-orderSave');
 			this.mainErrorsNode = BX('bx-soa-main-notifications');
@@ -103,6 +105,8 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 			this.authHiddenBlockNode = BX(parameters.authBlockId + '-hidden');
 			this.basketBlockNode = BX(parameters.basketBlockId);
 			this.basketHiddenBlockNode = BX(parameters.basketBlockId + '-hidden');
+			this.countryBlockNode = BX(parameters.countryBlockId);
+			this.countryHiddenBlockNode = BX(parameters.countryBlockId + '-hidden');
 			this.regionBlockNode = BX(parameters.regionBlockId);
 			this.regionHiddenBlockNode = BX(parameters.regionBlockId + '-hidden');
 			this.paySystemBlockNode = BX(parameters.paySystemBlockId);
@@ -674,6 +678,7 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 					continue;
 
 				blockErrors = errors[k];
+
 				switch (k.toUpperCase())
 				{
 					case 'MAIN':
@@ -2262,7 +2267,7 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 		{
 			var orderSaveNode = this.orderSaveBlockNode,
 				totalButton = this.totalBlockNode.querySelector('.bx-soa-cart-total-button-container'),
-				mobileButton = this.mobileTotalBlockNode.querySelector('.bx-soa-cart-total-button-container'),
+				// mobileButton = this.mobileTotalBlockNode.querySelector('.bx-soa-cart-total-button-container'),
 				lastState = this.orderSaveBlockNode.style.display == '';
 
 			if (lastState != state)
@@ -2276,11 +2281,11 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 						totalButton.style.opacity = 0;
 						totalButton.style.display = '';
 					}
-					if (mobileButton)
-					{
-						mobileButton.style.opacity = 0;
-						mobileButton.style.display = '';
-					}
+					// if (mobileButton)
+					// {
+					// 	mobileButton.style.opacity = 0;
+					// 	mobileButton.style.display = '';
+					// }
 
 					new BX.easing({
 						duration: 500,
@@ -2291,13 +2296,13 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 							orderSaveNode.style.opacity = state.opacity / 100;
 							if (totalButton)
 								totalButton.style.opacity = state.opacity / 100;
-							if (mobileButton)
-								mobileButton.style.opacity = state.opacity / 100;
+							// if (mobileButton)
+							// 	mobileButton.style.opacity = state.opacity / 100;
 						},
 						complete: function(){
 							orderSaveNode.removeAttribute('style');
 							totalButton && totalButton.removeAttribute('style');
-							mobileButton && mobileButton.removeAttribute('style');
+							// mobileButton && mobileButton.removeAttribute('style');
 						}
 					}).animate();
 				}
@@ -2306,8 +2311,8 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 					orderSaveNode.style.display = 'none';
 					if (totalButton)
 						totalButton.setAttribute('style', 'display: none !important');
-					if (mobileButton)
-						mobileButton.setAttribute('style', 'display: none !important');
+					// if (mobileButton)
+					// 	mobileButton.setAttribute('style', 'display: none !important');
 				}
 			}
 		},
@@ -2445,7 +2450,7 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 			}
 
 			this.orderSaveBlockNode.style.display = this.result.SHOW_AUTH ? 'none' : '';
-			this.mobileTotalBlockNode.style.display = this.result.SHOW_AUTH ? 'none' : '';
+			// this.mobileTotalBlockNode.style.display = this.result.SHOW_AUTH ? 'none' : '';
 
 			this.checkPickUpShow();
 
@@ -2507,6 +2512,9 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 					break;
 				case this.basketBlockNode.id:
 					this.editBasketBlock(active);
+					break;
+				case this.countryBlockNode.id:
+					this.editCountryBlock(active);
 					break;
 				case this.regionBlockNode.id:
 					this.editRegionBlock(active);
@@ -4221,6 +4229,54 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 			}
 		},
 
+		editCountryBlock: function(active){
+
+			if (!this.countryBlockNode || !this.countryHiddenBlockNode)
+				return;
+
+			if (active)
+			{
+
+				this.editActiveCountryBlock(true);
+				// !this.regionBlockNotEmpty && this.editFadeRegionBlock();
+			}
+			else
+				// this.editFadeRegionBlock();
+
+			this.initialized.country = true;
+		},
+
+		editActiveCountryBlock: function(activeNodeMode){
+			var node = activeNodeMode ? this.countryBlockNode : this.countryHiddenBlockNode,
+				countryContent, countryNode, countryNodeCol;
+
+			if (this.initialized.country){
+				BX.remove(BX.lastChild(node));
+				node.appendChild(BX.firstChild(this.countryHiddenBlockNode));
+			} else {
+				countryContent = node.querySelector('.bx-soa-section-content');
+
+				if (!countryContent){
+					countryContent = this.getNewContainer();
+					node.appendChild(countryContent);
+
+				} else {
+					BX.cleanNode(countryContent)
+				}
+
+				this.getErrorContainer(countryContent);
+
+				countryNode = BX.create('DIV', {props: {className: 'bx_soa_location row'}});
+				countryNodeCol = BX.create('DIV', {props: {className: 'col-xs-12'}});
+
+				this.getProfilesControl(countryNodeCol);
+
+				countryNode.appendChild(countryNodeCol);
+				countryContent.appendChild(countryNode);
+				this.getBlockFooter(countryContent);
+			}
+		},
+
 		editRegionBlock: function(active)
 		{
 			if (!this.regionBlockNode || !this.regionHiddenBlockNode || !this.result.PERSON_TYPE)
@@ -4250,6 +4306,7 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 			else
 			{
 				regionContent = node.querySelector('.bx-soa-section-content');
+
 				if (!regionContent)
 				{
 					regionContent = this.getNewContainer();
@@ -8047,17 +8104,17 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 
 		editMobileTotalBlock: function()
 		{
-			if (this.result.SHOW_AUTH)
-				BX.removeClass(this.mobileTotalBlockNode, 'visible-xs');
-			else
-				BX.addClass(this.mobileTotalBlockNode, 'visible-xs');
-
-			BX.cleanNode(this.mobileTotalBlockNode);
-			this.mobileTotalBlockNode.appendChild(this.totalInfoBlockNode.cloneNode(true));
-			BX.bind(this.mobileTotalBlockNode.querySelector('a.bx-soa-price-not-calc'), 'click', BX.delegate(function(){
-				this.animateScrollTo(this.deliveryBlockNode);
-			}, this));
-			BX.bind(this.mobileTotalBlockNode.querySelector('a.btn-order-save'), 'click', BX.proxy(this.clickOrderSaveAction, this));
+			// if (this.result.SHOW_AUTH)
+			// 	BX.removeClass(this.mobileTotalBlockNode, 'visible-xs');
+			// else
+			// 	BX.addClass(this.mobileTotalBlockNode, 'visible-xs');
+			//
+			// BX.cleanNode(this.mobileTotalBlockNode);
+			// this.mobileTotalBlockNode.appendChild(this.totalInfoBlockNode.cloneNode(true));
+			// BX.bind(this.mobileTotalBlockNode.querySelector('a.bx-soa-price-not-calc'), 'click', BX.delegate(function(){
+			// 	this.animateScrollTo(this.deliveryBlockNode);
+			// }, this));
+			// BX.bind(this.mobileTotalBlockNode.querySelector('a.btn-order-save'), 'click', BX.proxy(this.clickOrderSaveAction, this));
 		},
 
 		createTotalUnit: function(name, value, params)

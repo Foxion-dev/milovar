@@ -21,7 +21,6 @@ if (\Bitrix\Main\Loader::includeModule('iblock')) {
 $site_set['style_file'] = null;
 $site_set['style_file'] = "catalog-category";
 
-
 if (CHTTP::GetLastStatus() == "404 Not Found"){
     $site_set['style_file'] = "404";
 
@@ -31,13 +30,14 @@ if (CHTTP::GetLastStatus() == "404 Not Found"){
 } elseif ($APPLICATION->GetCurPage(false) == "/catalog/"){
     $site_set['style_file'] = "catalog-category";
 
-}   elseif ($APPLICATION->GetCurPage(false) == "/personal/cart/"){
+} elseif ($APPLICATION->GetCurPage(false) == "/personal/cart/"){
     $site_set['style_file'] = "cart";
 
-}   elseif ($APPLICATION->GetCurPage(false) == "/personal/order/make/"){
+} elseif ($APPLICATION->GetCurPage(false) == "/personal/order/make/"){
     $site_set['style_file'] = "order";
-}
-//$_REQUEST['SECTION_ID'] = 141;
-$site_set = (object)$site_set;
 
-//echo "<pre>",var_dump(),"</pre>";
+} elseif (strripos($APPLICATION->GetCurPage(false), 'element.php')){
+    $site_set['style_file'] = "catalog-element";
+}
+
+$site_set = (object)$site_set;

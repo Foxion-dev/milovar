@@ -13,8 +13,6 @@ if(empty($arResult))
 
 $strReturn = '';
 
-//echo "<pre>",var_dump($arResult),"</pre>";
-
 switch ($APPLICATION->GetCurPage(false)){
 
     case "/personal/cart/":
@@ -34,13 +32,15 @@ $arResult = array_values($arResult);
 
 $itemSize = count($arResult);
 
+if(isset($GLOBALS['parent_url_tovar'])){
+    $strReturn .= "<div class='breadcrumbs__prev'><a href='" . $GLOBALS['parent_url_tovar'] . "' class='breadcrumbs__prev-link'><span class='breadcrumbs__prev-arr'></span>Вернуться к списку товаров</a></div>";
+}
+
 $strReturn .= "<div class='breadcrumbs__list' itemprop=\"http://schema.org/breadcrumb\" itemscope itemtype=\"http://schema.org/BreadcrumbList\">";
 
 for($index = 0; $index < $itemSize; $index++){
 	$title = htmlspecialcharsex($arResult[$index]["TITLE"]);
 	$arrow = ($index > 0? '<div class="breadcrumbs__separ"><span class="breadcrumbs__item-text">-</span></div>' : '');
-
-//    $title = $title == "Каталог товаров" ? "Каталог" : $title;
 
 	if($arResult[$index]["LINK"] <> "" && $index != $itemSize-1){
 		$strReturn .= $arrow . '<div class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">

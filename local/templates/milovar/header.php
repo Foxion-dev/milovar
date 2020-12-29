@@ -131,24 +131,23 @@ if(CModule::IncludeModule("sale")){
                         </div>
                     </div>
                 </div>
-            </header>
-
-            <main class="main">
                 <? if ($APPLICATION->GetCurPage(false) !== '/'): ?>
                     <div class="breadcrumbs">
                         <div class="container">
                             <?$APPLICATION->IncludeComponent(
-	"bitrix:breadcrumb", 
-	"milovar", 
-	array(
-		"PATH" => "",
-		"SITE_ID" => "s1",
-		"START_FROM" => "0",
-		"COMPONENT_TEMPLATE" => "milovar"
-	),
-	false
-);?>
+                                "bitrix:breadcrumb",
+                                "milovar",
+                                array(
+                                    "PATH" => "",
+                                    "SITE_ID" => "s1",
+                                    "START_FROM" => "0",
+                                    "COMPONENT_TEMPLATE" => "milovar"
+                                ),
+                                false
+                            );?>
                         </div>
                     </div>
                 <? endif; ?>
-                
+            </header>
+
+            <main class="main">

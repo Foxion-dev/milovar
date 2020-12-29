@@ -105,8 +105,8 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 			this.authHiddenBlockNode = BX(parameters.authBlockId + '-hidden');
 			this.basketBlockNode = BX(parameters.basketBlockId);
 			this.basketHiddenBlockNode = BX(parameters.basketBlockId + '-hidden');
-			this.countryBlockNode = BX(parameters.countryBlockId);
-			this.countryHiddenBlockNode = BX(parameters.countryBlockId + '-hidden');
+			// this.countryBlockNode = BX(parameters.countryBlockId);
+			// this.countryHiddenBlockNode = BX(parameters.countryBlockId + '-hidden');
 			this.regionBlockNode = BX(parameters.regionBlockId);
 			this.regionHiddenBlockNode = BX(parameters.regionBlockId + '-hidden');
 			this.paySystemBlockNode = BX(parameters.paySystemBlockId);
@@ -2513,9 +2513,9 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 				case this.basketBlockNode.id:
 					this.editBasketBlock(active);
 					break;
-				case this.countryBlockNode.id:
-					this.editCountryBlock(active);
-					break;
+				// case this.countryBlockNode.id:
+				// 	this.editCountryBlock(active);
+				// 	break;
 				case this.regionBlockNode.id:
 					this.editRegionBlock(active);
 					break;

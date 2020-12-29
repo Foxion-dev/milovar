@@ -192,6 +192,33 @@
         });
     }
 
+    function sliderInit(){
+        $('.product-slider').slick({
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            infinite: true,
+            arrows: true,
+            fade: true,
+            asNavFor: '.product-slider-mini',
+            prevArrow: '<button type="button" class="slick-prev"></button>',
+            nextArrow: '<button type="button" class="slick-next"></button>',
+        });
+
+        $('.product-slider-mini').slick({
+            slidesToShow: 4,
+            slidesToScroll: 1,
+            infinite: true,
+            focusOnSelect:true,
+            asNavFor: '.product-slider',
+            dots: false,
+            arrows: false
+        });
+    }
+
+    function lightBoxInit(){
+        $('.prod-light-box').fancybox();
+    }
+
     $(function(){
         ourAddress(); // показать адреса в шапке
         catalogVid(); // переключение вида каталога
@@ -200,5 +227,7 @@
         addBascet(); // добавляем товар в корзину
         modalCart(); //
         selectInit();
+        sliderInit();
+        lightBoxInit();
     })
 })(jQuery)

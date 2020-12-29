@@ -298,9 +298,9 @@ switch (LANGUAGE_ID)
 		$locale = 'en-US'; break;
 }
 
-//$this->addExternalCss('/bitrix/css/main/bootstrap.css');
-//$APPLICATION->SetAdditionalCSS('/bitrix/css/main/themes/'.$arParams['TEMPLATE_THEME'].'/style.css', true);
-//$APPLICATION->SetAdditionalCSS($templateFolder.'/style.css', true);
+$this->addExternalCss('/bitrix/css/main/bootstrap.css');
+$APPLICATION->SetAdditionalCSS('/bitrix/css/main/themes/'.$arParams['TEMPLATE_THEME'].'/style.css', true);
+$APPLICATION->SetAdditionalCSS($templateFolder.'/style.css', true);
 $this->addExternalJs($templateFolder.'/order_ajax.js');
 \Bitrix\Sale\PropertyValueCollection::initJs();
 $this->addExternalJs($templateFolder.'/script.js');
@@ -367,15 +367,34 @@ else
 				<? endif ?>
 
                 <!-- COUNTRY BLOCK -->
-                <div id="bx-soa-country" data-visited="false" class="bx-soa-section bx-active">
-                    <div class="bx-soa-section-title-container">
-                        <h2 class="bx-soa-section-title col-sm-9">
-                            <span class="bx-soa-section-title-count"></span><?=$arParams['MESS_COUNTRY_BLOCK_NAME']?>
-                        </h2>
-                        <div class="col-xs-12 col-sm-3 text-right"><a href="" class="bx-soa-editstep"><?=$arParams['MESS_EDIT']?></a></div>
+                <div class="order-row order-block__country">
+                    <h2 class="order-row__title">
+                        <span>1 шаг: Выберите страну</span>
+                    </h2>
+
+                    <div class="order-row__field">
+                        <? foreach ($arResult['ORDER_PROP']['USER_PROPS_N'] as $key_prop => $item_prop): ?>
+
+                            <? if($item_prop['CODE'] == "ORDER_COUNTRY"): ?>
+                                <select name="<?= $item_prop["FIELD_NAME"] ?>" id="order-country" class="arh-sel-city">
+
+                                    <? foreach ($item_prop["VARIANTS"] as $val_prop): ?>
+                                        <option value="<?= $val_prop["VALUE"] ?>"<? if(isset($val_prop['SELECTED'])) echo "selected"; ?>><?= $val_prop["NAME"] ?></option>
+                                    <? endforeach; ?>
+                                </select>
+                            <? endif; ?>
+                        <? endforeach; ?>
                     </div>
-                    <div class="bx-soa-section-content container-fluid"></div>
                 </div>
+<!--                <div id="bx-soa-country" data-visited="false" class="bx-soa-section bx-active">-->
+<!--                    <div class="bx-soa-section-title-container">-->
+<!--                        <h2 class="bx-soa-section-title col-sm-9">-->
+<!--                            <span class="bx-soa-section-title-count"></span>--><?//=$arParams['MESS_COUNTRY_BLOCK_NAME']?>
+<!--                        </h2>-->
+<!--                        <div class="col-xs-12 col-sm-3 text-right"><a href="" class="bx-soa-editstep">--><?//=$arParams['MESS_EDIT']?><!--</a></div>-->
+<!--                    </div>-->
+<!--                    <div class="bx-soa-section-content container-fluid"></div>-->
+<!--                </div>-->
 
 				<!--	REGION BLOCK	-->
 				<div id="bx-soa-region" data-visited="false" class="bx-soa-section bx-active">

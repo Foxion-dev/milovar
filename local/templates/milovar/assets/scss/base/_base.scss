@@ -66,6 +66,10 @@ body {
   padding-top: 225px;
 }
 
+.home .main{
+  padding-top: 161px;
+}
+
 .footer{
   flex: 0 0 auto;
 }
@@ -84,15 +88,10 @@ body {
   }
 
   @include max-screen (992px) {
-    max-width: 720px;
-  }
-
-  @include max-screen (768px) {
-    max-width: 540px;
+    max-width: 100%;
   }
 
   @include max-screen (576px) {
-    max-width: 100%;
     box-sizing: border-box;
   }
 }

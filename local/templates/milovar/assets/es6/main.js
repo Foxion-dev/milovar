@@ -155,12 +155,12 @@
         $(document).on('click', ".js-sel-product", function(){
             var buttData = $(this);
             var blockData = buttData.parents('.js-prod-item');
-            var bigData = JSON.parse(buttData.attr('data-big-data'));
+            var bigData = buttData.attr('data-big-data');
 
             blockData.find('.js-sel-product').removeClass('is-chek');
             buttData.addClass('is-chek');
 
-            blockData.find('.js-add-basket').attr('data-link', bigData.basket_link)
+            blockData.find('.js-add-basket').attr('data-link', bigData);
             blockData.find('.price-show').text(new Intl.NumberFormat('ru-RU').format(bigData.price));
         })
 
@@ -172,6 +172,28 @@
 
         $(document).on('click', ".js-add-basket", function(){
             window.location.href = atob($(this).attr('data-link')).replace(/&amp;/gi, "&");
+        })
+
+        $(document).on('click', ".js-card-plus, .js-card-minus", function(){
+            var cartBlock = $(this).parents('.js-cart-counter');
+            var count = cartBlock.find('.js-card-count').val();
+
+            if($(this).hasClass('js-card-plus')){
+                count++;
+
+            } else if($(this).hasClass('js-card-minus')) {
+                count--;
+                count = count <= 0 ? 1 : count;
+            }
+
+            cartBlock.find('.js-card-count').val(count);
+        })
+
+        $(document).on('change', ".js-card-count", function(){
+
+            if($(this).val() <= 0){
+                $(this).val('1');
+            }
         })
     }
 
@@ -219,6 +241,13 @@
         $('.prod-light-box').fancybox();
     }
 
+    function mobileMenu(){
+        $(document).on('click', '.nav-burger', function(){
+            $(this).toggleClass('open');
+            $('.header-mobile-menu').toggleClass('open');
+        })
+    }
+
     $(function(){
         ourAddress(); // показать адреса в шапке
         catalogVid(); // переключение вида каталога
@@ -229,5 +258,6 @@
         selectInit();
         sliderInit();
         lightBoxInit();
+        mobileMenu();
     })
 })(jQuery)

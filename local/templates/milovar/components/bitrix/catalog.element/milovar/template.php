@@ -53,7 +53,7 @@ $this->setFrameMode(true);
             </div>
         </div>
     </div>
-    <div class="right-info">
+    <div class="right-info js-prod-item">
         <div class="navigation-btn">
             <? if(isset($arResult['link_tovar']['prev'])): ?>
                 <a class="prev-prod" href="<?= $arResult['link_tovar']['prev'] ?>">< Пред.</a>
@@ -79,17 +79,37 @@ $this->setFrameMode(true);
         </div>
 
         <div class="fasov-colvo">
-            <span class="fasov" >Фасовка:</span>
-
-        </div>
-        <div class="buy-price">
-            <span class="price">4 490.00р</span>
-            <div class="colvo">
-                <button class="quan-minus">&ndash;</button>
-                <input  class="quan-num" type="number" min="1" max="10" value="1">
-                <button class="quan-plus">+</button>
+            <div class="fasov-colvo__title">
+                <span class="fasov" >Фасовка:</span>
             </div>
-            <a href="#" class="into-basket">В корзину</a>
+
+            <div class="fasov-colvo__list">
+
+                <? foreach ($arResult['offer_data'] as $key_offer => $one_offer): ?>
+                    <div class="fasov-colvo__item-container">
+                        <div class="fasov-colvo__item js-sel-product<?= $one_offer['class_active'] ?>" data-big-data='<?= $one_offer['big-date'] ?>'>
+                            <span class="fasov-colvo__item-quest">
+                                <span class="fasov-colvo__item-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>
+                            </span>
+
+                            <span class="fasov-colvo__item-title"><?= $one_offer['portion'] ?></span>
+                        </div>
+                    </div>
+                <? endforeach; ?>
+            </div>
+        </div>
+
+        <div class="buy-price js-cart-counter">
+            <? $price_tov = (float)json_decode($arResult['offer_data'][0]['big-date'])->price ?>
+            <span class="price js-cart-price"><?= number_format($price_tov, 2, '.', " ") ?>р</span>
+
+            <div class="colvo">
+                <button class="quan-minus js-card-minus">&ndash;</button>
+                <input  class="quan-num js-card-count" type="number" value="1" />
+                <button class="quan-plus js-card-plus">+</button>
+            </div>
+
+            <button type="button" class="into-basket js-add-basket" data-link='<?= $arResult['offer_data'][0]['big-date'] ?>'>В корзину</button>
         </div>
     </div>
 </div>

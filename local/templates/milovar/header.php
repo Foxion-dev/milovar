@@ -22,6 +22,7 @@ if(CModule::IncludeModule("sale")){
 <html>
     <head>
         <title><?$APPLICATION->ShowTitle()?></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <?$APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH . "/fonts/MuseoSansCyrl/stylesheet.css");?>
         <?$APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH . "/css/libs.min.css");?>
@@ -63,7 +64,6 @@ if(CModule::IncludeModule("sale")){
                                     <li><a href="help-page.html">Помощь</a></li>
                                     <li><a href="#">Клиентам</a></li>
                                 </ul>
-                                <div class="navBurger" role="navigation" id="navToggle"></div>
                             </div>
                             <div class="register">
                                 <a href="entrance.html">Вход </a>/<a href="register.html">Регистрация</a>
@@ -72,6 +72,12 @@ if(CModule::IncludeModule("sale")){
                                 <form id="serch-form">
                                     <input type="text" name="search-phrase" placeholder="Поиск по сайту" />
                                 </form>
+                            </div>
+
+                            <div class="nav-burger" role="navigation" id="navToggle">
+                                <span class="nav-burger__bar nav-burger__bar-1"></span>
+                                <span class="nav-burger__bar nav-burger__bar-2"></span>
+                                <span class="nav-burger__bar nav-burger__bar-3"></span>
                             </div>
                         </div>
                         <div class="header-mobile-menu">
@@ -84,7 +90,6 @@ if(CModule::IncludeModule("sale")){
                                     <li><a href="#">Доставка и оплата</a></li>
                                     <li><a href="#">Накопительные скидки</a></li>
                                     <li><a href="#">Помощь</a></li>
-                                    <li><p><a href="#">Москва ул.Вавилова, 9Ас2<i class="flaticon-drop-down-arrow"></i></a></li>
                                 </ul>
                             </div>
                         </div>

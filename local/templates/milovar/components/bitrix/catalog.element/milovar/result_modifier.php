@@ -10,6 +10,8 @@ if ($user_id)
 
 $GLOBALS['parent_url_tovar'] = $arResult["SECTION"]['SECTION_PAGE_URL'];
 
+
+//ссылки на товары
 $arOrder = array('id'=>'desc');
 $arFilter = array(
 	'SECTION_ID'=>$arResult["SECTION"]["ID"],
@@ -36,6 +38,22 @@ foreach ($arr_link as $key_link => $val_link){
 		$arResult['link_tovar']['prev'] = $arr_link[$key_link - 1]['link'];
 		$arResult['link_tovar']['next'] = $arr_link[$key_link + 1]['link'];
 	}
+}
+
+//'&quantity=2'
+//фасовка
+foreach ($arResult["OFFERS"] as $num_offer => $one_offer){
+	$id_prop = array_search("Фасовка", $one_offer["PROPERTIES"]["CML2_ATTRIBUTES"]["DESCRIPTION"]);
+	$prop_val = $one_offer["PROPERTIES"]["CML2_ATTRIBUTES"]["VALUE"][$id_prop];
+	$basket_link = $one_offer["ADD_URL"];
+	$price_id = $one_offer["PRICES"]["RETAIL"]["PRICE_ID"];
+	$price = $one_offer["CATALOG_PRICE_" . $price_id];
+
+	$arResult['offer_data'][] = [
+		'portion' => $prop_val,
+		'big-date' => json_encode(compact('price', 'basket_link')),
+		'class_active' => $num_offer == 0 ? " is-chek" : ""
+	];
 }
 
 ?>

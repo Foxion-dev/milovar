@@ -85,18 +85,18 @@ use Bitrix\Sale;
                         </div>
                     <? endif; ?>
 
-                    <div class="catalog-product__card">
+                    <div class="catalog-product__card js-cart-counter">
                         <div class="catalog-product__card-price">
                             <span>
-                                <span class="price-show"><?= number_format($price_start, 0, "", " ") ?></span>
+                                <span class="price-show js-cart-price"><?= number_format($price_start, 0, "", " ") ?></span>
                                 <span> Р</span>
                             </span>
                         </div>
 
                         <div class="catalog-product__card-but">
                             <div class="catalog-product__card-calc">
-                                <button class="catalog-product__card-min js-card-min"></button>
-                                <input type="text" class="catalog-product__card-did" name="prod_count" data-max-count="10" value="1" />
+                                <button class="catalog-product__card-min js-card-minus"></button>
+                                <input type="text" class="catalog-product__card-did js-card-count" name="prod_count" data-max-count="10" value="1" />
                                 <button class="catalog-product__card-plus js-card-plus"></button>
                             </div>
 

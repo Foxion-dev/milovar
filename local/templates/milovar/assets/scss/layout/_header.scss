@@ -92,10 +92,6 @@
 			@include max-screen (1170px) {
 				padding-right: 35px;
 			}
-
-			@include max-screen (768px) {
-				display: none;
-			}
 		}
 
 		.is-open{
@@ -109,11 +105,12 @@
 		}
 
 		.nav-items {
+
 			@include max-screen (768px) {
 					order: 1;
 					width: 100%;
-					margin-top: 10px;
-				}
+			}
+
 			.header-nav {
 				display: flex;
 				justify-content: space-around;
@@ -140,7 +137,7 @@
 			}
 
 			@include max-screen (1024px) {
-				padding-right: 50px;
+				padding-right: 15px;
 			}
 
 			a{
@@ -213,7 +210,7 @@
 		top: 0;
 		left: 0;
 		width: 100%;
-		height: 100%;
+		height: 100vh;
 		background-color: rgb(239,246,249);
 		z-index: 20;
 		// margin-left: -120%;
@@ -305,71 +302,63 @@
     overflow: hidden;
 }
 
-.navBurger {
-    position: absolute;
-    right: 100px;
-    top: 20px;
-    cursor: pointer;
-    background:  $c_content;
-    box-sizing: border-box;
-    background-clip: content-box;
-    width: 20px;
-    height: 25px;
-    border-top: 12px solid transparent;
-    border-bottom: 11px solid transparent;
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
-    -webkit-transition: all 0.25s ease-in-out;
-    transition: all 0.25s ease-in-out;
-    display: none;
-    z-index: 21;
-    @include max-screen (768px) {
-    	display: block;
-    	right: 75px;
-    }
-    @include max-screen (426px) {
-    	right: 30px;
-    }
-    &:before,
-    &:after {
-        content: "";
-        position: absolute;
-        background: $c_content;
-        height: 2px;
-        width: 100%;
-        right: 0;
-        will-change: rotate;
-        -webkit-transform: rotate(0deg);
-        transform: rotate(0deg);
-        -webkit-transition: all 0.5s ease;
-        transition: all 0.5s ease;
-    }
-    &:before {
-        top: -10px;
-        width: 100%;
-    }
-    &:after {
-        bottom: -10px;
-        width: 100%;
-    }
-    &.active {
-        background:  transparent;
-        background-clip: content-box;
-    }
-    &.active:before {
-        -webkit-transform: rotate(135deg);
-        transform: rotate(135deg);
-        top: 0;
-        background:  $c_content;
-        width: 110%;
-    }
-    &.active:after {
-        bottom: 0;
-        -webkit-transform: rotate(-135deg);
-        transform: rotate(-135deg);
-        background:  $c_content;
-        width: 110%;
-    }
+.nav-burger{
+   	display: none;
+	height: 25px;
+	width: 25px;
+	position: relative;
+	cursor: pointer;
+	z-index: 21;
+
+	&__bar{
+		display: flex;
+		width: 25px;
+		height: 2px;
+		background-color: $c_content;
+		position: absolute;
+		left: 0;
+		transform-origin: center;
+
+		&-1{
+			top: 0;
+		}
+
+		&-2{
+			top: 50%;
+			margin-top: -1px;
+		}
+
+		&-3{
+			bottom: 0;
+		}
+	}
+
+	&.open{
+
+		.nav-burger{
+
+			&__bar{
+				width: 32px;
+				left: -3px;
+
+				&-1{
+					display: none;
+				}
+
+				&-2{
+					top: 50%;
+					margin-top: -1px;
+					transform: rotate(45deg);
+				}
+
+				&-3{
+					bottom: 50%;
+					margin-bottom: -1px;
+					transform: rotate(-45deg);
+				}
+			}
+		}
+	}
 }
 
 #serch-form{
@@ -588,5 +577,82 @@
 
 	&__separ{
 		padding: 0 6px;
+	}
+}
+
+@media screen and (max-width: 1024px) {
+	.header .head-nav__item{
+		padding: 0 10px;
+	}
+
+	#serch-form input{
+		width: 156px;
+	}
+
+	.header .header-block .nav-items .header-nav li{
+		margin-right: 20px;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.header .head-nav__list{
+		display: none;
+	}
+
+	.header .head-content-nav .logo-block{
+		max-width: 260px;
+	}
+
+	.phone-basket-block{
+		max-width: 100%;
+		justify-content: flex-end;
+	}
+
+	.phone-basket-block .phone-item{
+		margin-right: 40px;
+	}
+
+	.header .header-block .adress__list{
+		right: -20px;
+	}
+
+	.nav-burger{
+		display: flex;
+	}
+}
+
+@media screen and (max-width: 700px) {
+
+	.header .head-content-nav{
+		flex-wrap: wrap;
+	}
+
+	.phone-basket-block{
+		margin-top: 20px;
+		justify-content: flex-start;
+	}
+
+	.main{
+		padding-top: 290px;
+	}
+
+	.home .main {
+		padding-top: 226px;
+	}
+
+	.header .header-block .adress{
+		order: 1;
+	}
+
+	.nav-burger{
+		order: 2;
+	}
+
+	.search{
+		order: 3;
+	}
+
+	.register{
+		order: 4;
 	}
 }

@@ -78,7 +78,6 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 		 */
 		init: function(parameters){
 
-			// console.log(parameters);
 
 			this.initializePrimaryFields();
 
@@ -1713,8 +1712,8 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 
 			this.checkNotifications();
 
-			if (this.activeSectionId !== this.regionBlockNode.id)
-				this.editFadeRegionContent(this.regionBlockNode.querySelector('.bx-soa-section-content'));
+			// if (this.activeSectionId !== this.regionBlockNode.id)
+			// 	this.editFadeRegionContent(this.regionBlockNode.querySelector('.bx-soa-section-content'));
 
 			if (this.activeSectionId != this.propsBlockNode.id)
 				this.editFadePropsContent(this.propsBlockNode.querySelector('.bx-soa-section-content'));
@@ -2516,9 +2515,9 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 				// case this.countryBlockNode.id:
 				// 	this.editCountryBlock(active);
 				// 	break;
-				case this.regionBlockNode.id:
-					this.editRegionBlock(active);
-					break;
+				// case this.regionBlockNode.id:
+				// 	this.editRegionBlock(active);
+				// 	break;
 				case this.paySystemBlockNode.id:
 					this.editPaySystemBlock(active);
 					break;
@@ -4469,9 +4468,9 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 			}
 			else
 			{
-				personTypeInput = this.regionBlockNode.querySelector('select[name=PERSON_TYPE] > option:checked');
-				if (!personTypeInput)
-					personTypeInput = this.regionHiddenBlockNode.querySelector('select[name=PERSON_TYPE] > option:checked');
+				// personTypeInput = this.regionBlockNode.querySelector('select[name=PERSON_TYPE] > option:checked');
+				// if (!personTypeInput)
+				// 	personTypeInput = this.regionHiddenBlockNode.querySelector('select[name=PERSON_TYPE] > option:checked');
 			}
 
 			if (personTypeInput)

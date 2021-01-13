@@ -210,7 +210,18 @@
 
     function selectInit(){
         $('.arh-sel-city').selectPlug({
-            class: "order-city-sel"
+            class: "order-city-sel",
+            changeSelect: {
+                '#select-region-origin': {
+                    value: ""
+                },
+                '#recent-delivery-value': {
+                    value: ""
+                },
+                '#select-region-order': {
+                    value: ""
+                }
+            }
         });
     }
 
@@ -248,6 +259,49 @@
         })
     }
 
+    function orderSelectregion(){
+
+        function selSity(serchText) {
+            var countryOrder = $('#order-country').val()
+            var arrCity = BX.Sale.OrderAjaxComponent.result.SEARCH_CITY[countryOrder];
+            var itog = "";
+            var itogCount = 0;
+
+            if(serchText.length > 1){
+                itog += '<div class="gorod-text__list">';
+
+                $.each(arrCity, function(index, value){
+                    var miniVal = value.toLowerCase();
+                    var miniSearch = serchText.toLowerCase()
+
+                    if(miniVal.indexOf(miniSearch) > -1){
+                        itog += '<span class="gorod-text__item" data-code="' + index + '">' + value + '</span>'
+                        itogCount++;
+                    }
+                })
+
+                itog += '<div>';
+            }
+
+            $('.gorod-text__list').remove();
+            $('#select-region-origin, #recent-delivery-value').val('');
+
+            if(itogCount > 0){
+                $('.gorod-text').append(itog);
+            }
+        }
+
+        $(document).on('input', "#select-region-order", function(e){
+            selSity($(this).val());
+        })
+
+        $(document).on('click', ".gorod-text__item", function(){
+            $('#select-region-order').val($(this).text());
+            $("#select-region-origin, #recent-delivery-value").val($(this).attr('data-code'));
+            $('.gorod-text__list').remove();
+        })
+    }
+
     $(function(){
         ourAddress(); // показать адреса в шапке
         catalogVid(); // переключение вида каталога
@@ -259,5 +313,6 @@
         sliderInit();
         lightBoxInit();
         mobileMenu();
+        orderSelectregion();
     })
 })(jQuery)

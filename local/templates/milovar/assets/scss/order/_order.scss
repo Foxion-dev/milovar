@@ -29,12 +29,20 @@
                 @include museo700;
                 margin-bottom: 40px;
             }
+
+            &__city{
+                width: 290px;
+            }
         }
 
         &-block{
 
             &__country{
                 margin-bottom: 25px;
+            }
+
+            &__city{
+                margin-bottom: 50px;
             }
         }
     }
@@ -88,6 +96,54 @@
             &__option{
                 width: 290px;
 
+            }
+        }
+    }
+
+    #select-region-order{
+        display: flex;
+        width: 290px;
+        height: 54px;
+        border: 1px solid #f2f3f7;
+        background-color: #f2f3f7;
+        border-radius: 5px;
+        color: rgba(62, 80, 101, .5);
+        padding: 5px 10px;
+
+        &:focus{
+            border-color: $c_func_color;
+            background-color: $c_white;
+            outline: 0;
+        }
+    }
+
+    .gorod-text{
+        position: relative;
+
+        &__list{
+            display: flex;
+            position: absolute;
+            left: 0;
+            width: 100%;
+            flex-wrap: wrap;
+            top: 54px;
+            height: fit-content;
+            max-height: 206px;
+            border: 1px solid #dee1e5;
+            border-radius: 3px;
+            z-index: 100;
+            overflow-x: hidden;
+        }
+
+        &__item{
+            width: 100%;
+            display: flex;
+            padding: 5px 10px;
+            cursor: pointer;
+            background-color: $c_white;
+
+            &:hover{
+                background-color: #f6fafe;
             }
         }
     }

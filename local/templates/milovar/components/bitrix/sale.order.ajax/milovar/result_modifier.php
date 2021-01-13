@@ -8,20 +8,20 @@
 
 $component = $this->__component;
 $component::scaleImages($arResult['JS_DATA'], $arParams['SERVICES_IMAGES_SCALING']);
+$itog_city = [];
 
-//echo "<pre>",var_dump($arResult),"</pre>";
+foreach ($arResult["ORDER_PROP"]["USER_PROPS_Y"] as $prop_one){
 
-//foreach($arResult as $rty => $fghfgh){
-//
-//    if($rty == "ORDER_PROP"){
-//
-//        foreach ($fghfgh as $tty => $ljkh){
-//
-//            if($tty == "USER_PROPS_N"){
-//                echo "<pre>",var_dump($ljkh),"</pre>";
-//            }
-//        }
-//    }
-//
-//}
-//ORDER_PROP_17
+    if($prop_one["CODE"] == 'LOCATION'){
+        $GLOBALS['name_fild_loc'] = $prop_one["FIELD_NAME"];
+
+        foreach ($prop_one["VARIANTS"] as $rt => $ret){
+
+            if(is_numeric(strripos($ret["NAME"], " - "))){
+                $arrCity = explode(" - ", $ret["NAME"]);
+                $itog_city[$arrCity[0]][$ret['CODE']] = $arrCity[1];
+            }
+        }
+    }
+}
+$arResult['JS_DATA']['SEARCH_CITY'] = $itog_city;

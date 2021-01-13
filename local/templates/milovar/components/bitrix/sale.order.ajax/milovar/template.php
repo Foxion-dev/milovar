@@ -298,9 +298,9 @@ switch (LANGUAGE_ID)
 		$locale = 'en-US'; break;
 }
 
-$this->addExternalCss('/bitrix/css/main/bootstrap.css');
-$APPLICATION->SetAdditionalCSS('/bitrix/css/main/themes/'.$arParams['TEMPLATE_THEME'].'/style.css', true);
-$APPLICATION->SetAdditionalCSS($templateFolder.'/style.css', true);
+//$this->addExternalCss('/bitrix/css/main/bootstrap.css');
+//$APPLICATION->SetAdditionalCSS('/bitrix/css/main/themes/'.$arParams['TEMPLATE_THEME'].'/style.css', true);
+//$APPLICATION->SetAdditionalCSS($templateFolder.'/style.css', true);
 $this->addExternalJs($templateFolder.'/order_ajax.js');
 \Bitrix\Sale\PropertyValueCollection::initJs();
 $this->addExternalJs($templateFolder.'/script.js');
@@ -336,6 +336,7 @@ else
 		<input type="hidden" name="<?=$arParams['ACTION_VARIABLE']?>" value="saveOrderAjax">
 		<input type="hidden" name="location_type" value="code">
 		<input type="hidden" name="BUYER_STORE" id="BUYER_STORE" value="<?=$arResult['BUYER_STORE']?>">
+
 		<div id="bx-soa-order" class="row bx-<?=$arParams['TEMPLATE_THEME']?>" style="opacity: 0">
 			<!--	MAIN BLOCK	-->
 			<div class="col-sm-9 bx-soa">
@@ -367,45 +368,39 @@ else
 				<? endif ?>
 
                 <!-- COUNTRY BLOCK -->
-                <div class="order-row order-block__country">
-                    <h2 class="order-row__title">
-                        <span>1 шаг: Выберите страну</span>
-                    </h2>
+                <?$APPLICATION->IncludeComponent(
+                        "bitrix:sale.location.selector.steps",
+                        "milovar", Array(
+                    "CACHE_TIME" => "36000000",	// Время кеширования (сек.)
+                    "CACHE_TYPE" => "A",	// Тип кеширования
+                    "CODE" => "",	// Символьный код местоположения
+                    "DISABLE_KEYBOARD_INPUT" => "N",	// Отключить поиск через ввод с клавиатуры и не показывать следующий уровень при выборе
+                    "FILTER_BY_SITE" => "N",	// Фильтровать по сайту
+                    "ID" => "",	// ID местоположения
+                    "INITIALIZE_BY_GLOBAL_EVENT" => "",	// Инициализировать компонент только при наступлении указанного javascript-события на объекте window.document
+                    "INPUT_NAME" => "LOCATION",	// Имя поля ввода
+                    "JS_CALLBACK" => "",	// Javascript-функция обратного вызова
+                    "JS_CONTROL_GLOBAL_ID" => "",	// Идентификатор javascript-контрола
+                    "PRECACHE_LAST_LEVEL" => "Y",	// Предварительно загружать последний выбранный уровень
+                    "PRESELECT_TREE_TRUNK" => "N",	// Отображать статичный ствол дерева
+                    "PROVIDE_LINK_BY" => "id",	// Сохранять связь через
+                    "SHOW_DEFAULT_LOCATIONS" => "N",	// Отображать местоположения по-умолчанию
+                    "SUPPRESS_ERRORS" => "N",	// Не показывать ошибки, если они возникли при загрузке компонента
+                ),
+                    false
+                );?>
 
-                    <div class="order-row__field">
-                        <? foreach ($arResult['ORDER_PROP']['USER_PROPS_N'] as $key_prop => $item_prop): ?>
-
-                            <? if($item_prop['CODE'] == "ORDER_COUNTRY"): ?>
-                                <select name="<?= $item_prop["FIELD_NAME"] ?>" id="order-country" class="arh-sel-city">
-
-                                    <? foreach ($item_prop["VARIANTS"] as $val_prop): ?>
-                                        <option value="<?= $val_prop["VALUE"] ?>"<? if(isset($val_prop['SELECTED'])) echo "selected"; ?>><?= $val_prop["NAME"] ?></option>
-                                    <? endforeach; ?>
-                                </select>
-                            <? endif; ?>
-                        <? endforeach; ?>
-                    </div>
-                </div>
-<!--                <div id="bx-soa-country" data-visited="false" class="bx-soa-section bx-active">-->
-<!--                    <div class="bx-soa-section-title-container">-->
-<!--                        <h2 class="bx-soa-section-title col-sm-9">-->
-<!--                            <span class="bx-soa-section-title-count"></span>--><?//=$arParams['MESS_COUNTRY_BLOCK_NAME']?>
-<!--                        </h2>-->
-<!--                        <div class="col-xs-12 col-sm-3 text-right"><a href="" class="bx-soa-editstep">--><?//=$arParams['MESS_EDIT']?><!--</a></div>-->
-<!--                    </div>-->
-<!--                    <div class="bx-soa-section-content container-fluid"></div>-->
-<!--                </div>-->
 
 				<!--	REGION BLOCK	-->
-				<div id="bx-soa-region" data-visited="false" class="bx-soa-section bx-active">
-					<div class="bx-soa-section-title-container">
-						<h2 class="bx-soa-section-title col-sm-9">
-							<span class="bx-soa-section-title-count"></span><?=$arParams['MESS_REGION_BLOCK_NAME']?>
-						</h2>
-						<div class="col-xs-12 col-sm-3 text-right"><a href="" class="bx-soa-editstep"><?=$arParams['MESS_EDIT']?></a></div>
-					</div>
-					<div class="bx-soa-section-content container-fluid"></div>
-				</div>
+<!--				<div id="bx-soa-region" data-visited="false" class="bx-soa-section bx-active">-->
+<!--					<div class="bx-soa-section-title-container">-->
+<!--						<h2 class="bx-soa-section-title col-sm-9">-->
+<!--							<span class="bx-soa-section-title-count"></span>--><?//=$arParams['MESS_REGION_BLOCK_NAME']?>
+<!--						</h2>-->
+<!--						<div class="col-xs-12 col-sm-3 text-right"><a href="" class="bx-soa-editstep">--><?//=$arParams['MESS_EDIT']?><!--</a></div>-->
+<!--					</div>-->
+<!--					<div class="bx-soa-section-content container-fluid"></div>-->
+<!--				</div>-->
 
 				<? if ($arParams['DELIVERY_TO_PAYSYSTEM'] === 'p2d'): ?>
 					<!--	PAY SYSTEMS BLOCK	-->
@@ -584,18 +579,18 @@ else
 	<div style="display: none">
 		<?
 		// we need to have all styles for sale.location.selector.steps, but RestartBuffer() cuts off document head with styles in it
-		$APPLICATION->IncludeComponent(
-			'bitrix:sale.location.selector.steps',
-			'.default',
-			array(),
-			false
-		);
-		$APPLICATION->IncludeComponent(
-			'bitrix:sale.location.selector.search',
-			'.default',
-			array(),
-			false
-		);
+//		$APPLICATION->IncludeComponent(
+//			'bitrix:sale.location.selector.steps',
+//			'.default',
+//			array(),
+//			false
+//		);
+//		$APPLICATION->IncludeComponent(
+//			'bitrix:sale.location.selector.search',
+//			'.default',
+//			array(),
+//			false
+//		);
 		?>
 	</div>
 	<?
@@ -603,6 +598,7 @@ else
 	$signedParams = $signer->sign(base64_encode(serialize($arParams)), 'sale.order.ajax');
 	$messages = Loc::loadLanguageFile(__FILE__);
 	?>
+
 	<script>
 		BX.message(<?=CUtil::PhpToJSObject($messages)?>);
 		BX.Sale.OrderAjaxComponent.init({

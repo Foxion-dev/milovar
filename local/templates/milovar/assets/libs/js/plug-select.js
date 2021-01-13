@@ -4,7 +4,8 @@ jQuery.fn.selectPlug = function (params) {
     _.options = {
         class: "",
         animate: false,
-        speedAnimate: 300
+        speedAnimate: 300,
+        changeSelect: "_none"
     }
 
     $.extend(_.options, params);
@@ -64,6 +65,22 @@ jQuery.fn.selectPlug = function (params) {
         var papka = $(this).parents('.sel-plag__main');
 
         papka.prev('select').val($(this).attr('data-value'))
+
+        if(_.options.changeSelect != "_none"){
+
+            $.each(_.options.changeSelect, function(index, value){
+                var domElem = $(index);
+                var elemAttr = value;
+
+                $.each(elemAttr, function(index, value){
+
+                    if(index == "value"){
+                        domElem.val(value);
+                    }
+                })
+            })
+        }
+
         papka.find('.sel-plag__cont-val').text($(this).text());
         papka.removeClass('is-open');
     })

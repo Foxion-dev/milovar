@@ -390,18 +390,6 @@ else
                     false
                 );?>
 
-
-				<!--	REGION BLOCK	-->
-<!--				<div id="bx-soa-region" data-visited="false" class="bx-soa-section bx-active">-->
-<!--					<div class="bx-soa-section-title-container">-->
-<!--						<h2 class="bx-soa-section-title col-sm-9">-->
-<!--							<span class="bx-soa-section-title-count"></span>--><?//=$arParams['MESS_REGION_BLOCK_NAME']?>
-<!--						</h2>-->
-<!--						<div class="col-xs-12 col-sm-3 text-right"><a href="" class="bx-soa-editstep">--><?//=$arParams['MESS_EDIT']?><!--</a></div>-->
-<!--					</div>-->
-<!--					<div class="bx-soa-section-content container-fluid"></div>-->
-<!--				</div>-->
-
 				<? if ($arParams['DELIVERY_TO_PAYSYSTEM'] === 'p2d'): ?>
 					<!--	PAY SYSTEMS BLOCK	-->
 					<div id="bx-soa-paysystem" data-visited="false" class="bx-soa-section bx-active">
@@ -434,6 +422,7 @@ else
 						<div class="bx-soa-section-content container-fluid"></div>
 					</div>
 				<? else: ?>
+
 					<!--	DELIVERY BLOCK	-->
 					<div id="bx-soa-delivery" data-visited="false" class="bx-soa-section bx-active" <?=($hideDelivery ? 'style="display:none"' : '')?>>
 						<div class="bx-soa-section-title-container">
@@ -444,6 +433,7 @@ else
 						</div>
 						<div class="bx-soa-section-content container-fluid"></div>
 					</div>
+
 					<!--	PICKUP BLOCK	-->
 					<div id="bx-soa-pickup" data-visited="false" class="bx-soa-section" style="display:none">
 						<div class="bx-soa-section-title-container">
@@ -598,8 +588,11 @@ else
 	$signedParams = $signer->sign(base64_encode(serialize($arParams)), 'sale.order.ajax');
 	$messages = Loc::loadLanguageFile(__FILE__);
 	?>
-
+    <script>
+        window.order_city = <?=CUtil::PhpToJSObject($arResult['search_city'])?>
+    </script>
 	<script>
+
 		BX.message(<?=CUtil::PhpToJSObject($messages)?>);
 		BX.Sale.OrderAjaxComponent.init({
 			result: <?=CUtil::PhpToJSObject($arResult['JS_DATA'])?>,

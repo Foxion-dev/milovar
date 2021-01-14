@@ -24,4 +24,6 @@ foreach ($arResult["ORDER_PROP"]["USER_PROPS_Y"] as $prop_one){
         }
     }
 }
-$arResult['JS_DATA']['SEARCH_CITY'] = $itog_city;
+$arResult['search_city'] = $itog_city;
+
+//echo "<pre>",var_dump($arResult),"</pre>";

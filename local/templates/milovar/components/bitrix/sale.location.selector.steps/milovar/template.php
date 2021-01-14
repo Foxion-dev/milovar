@@ -29,7 +29,7 @@ Loc::loadMessages(__FILE__);
             </select>
         </div>
     </div>
-
+    <!-- CITY BLOCK -->
     <div class="order-row  order-block__city">
         <h2 class="order-row__title">
             <span>2 шаг: Выберите город</span>

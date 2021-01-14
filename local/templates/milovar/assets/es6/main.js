@@ -262,8 +262,9 @@
     function orderSelectregion(){
 
         function selSity(serchText) {
+            console.log(BX.Sale.OrderAjaxComponent.result);
             var countryOrder = $('#order-country').val()
-            var arrCity = BX.Sale.OrderAjaxComponent.result.SEARCH_CITY[countryOrder];
+            var arrCity = window.order_city[countryOrder];
             var itog = "";
             var itogCount = 0;
 
@@ -299,6 +300,7 @@
             $('#select-region-order').val($(this).text());
             $("#select-region-origin, #recent-delivery-value").val($(this).attr('data-code'));
             $('.gorod-text__list').remove();
+            BX.Sale.OrderAjaxComponent.sendRequest();
         })
     }
 
@@ -315,4 +317,5 @@
         mobileMenu();
         orderSelectregion();
     })
+
 })(jQuery)

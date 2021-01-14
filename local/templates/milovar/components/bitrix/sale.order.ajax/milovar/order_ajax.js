@@ -216,6 +216,7 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 							document.location.href = result.redirect;
 
 						this.saveFiles();
+
 						switch (action)
 						{
 							case 'refreshOrderAjax':
@@ -2015,9 +2016,9 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 				case this.basketBlockNode.id:
 					this.editFadeBasketBlock();
 					break;
-				case this.regionBlockNode.id:
-					this.editFadeRegionBlock();
-					break;
+				// case this.regionBlockNode.id:
+				// 	this.editFadeRegionBlock();
+				// 	break;
 				case this.paySystemBlockNode.id:
 					BX.remove(this.paySystemBlockNode.querySelector('.alert.alert-warning.alert-hide'));
 					this.editFadePaySystemBlock();
@@ -2440,7 +2441,7 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 			if (this.result.DELIVERY.length > 0)
 			{
 				BX.addClass(this.deliveryBlockNode, 'bx-active');
-				this.deliveryBlockNode.removeAttribute('style');
+				// this.deliveryBlockNode.removeAttribute('style');
 			}
 			else
 			{
@@ -5850,6 +5851,8 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 			if (deliveryCheckbox)
 			{
 				deliveryId = deliveryCheckbox.value;
+
+
 
 				for (i in this.result.DELIVERY)
 				{

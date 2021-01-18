@@ -28,10 +28,82 @@
                 font-size: 18px;
                 @include museo700;
                 margin-bottom: 40px;
+
+                &-sub{
+                    font-size: 13px;
+                    @include museo300;
+                    display: block;
+                }
             }
 
             &__city{
-                width: 290px;
+                display: flex;
+
+                .gorod-text{
+                    width: 290px;
+                }
+            }
+
+            &__delivery{
+
+                &-item{
+                    margin-bottom: 10px;
+                }
+
+                &-row{
+                    display: flex;
+                    height: 80px;
+                    align-items: center;
+                    border-radius: 5px;
+                    background-color: $c_order_grey;
+                    padding: 0 30px;
+                    cursor: pointer;
+                }
+
+                &-input{
+                    display: none;
+
+                    &:checked + .order-row__delivery-fufel{
+
+                        &::after{
+                            content: "";
+                            position: absolute;
+                            height: 14px;
+                            width: 14px;
+                            background-color: $c_func_color;
+                            border-radius: 7px;
+                            top: 50%;
+                            left: 50%;
+                            transform: translateX(-50%) translateY(-50%);
+                        }
+                    }
+                }
+
+                &-fufel{
+                    display: flex;
+                    height: 24px;
+                    width: 24px;
+                    border: 1px solid $c_func_color;
+                    border-radius: 12px;
+                    margin-right: 10px;
+                    position: relative;
+                }
+
+                &-price{
+                    margin-left: auto;
+                    font-size: 16px;
+                    @include museo700;
+                }
+
+                &-name{
+                    @include museo700;
+                    font-size: 16px;
+
+                    span{
+                        font-size: 14px;
+                        @include museo300;
+                    }
+                }
             }
         }
 
@@ -42,6 +114,10 @@
             }
 
             &__city{
+                margin-bottom: 50px;
+            }
+
+            &__delivery{
                 margin-bottom: 50px;
             }
         }
@@ -144,6 +220,48 @@
 
             &:hover{
                 background-color: #f6fafe;
+            }
+        }
+    }
+
+    .kolhoz-text{
+        display: flex;
+        align-items: center;
+        padding-left: 20px;
+
+        &-title{
+            font-size: 15px;
+        }
+
+        &-chek{
+            display: flex;
+            padding-left: 20px;
+            align-items: center;
+
+            &-input{
+                display: none;
+            }
+
+            &-fufel{
+                display: flex;
+                width: 32px;
+                height: 32px;
+                border: 1px solid $c_grey_border;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+
+            &-text{
+                padding-left: 15px;
+                font-size: 15px;
+                @include museo500;
+                color: rgba(62, 80, 101, 0.502);
+                line-height: 16px;
+
+                &-mini{
+                    font-size: 12px;
+                    @include museo300;
+                }
             }
         }
     }

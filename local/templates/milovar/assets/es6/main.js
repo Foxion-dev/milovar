@@ -262,7 +262,6 @@
     function orderSelectregion(){
 
         function selSity(serchText) {
-            console.log(BX.Sale.OrderAjaxComponent.result);
             var countryOrder = $('#order-country').val()
             var arrCity = window.order_city[countryOrder];
             var itog = "";
@@ -304,6 +303,21 @@
         })
     }
 
+    function orderCalculate(){
+        $(document).on('change', ".order-row__delivery-input", function(){
+            BX.Sale.OrderAjaxComponent.sendRequest();
+        })
+
+        $(document).on('change', "#kolhoz-text-chek-input", function(){
+        // <input id="ID_PAY_SYSTEM_ID_10" name="PAY_SYSTEM_ID" type="checkbox" class="bx-soa-pp-company-checkbox" value="10">
+        })
+    }
+
+    window.calculateOrderPrice = function(thisBX){
+
+        // console.log(thisBX.result);
+    }
+
     $(function(){
         ourAddress(); // показать адреса в шапке
         catalogVid(); // переключение вида каталога
@@ -316,6 +330,7 @@
         lightBoxInit();
         mobileMenu();
         orderSelectregion();
+        orderCalculate();
     })
 
 })(jQuery)

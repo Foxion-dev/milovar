@@ -391,6 +391,7 @@ else
                 );?>
 
 				<? if ($arParams['DELIVERY_TO_PAYSYSTEM'] === 'p2d'): ?>
+
 					<!--	PAY SYSTEMS BLOCK	-->
 					<div id="bx-soa-paysystem" data-visited="false" class="bx-soa-section bx-active">
 						<div class="bx-soa-section-title-container">
@@ -401,6 +402,7 @@ else
 						</div>
 						<div class="bx-soa-section-content container-fluid"></div>
 					</div>
+
 					<!--	DELIVERY BLOCK	-->
 					<div id="bx-soa-delivery" data-visited="false" class="bx-soa-section bx-active" <?=($hideDelivery ? 'style="display:none"' : '')?>>
 						<div class="bx-soa-section-title-container">
@@ -424,15 +426,30 @@ else
 				<? else: ?>
 
 					<!--	DELIVERY BLOCK	-->
-					<div id="bx-soa-delivery" data-visited="false" class="bx-soa-section bx-active" <?=($hideDelivery ? 'style="display:none"' : '')?>>
-						<div class="bx-soa-section-title-container">
-							<h2 class="bx-soa-section-title col-sm-9">
-								<span class="bx-soa-section-title-count"></span><?=$arParams['MESS_DELIVERY_BLOCK_NAME']?>
-							</h2>
-							<div class="col-xs-12 col-sm-3 text-right"><a href="" class="bx-soa-editstep"><?=$arParams['MESS_EDIT']?></a></div>
-						</div>
-						<div class="bx-soa-section-content container-fluid"></div>
-					</div>
+                    <div class="order-row  order-block__delivery">
+                        <h2 class="order-row__title">
+                            <span>3 шаг: Выберите доставку</span>
+                            <span class="order-row__title-sub">После выбора варианта доставки появится описание</span>
+                        </h2>
+
+                        <div class="order-row__field">
+                            <div class="order-row__delivery-list">
+
+                                <? foreach($arResult['DELIVERY'] as $one_del): ?>
+                                <? //$checkRadio = $one_del["CHECKED"] == "Y" ? ' checked' : "" ?>
+
+                                    <div class="order-row__delivery-item">
+                                        <label class="order-row__delivery-row">
+                                            <input id="<?= $one_del["FIELD_NAME"] ?>_<?= $one_del["ID"] ?>" type="radio" <?//=$checkRadio?> class="order-row__delivery-input" name="<?= $one_del["FIELD_NAME"] ?>" value="<?= $one_del["ID"] ?>" />
+                                            <span class="order-row__delivery-fufel"></span>
+                                            <span class="order-row__delivery-name"><?= $one_del["NAME"] ?></span>
+                                            <span class="order-row__delivery-price"><?= $one_del['start_price'] ?></span>
+                                        </label>
+                                    </div>
+                                <? endforeach; ?>
+                            </div>
+                        </div>
+                    </div>
 
 					<!--	PICKUP BLOCK	-->
 					<div id="bx-soa-pickup" data-visited="false" class="bx-soa-section" style="display:none">

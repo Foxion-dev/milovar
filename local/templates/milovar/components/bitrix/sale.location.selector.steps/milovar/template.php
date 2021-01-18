@@ -42,6 +42,22 @@ Loc::loadMessages(__FILE__);
                 <div class="gorod-text">
                     <input type="text" class="gorod-text__fufle" id="select-region-order" placeholder="Введите город *" />
                 </div>
+
+                <div class="kolhoz-text">
+                    <div class="kolhoz-text-title">
+                        <span>или выберите</span>
+                    </div>
+
+                    <label class="kolhoz-text-chek">
+                        <input type="checkbox" class="kolhoz-text-chek-input" id="kolhoz-text-chek-input" />
+                        <span class="kolhoz-text-chek-fufel"></span>
+                        <span class="kolhoz-text-chek-text">
+                            <span>Я живу не в городе (село, поселок)</span>
+                            <br />
+                            <span class="kolhoz-text-chek-text-mini">Вам будет доступна только «Доставка в регионы РФ почтой России»</span>
+                        </span>
+                    </label>
+                </div>
             </div>
         </div>
 

@@ -304,6 +304,7 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 		{
 			if (result.error)
 			{
+
 				this.showError(this.mainErrorsNode, result.error);
 				this.animateScrollTo(this.mainErrorsNode, 800, 20);
 			}
@@ -334,8 +335,8 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 			{
 				this.isPriceChanged(result);
 
-				if (this.activeSectionId !== this.deliveryBlockNode.id)
-					this.deliveryCachedInfo = [];
+				// if (this.activeSectionId !== this.deliveryBlockNode.id)
+				// 	this.deliveryCachedInfo = [];
 
 				this.result = result.order;
 				this.prepareLocations(result.locations);
@@ -351,6 +352,8 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 				this.editOrder();
 				this.mapsReady && this.initMaps();
 				BX.saleOrderAjax && BX.saleOrderAjax.initDeferredControl();
+
+				window.calculateOrderPrice(this);
 			}
 
 			return true;
@@ -1866,12 +1869,12 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 					}
 				}
 
-				if (section.id === this.deliveryBlockNode.id)
-				{
-					skip = this.result.DELIVERY && this.result.DELIVERY.length === 1
-						&& this.result.DELIVERY[0].EXTRA_SERVICES.length === 0
-						&& !this.result.DELIVERY[0].CALCULATE_ERRORS;
-				}
+				// if (section.id === this.deliveryBlockNode.id)
+				// {
+				// 	skip = this.result.DELIVERY && this.result.DELIVERY.length === 1
+				// 		&& this.result.DELIVERY[0].EXTRA_SERVICES.length === 0
+				// 		&& !this.result.DELIVERY[0].CALCULATE_ERRORS;
+				// }
 
 				if (section.id === this.paySystemBlockNode.id)
 				{
@@ -2522,9 +2525,9 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 				case this.paySystemBlockNode.id:
 					this.editPaySystemBlock(active);
 					break;
-				case this.deliveryBlockNode.id:
-					this.editDeliveryBlock(active);
-					break;
+				// case this.deliveryBlockNode.id:
+				// 	this.editDeliveryBlock(active);
+				// 	break;
 				case this.pickUpBlockNode.id:
 					this.editPickUpBlock(active);
 					break;
@@ -5838,33 +5841,33 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 
 		getSelectedDelivery: function()
 		{
-			var deliveryCheckbox = this.deliveryBlockNode.querySelector('input[type=checkbox][name=DELIVERY_ID]:checked'),
-				currentDelivery = false,
-				deliveryId, i;
-
-			if (!deliveryCheckbox)
-				deliveryCheckbox = this.deliveryHiddenBlockNode.querySelector('input[type=checkbox][name=DELIVERY_ID]:checked');
-
-			if (!deliveryCheckbox)
-				deliveryCheckbox = this.deliveryHiddenBlockNode.querySelector('input[type=hidden][name=DELIVERY_ID]');
-
-			if (deliveryCheckbox)
-			{
-				deliveryId = deliveryCheckbox.value;
-
-
-
-				for (i in this.result.DELIVERY)
-				{
-					if (this.result.DELIVERY[i].ID == deliveryId)
-					{
-						currentDelivery = this.result.DELIVERY[i];
-						break;
-					}
-				}
-			}
-
-			return currentDelivery;
+			// var deliveryCheckbox = this.deliveryBlockNode.querySelector('input[type=checkbox][name=DELIVERY_ID]:checked'),
+			// 	currentDelivery = false,
+			// 	deliveryId, i;
+			//
+			// if (!deliveryCheckbox)
+			// 	deliveryCheckbox = this.deliveryHiddenBlockNode.querySelector('input[type=checkbox][name=DELIVERY_ID]:checked');
+			//
+			// if (!deliveryCheckbox)
+			// 	deliveryCheckbox = this.deliveryHiddenBlockNode.querySelector('input[type=hidden][name=DELIVERY_ID]');
+			//
+			// if (deliveryCheckbox)
+			// {
+			// 	deliveryId = deliveryCheckbox.value;
+			//
+			//
+			//
+			// 	for (i in this.result.DELIVERY)
+			// 	{
+			// 		if (this.result.DELIVERY[i].ID == deliveryId)
+			// 		{
+			// 			currentDelivery = this.result.DELIVERY[i];
+			// 			break;
+			// 		}
+			// 	}
+			// }
+			//
+			// return currentDelivery;
 		},
 
 		activatePickUp: function(deliveryName)

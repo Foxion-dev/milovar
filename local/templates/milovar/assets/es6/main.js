@@ -292,31 +292,108 @@
         }
 
         $(document).on('input', "#select-region-order", function(e){
+            $(this).removeClass('error')
             selSity($(this).val());
         })
 
         $(document).on('click', ".gorod-text__item", function(){
-            $('#select-region-order').val($(this).text());
+            $('#select-region-order').val($(this).text()).removeClass('error');
             $("#select-region-origin, #recent-delivery-value").val($(this).attr('data-code'));
             $('.gorod-text__list').remove();
             BX.Sale.OrderAjaxComponent.sendRequest();
         })
+
+        $(document).on('input', "#select-region-order", function(){
+
+            if($(this).val() == ""){
+                BX.Sale.OrderAjaxComponent.sendRequest();
+            }
+        })
+    }
+
+    window.order_step = {
+        city: false,
+        deliver: false,
+        payment: false
+    }
+
+    function validateOrder(){
+
+        if(!window.order_step.city){
+            var top = $('#bx-soa-order-form').offset().top;
+            $('body,html').animate({scrollTop: top}, 500);
+            $('#select-region-order').addClass('error');
+            return false;
+        }
+
+        return true;
     }
 
     function orderCalculate(){
         $(document).on('change', ".order-row__delivery-input", function(){
+
+            if(validateOrder()){
+                $('.order-row__delivery-desc').slideUp();
+                $(this).parents('.order-row__delivery-row').find('.order-row__delivery-desc').slideDown();
+                BX.Sale.OrderAjaxComponent.sendRequest();
+
+                window.order_step.deliver = true;
+            } else {
+                $(this).prop('checked', false);
+            }
+
+
+            // $('.order-row__delivery-desc').slideUp();
+            // $(this).parents('.order-row__delivery-row').find('.order-row__delivery-desc').slideDown();
+
+            // $(this).prop('checked', false)
+            // if(){
+            //
+            // }
+            // BX.Sale.OrderAjaxComponent.sendRequest();
+        })
+
+        $(document).on('change', ".order-row__payment-input", function () {
+            $('.order-row__payment-desc').slideUp();
+            $(this).parents('.order-row__payment-row').find('.order-row__payment-desc').slideDown();
             BX.Sale.OrderAjaxComponent.sendRequest();
         })
 
         $(document).on('change', "#kolhoz-text-chek-input", function(){
-        // <input id="ID_PAY_SYSTEM_ID_10" name="PAY_SYSTEM_ID" type="checkbox" class="bx-soa-pp-company-checkbox" value="10">
+
+            if($(this).prop('checked')){
+                $('.order-buyer-gorod, .order-buyer-dom').removeAttr('style');
+                $('#select-region-origin, #select-region-order, #recent-delivery-value').val('');
+                $('#select-region-order').css({"opacity": .3, "pointer-events": "none"}).removeClass('error')
+                window.order_step.city = true;
+
+            } else {
+                $('.order-buyer-gorod, .order-buyer-dom').css('display', "none");
+                $('#select-region-order').removeAttr('style');
+                window.order_step.city = false;
+            }
+        })
+
+        $(document).on('click', ".save-order-arh", function(){
+            BX.Sale.OrderAjaxComponent.sendRequest('saveOrderAjax');
         })
     }
 
-    window.calculateOrderPrice = function(thisBX){
 
-        // console.log(thisBX.result);
-    }
+    // if(value.CODE == 'LOCATION'){
+    //
+    //     if(value.VALUE[0] == ""){
+    //         var top = $('#bx-soa-order-form').offset().top;
+    //         $('body,html').animate({scrollTop: top}, 500);
+    //         $('#select-region-order').addClass('error');
+    //
+    //     } else if(value.VALUE[0] !== '0000073738'){
+    //         $('#DELIVERY_ID_31, #DELIVERY_ID_32').parents('.order-row__delivery-item').css('display', 'none');
+    //
+    //     } else {
+    //         $('#DELIVERY_ID_31, #DELIVERY_ID_32').parents('.order-row__delivery-item').removeAttr('style');
+    //     }
+
 
     $(function(){
         ourAddress(); // показать адреса в шапке

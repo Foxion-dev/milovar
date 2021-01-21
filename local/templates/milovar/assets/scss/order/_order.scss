@@ -20,6 +20,7 @@
     }
 
     .order{
+
         &-row{
             border-top: 1px solid $c_grey_border;
             padding-top: 45px;
@@ -44,25 +45,44 @@
                 }
             }
 
+            &__payment,
             &__delivery{
 
                 &-item{
                     margin-bottom: 10px;
                 }
 
+                &-chek{
+                    height: 80px;
+                    display: flex;
+                    align-items: center;
+                    width: 100%;
+                }
+
+                &-desc{
+                    display: none;
+                    margin-bottom: 30px;
+                    border: 1px dotted #bec7d0;
+                    border-radius: 5px;
+                    padding: 15px 18px;
+                    font-size: 13px;
+                    width: 100%;
+                }
+
                 &-row{
                     display: flex;
-                    height: 80px;
                     align-items: center;
                     border-radius: 5px;
                     background-color: $c_order_grey;
                     padding: 0 30px;
                     cursor: pointer;
+                    flex-wrap: wrap;
                 }
 
                 &-input{
                     display: none;
 
+                    &:checked + .order-row__payment-fufel,
                     &:checked + .order-row__delivery-fufel{
 
                         &::after{
@@ -120,7 +140,84 @@
             &__delivery{
                 margin-bottom: 50px;
             }
+
+            &__payment{
+                margin-bottom: 50px;
+            }
+
+            &__buyer{
+                margin-bottom: 30px;
+
+                .order-row__field{
+                    display: flex;
+                    width: 100%;
+                    flex-wrap: wrap;
+                }
+            }
+
+            &__basket{
+                margin-bottom: 20px;
+            }
+
+            &__save{
+                padding: 50px 0;
+                display: flex;
+                align-items: center;
+
+                &-logo{
+                    width: 100%;
+                    max-width: 75px;
+
+                    span{
+                        display: flex;
+                        background-position: -3px -417px;
+                        width: 58px;
+                        height: 60px;
+                        background-image: url('../images/strip.png');
+                    }
+                }
+
+                &-col1{
+                    width: 100%;
+                    max-width: 15.1401%;
+                    display: flex;
+                    flex-direction: column;
+                }
+
+                &-col2{
+                    width: 100%;
+                    max-width: 28.0373%;
+                }
+
+                &-col3{
+                    width: 100%;
+                    max-width: 27.1028%;
+                }
+
+                &-submit{
+                    width: 100%;
+                    max-width: 22.7198%;
+
+                    .save-order-arh{
+                        display: flex;
+                        width: 100%;
+                        height: 60px;
+                        background-color: $c_func_color;
+                        border-radius: 30px;
+                        align-items: center;
+                        justify-content: center;
+                        border: 1px solid $c_func_color;
+                        color: $c_white;
+
+                        &:hover{
+                            color: $c_func_color;
+                            background-color: $c_white;
+                        }
+                    }
+                }
+            }
         }
+
     }
 
     .order-city-sel{
@@ -191,6 +288,10 @@
             background-color: $c_white;
             outline: 0;
         }
+
+        &.error{
+            border-color: red;
+        }
     }
 
     .gorod-text{
@@ -240,6 +341,36 @@
 
             &-input{
                 display: none;
+
+                &:checked{
+
+                    + .kolhoz-text-chek{
+
+                        &-fufel{
+                            border-color: $c_func_color;
+                            position: relative;
+
+                            &:before,
+                            &:after{
+                                content: "";
+                                width: 15px;
+                                height: 1px;
+                                border-radius: 2px;
+                                background-color: $c_func_color;
+                                position: absolute;
+                                transform-origin: left;
+                                transform: rotate(-45deg);
+                                top: 20px;
+                                left: 14px;
+                            }
+
+                            &:after{
+                                transform: rotate(-135deg);
+                                width: 10px;
+                            }
+                        }
+                    }
+                }
             }
 
             &-fufel{
@@ -264,5 +395,214 @@
                 }
             }
         }
+    }
+
+    .bx-soa-section-title-count{
+        display: none;
+    }
+
+    .order-buyer{
+        margin-bottom: 20px;
+
+        &-col{
+            width: 100%;
+            max-width: 32%;
+            padding-right: 40px;
+        }
+
+        &__title{
+            font-size: 14px;
+            @include museo500;
+            margin-bottom: 8px;
+        }
+
+        &-desc{
+            width: 100%;
+        }
+
+        input{
+            display: flex;
+            width: 100%;
+            height: 55px;
+            padding: 0 17px;
+            border-radius: 5px;
+            background-color: #f2f3f7;
+            border: 1px solid #f2f3f7;
+            font-size: 14px;
+
+            &:focus{
+                background-color: $c_white;
+                border-color: $c_func_color;
+                outline: 0;
+            }
+        }
+
+        textarea{
+            padding: 17px;
+            background-color: #f2f3f7;
+            border: 1px solid #f2f3f7;
+            max-width: 100%;
+            min-width: 100%;
+            font-size: 14px;
+            border-radius: 5px;
+            min-height: 130px;
+
+            &:focus{
+                background-color: $c_white;
+                border-color: $c_func_color;
+                outline: 0;
+            }
+        }
+    }
+
+    .alert-warning,
+    .alert-success{
+        display: none;
+    }
+
+    .cart-prod-title{
+        display: flex;
+        padding-bottom: 15px;
+        border-bottom: 1px solid $c_grey_border;
+        margin-bottom: 20px;
+        color: $c_content;
+        font-size: 14px;
+        @include museo500;
+
+        &__name{
+            width: 100%;
+            max-width: 25.9829%;
+        }
+
+        &__category{
+            width: 100%;
+            max-width: 12.6495%;
+        }
+
+        &__packing{
+            width: 100%;
+            max-width: 8.547%;
+        }
+
+        &__price{
+            width: 100%;
+            max-width: 9.4871%;
+        }
+
+        &__sale{
+            width: 100%;
+            max-width: 7.9487%;
+        }
+
+        &__pricesale{
+            width: 100%;
+            max-width: 15.3846%;
+        }
+
+        &__count{
+            width: 100%;
+            max-width: 8.9743%;
+        }
+
+        &__final{
+            width: 100%;
+            max-width: 11.0259%;
+        }
+    }
+
+    .cart-prod{
+
+        &__list{
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        &__item{
+            display: flex;
+            align-items: center;
+            width: 100%;
+            margin-bottom: 20px;
+
+            &-name{
+                width: 100%;
+                max-width: 25.9829%;
+                display: flex;
+                align-items: center;
+
+                img{
+                    display: flex;
+                    height: 54px;
+                    width: 54px;
+                    border-radius: 3px;
+                    margin-right: 14px;
+                }
+
+                span{
+                    font-size: 13px;
+                    @include museo500;
+                    margin-right: 25px;
+                }
+            }
+
+            &-category{
+                width: 100%;
+                max-width: 12.6495%;
+                @include museo500;
+                font-size: 13px;
+            }
+
+            &-packing{
+                width: 100%;
+                max-width: 8.547%;
+                @include museo500;
+                font-size: 13px;
+            }
+
+            &-price{
+                width: 100%;
+                max-width: 9.4871%;
+                @include museo500;
+                font-size: 13px;
+            }
+
+            &-sale{
+                width: 100%;
+                max-width: 7.9487%;
+                font-size: 13px;
+                color: $c_func_color;
+                @include museo500;
+            }
+
+            &-pricesale{
+                width: 100%;
+                max-width: 15.3846%;
+                @include museo500;
+                font-size: 13px;
+            }
+
+            &-count{
+                width: 100%;
+                max-width: 8.9743%;
+                color: #949daf;
+                font-size: 13px;
+            }
+
+            &-final{
+                width: 100%;
+                max-width: 11.0259%;
+                @include museo700;
+                font-size: 13px;
+            }
+        }
+    }
+
+    .itog-title{
+        font-size: 13px;
+        @include museo300;
+    }
+
+    .itog-res{
+        font-size: 13px;
+        @include museo700;
     }
 }

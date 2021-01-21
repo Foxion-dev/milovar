@@ -171,12 +171,15 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 		{
 			var form;
 
+
+
 			if (!this.startLoader())
 				return;
 
 			this.firstLoad = false;
 
 			action = BX.type.isNotEmptyString(action) ? action : 'refreshOrderAjax';
+
 
 			if (action === 'saveOrderAjax')
 			{
@@ -353,7 +356,8 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 				this.mapsReady && this.initMaps();
 				BX.saleOrderAjax && BX.saleOrderAjax.initDeferredControl();
 
-				window.calculateOrderPrice(this);
+
+				console.log(result)
 			}
 
 			return true;
@@ -840,15 +844,15 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 
 			switch (node.id)
 			{
-				case this.regionBlockNode.id:
-					status = this.result.LAST_ORDER_DATA && this.result.LAST_ORDER_DATA.PERSON_TYPE;
-					break;
-				case this.paySystemBlockNode.id:
-					status = this.result.LAST_ORDER_DATA && this.result.LAST_ORDER_DATA.PAY_SYSTEM;
-					break;
-				case this.deliveryBlockNode.id:
-					status = this.result.LAST_ORDER_DATA && this.result.LAST_ORDER_DATA.DELIVERY;
-					break;
+				// case this.regionBlockNode.id:
+				// 	status = this.result.LAST_ORDER_DATA && this.result.LAST_ORDER_DATA.PERSON_TYPE;
+				// 	break;
+				// case this.paySystemBlockNode.id:
+				// 	status = this.result.LAST_ORDER_DATA && this.result.LAST_ORDER_DATA.PAY_SYSTEM;
+				// 	break;
+				// case this.deliveryBlockNode.id:
+				// 	status = this.result.LAST_ORDER_DATA && this.result.LAST_ORDER_DATA.DELIVERY;
+				// 	break;
 				case this.pickUpBlockNode.id:
 					status = this.result.LAST_ORDER_DATA && this.result.LAST_ORDER_DATA.PICK_UP;
 					break;
@@ -985,12 +989,12 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 
 			switch (node.id)
 			{
-				case this.deliveryBlockNode.id:
-					this.showBlockWarning(this.deliveryBlockNode, this.result.WARNING.DELIVERY, true);
-					break;
-				case this.paySystemBlockNode.id:
-					this.showBlockWarning(this.paySystemBlockNode, this.result.WARNING.PAY_SYSTEM, true);
-					break;
+				// case this.deliveryBlockNode.id:
+				// 	this.showBlockWarning(this.deliveryBlockNode, this.result.WARNING.DELIVERY, true);
+				// 	break;
+				// case this.paySystemBlockNode.id:
+				// 	this.showBlockWarning(this.paySystemBlockNode, this.result.WARNING.PAY_SYSTEM, true);
+				// 	break;
 			}
 		},
 
@@ -1340,9 +1344,9 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 
 		initFirstSection: function()
 		{
-			var firstSection = this.orderBlockNode.querySelector('.bx-soa-section.bx-active');
-			BX.addClass(firstSection, 'bx-selected');
-			this.activeSectionId = firstSection.id;
+			// var firstSection = this.orderBlockNode.querySelector('.bx-soa-section.bx-active');
+			// BX.addClass(firstSection, 'bx-selected');
+			// this.activeSectionId = firstSection.id;
 		},
 
 		initOptions: function()
@@ -1719,8 +1723,8 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 			// if (this.activeSectionId !== this.regionBlockNode.id)
 			// 	this.editFadeRegionContent(this.regionBlockNode.querySelector('.bx-soa-section-content'));
 
-			if (this.activeSectionId != this.propsBlockNode.id)
-				this.editFadePropsContent(this.propsBlockNode.querySelector('.bx-soa-section-content'));
+			// if (this.activeSectionId != this.propsBlockNode.id)
+			// 	this.editFadePropsContent(this.propsBlockNode.querySelector('.bx-soa-section-content'));
 		},
 
 		fixLocationsStyle: function(section, hiddenSection)
@@ -1876,10 +1880,10 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 				// 		&& !this.result.DELIVERY[0].CALCULATE_ERRORS;
 				// }
 
-				if (section.id === this.paySystemBlockNode.id)
-				{
-					skip = this.result.PAY_SYSTEM && this.result.PAY_SYSTEM.length === 1 && this.result.PAY_FROM_ACCOUNT !== 'Y';
-				}
+				// if (section.id === this.paySystemBlockNode.id)
+				// {
+				// 	skip = this.result.PAY_SYSTEM && this.result.PAY_SYSTEM.length === 1 && this.result.PAY_FROM_ACCOUNT !== 'Y';
+				// }
 			}
 
 			return skip;
@@ -1935,6 +1939,7 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 			}
 
 			section.setAttribute('data-visited', 'true');
+
 			BX.addClass(section, 'bx-step-completed');
 			BX.remove(section.querySelector('.alert.alert-warning.alert-hide'));
 			this.checkBlockErrors(section);
@@ -2022,14 +2027,14 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 				// case this.regionBlockNode.id:
 				// 	this.editFadeRegionBlock();
 				// 	break;
-				case this.paySystemBlockNode.id:
-					BX.remove(this.paySystemBlockNode.querySelector('.alert.alert-warning.alert-hide'));
-					this.editFadePaySystemBlock();
-					break;
-				case this.deliveryBlockNode.id:
-					BX.remove(this.deliveryBlockNode.querySelector('.alert.alert-warning.alert-hide'));
-					this.editFadeDeliveryBlock();
-					break;
+				// case this.paySystemBlockNode.id:
+				// 	BX.remove(this.paySystemBlockNode.querySelector('.alert.alert-warning.alert-hide'));
+				// 	this.editFadePaySystemBlock();
+				// 	break;
+				// case this.deliveryBlockNode.id:
+				// 	BX.remove(this.deliveryBlockNode.querySelector('.alert.alert-warning.alert-hide'));
+				// 	this.editFadeDeliveryBlock();
+				// 	break;
 				case this.pickUpBlockNode.id:
 					this.editFadePickUpBlock();
 					break;
@@ -2180,11 +2185,11 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 
 			while (allSections[i])
 			{
-				if (allSections[i].id === this.regionBlockNode.id)
-					this.isValidRegionBlock();
+				// if (allSections[i].id === this.regionBlockNode.id)
+				// 	this.isValidRegionBlock();
 
-				if (allSections[i].id === this.propsBlockNode.id)
-					this.isValidPropertiesBlock();
+				// if (allSections[i].id === this.propsBlockNode.id)
+				// 	this.isValidPropertiesBlock();
 
 				if (!this.checkBlockErrors(allSections[i]) || !this.checkPreload(allSections[i]))
 				{
@@ -2245,17 +2250,17 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 				);
 			}
 
-			node.appendChild(
-				BX.create('DIV', {
-					props: {className: 'row bx-soa-more'},
-					children: [
-						BX.create('DIV', {
-							props: {className: 'bx-soa-more-btn col-xs-12'},
-							children: buttons
-						})
-					]
-				})
-			);
+			// node.appendChild(
+			// 	BX.create('DIV', {
+			// 		props: {className: 'row bx-soa-more'},
+			// 		children: [
+			// 			BX.create('DIV', {
+			// 				props: {className: 'bx-soa-more-btn col-xs-12'},
+			// 				children: buttons
+			// 			})
+			// 		]
+			// 	})
+			// );
 		},
 
 		getNewContainer: function(notFluid)
@@ -2441,7 +2446,14 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 			if (!this.orderBlockNode || !this.result)
 				return;
 
-			if (this.result.DELIVERY.length > 0)
+			var editSteps = this.orderBlockNode.querySelectorAll('.bx-soa-editstep'), i;
+			for (i in editSteps) {
+				if (editSteps.hasOwnProperty(i)) {
+					BX.remove(editSteps[i]);
+				}
+			}
+
+			/*if (this.result.DELIVERY.length > 0)
 			{
 				BX.addClass(this.deliveryBlockNode, 'bx-active');
 				// this.deliveryBlockNode.removeAttribute('style');
@@ -2450,7 +2462,7 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 			{
 				BX.removeClass(this.deliveryBlockNode, 'bx-active');
 				this.deliveryBlockNode.style.display = 'none';
-			}
+			}*/
 
 			this.orderSaveBlockNode.style.display = this.result.SHOW_AUTH ? 'none' : '';
 			// this.mobileTotalBlockNode.style.display = this.result.SHOW_AUTH ? 'none' : '';
@@ -2486,11 +2498,12 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 			else if (section.id != this.pickUpBlockNode.id)
 				section.style.display = '';
 
-			var active = section.id == this.activeSectionId,
+			// var active = section.id == this.activeSectionId,
+			var active = true,
 				titleNode = section.querySelector('.bx-soa-section-title-container'),
 				editButton, errorContainer;
 
-			BX.unbindAll(titleNode);
+			/*BX.unbindAll(titleNode);
 			if (this.result.SHOW_AUTH)
 			{
 				BX.bind(titleNode, 'click', BX.delegate(function(){
@@ -2503,7 +2516,7 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 				BX.bind(titleNode, 'click', BX.proxy(this.showByClick, this));
 				editButton = titleNode.querySelector('.bx-soa-editstep');
 				editButton && BX.bind(editButton, 'click', BX.proxy(this.showByClick, this));
-			}
+			}*/
 
 			errorContainer = section.querySelector('.alert.alert-danger');
 			this.hasErrorSection[section.id] = errorContainer && errorContainer.style.display != 'none';
@@ -2522,9 +2535,9 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 				// case this.regionBlockNode.id:
 				// 	this.editRegionBlock(active);
 				// 	break;
-				case this.paySystemBlockNode.id:
-					this.editPaySystemBlock(active);
-					break;
+				// case this.paySystemBlockNode.id:
+				// 	this.editPaySystemBlock(active);
+				// 	break;
 				// case this.deliveryBlockNode.id:
 				// 	this.editDeliveryBlock(active);
 				// 	break;
@@ -2684,6 +2697,8 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 					})
 				]
 			});
+
+
 
 			authContent.appendChild(BX.create('DIV', {props: {className: 'col-md-6'}, children: [authFormNode]}));
 		},
@@ -3094,14 +3109,14 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 					BX.remove(socServiceHiddenNode);
 				}
 			}
-
+			//соцсети
 			if (this.socServiceHiddenNode)
 			{
-				nodes.push(BX.create('DIV', {
-					props: {className: 'bx-authform-social'},
-					html: '<h3 class="bx-title">' + BX.message('SOA_DO_SOC_SERV') + '</h3>' + this.socServiceHiddenNode
-				}));
-				nodes.push(BX.create('hr', {props: {className: 'bxe-light'}}));
+				// nodes.push(BX.create('DIV', {
+				// 	props: {className: 'bx-authform-social'},
+				// 	html: '<h3 class="bx-title">' + BX.message('SOA_DO_SOC_SERV') + '</h3>' + this.socServiceHiddenNode
+				// }));
+				// nodes.push(BX.create('hr', {props: {className: 'bxe-light'}}));
 			}
 
 			if (this.result.AUTH.new_user_registration === 'Y')
@@ -3126,26 +3141,26 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 
 			authContent.appendChild(BX.create('DIV', {props: {className: 'col-md-6'}, children: nodes}));
 		},
-
+		// соц сети
 		getAuthReference: function(authContent)
 		{
-			authContent.appendChild(
-				BX.create('DIV', {
-					props: {className: 'row'},
-					children: [
-						BX.create('DIV', {
-							props: {className: 'bx-soa-reference col-xs-12'},
-							children: [
-								this.params.MESS_AUTH_REFERENCE_1,
-								BX.create('BR'),
-								this.params.MESS_AUTH_REFERENCE_2,
-								BX.create('BR'),
-								this.params.MESS_AUTH_REFERENCE_3
-							]
-						})
-					]
-				})
-			);
+			// authContent.appendChild(
+			// 	BX.create('DIV', {
+			// 		props: {className: 'row'},
+			// 		children: [
+			// 			BX.create('DIV', {
+			// 				props: {className: 'bx-soa-reference col-xs-12'},
+			// 				children: [
+			// 					this.params.MESS_AUTH_REFERENCE_1,
+			// 					BX.create('BR'),
+			// 					this.params.MESS_AUTH_REFERENCE_2,
+			// 					BX.create('BR'),
+			// 					this.params.MESS_AUTH_REFERENCE_3
+			// 				]
+			// 			})
+			// 		]
+			// 	})
+			// );
 		},
 
 		toggleAuthForm: function(event)

@@ -15,7 +15,7 @@ $APPLICATION->SetTitle("Оформление заказа");
 		"COUNT_DELIVERY_TAX" => "Y",
 		"COUNT_DISCOUNT_4_ALL_QUANTITY" => "N",
 		"ONLY_FULL_PAY_FROM_ACCOUNT" => "N",
-		"ALLOW_AUTO_REGISTER" => "N",
+		"ALLOW_AUTO_REGISTER" => "Y",
 		"SEND_NEW_USER_NOTIFY" => "Y",
 		"PATH_TO_BASKET" => "/personal/cart/",
 		"PATH_TO_PERSONAL" => "/personal/order/",

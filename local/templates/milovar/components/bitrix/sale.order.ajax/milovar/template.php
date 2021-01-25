@@ -369,30 +369,29 @@ else
 					</div>
 				<? endif ?>
 
-                <? if($arResult["JS_DATA"]["IS_AUTHORIZED"]): ?>
-                    <!-- COUNTRY BLOCK -->
-                    <?$APPLICATION->IncludeComponent(
-                            "bitrix:sale.location.selector.steps",
-                            "milovar", Array(
-                        "CACHE_TIME" => "36000000",	// Время кеширования (сек.)
-                        "CACHE_TYPE" => "A",	// Тип кеширования
-                        "CODE" => "",	// Символьный код местоположения
-                        "DISABLE_KEYBOARD_INPUT" => "N",	// Отключить поиск через ввод с клавиатуры и не показывать следующий уровень при выборе
-                        "FILTER_BY_SITE" => "N",	// Фильтровать по сайту
-                        "ID" => "",	// ID местоположения
-                        "INITIALIZE_BY_GLOBAL_EVENT" => "",	// Инициализировать компонент только при наступлении указанного javascript-события на объекте window.document
-                        "INPUT_NAME" => "LOCATION",	// Имя поля ввода
-                        "JS_CALLBACK" => "",	// Javascript-функция обратного вызова
-                        "JS_CONTROL_GLOBAL_ID" => "",	// Идентификатор javascript-контрола
-                        "PRECACHE_LAST_LEVEL" => "Y",	// Предварительно загружать последний выбранный уровень
-                        "PRESELECT_TREE_TRUNK" => "N",	// Отображать статичный ствол дерева
-                        "PROVIDE_LINK_BY" => "id",	// Сохранять связь через
-                        "SHOW_DEFAULT_LOCATIONS" => "N",	// Отображать местоположения по-умолчанию
-                        "SUPPRESS_ERRORS" => "N",	// Не показывать ошибки, если они возникли при загрузке компонента
-                    ),
-                        false
-                    );?>
-                <? endif; ?>
+                <!-- COUNTRY BLOCK -->
+                <?$APPLICATION->IncludeComponent(
+                        "bitrix:sale.location.selector.steps",
+                        "milovar", Array(
+                    "CACHE_TIME" => "36000000",	// Время кеширования (сек.)
+                    "CACHE_TYPE" => "A",	// Тип кеширования
+                    "CODE" => "",	// Символьный код местоположения
+                    "DISABLE_KEYBOARD_INPUT" => "N",	// Отключить поиск через ввод с клавиатуры и не показывать следующий уровень при выборе
+                    "FILTER_BY_SITE" => "N",	// Фильтровать по сайту
+                    "ID" => "",	// ID местоположения
+                    "INITIALIZE_BY_GLOBAL_EVENT" => "",	// Инициализировать компонент только при наступлении указанного javascript-события на объекте window.document
+                    "INPUT_NAME" => "LOCATION",	// Имя поля ввода
+                    "JS_CALLBACK" => "",	// Javascript-функция обратного вызова
+                    "JS_CONTROL_GLOBAL_ID" => "",	// Идентификатор javascript-контрола
+                    "PRECACHE_LAST_LEVEL" => "Y",	// Предварительно загружать последний выбранный уровень
+                    "PRESELECT_TREE_TRUNK" => "N",	// Отображать статичный ствол дерева
+                    "PROVIDE_LINK_BY" => "id",	// Сохранять связь через
+                    "SHOW_DEFAULT_LOCATIONS" => "N",	// Отображать местоположения по-умолчанию
+                    "SUPPRESS_ERRORS" => "N",	// Не показывать ошибки, если они возникли при загрузке компонента
+                ),
+                    false
+                );?>
+
 
 				<? if ($arParams['DELIVERY_TO_PAYSYSTEM'] === 'p2d'): ?>
 
@@ -429,41 +428,40 @@ else
 					</div>
 				<? else: ?>
 
-                    <? if($arResult["JS_DATA"]["IS_AUTHORIZED"]): ?>
-                        <!--	DELIVERY BLOCK	-->
-                        <div class="order-row  order-block__delivery">
-                            <h2 class="order-row__title">
-                                <span>3 шаг: Выберите доставку</span>
-                                <span class="order-row__title-sub">После выбора варианта доставки появится описание</span>
-                            </h2>
+                <!--	DELIVERY BLOCK	-->
+                <div class="order-row  order-block__delivery">
+                    <h2 class="order-row__title">
+                        <span>3 шаг: Выберите доставку</span>
+                        <span class="order-row__title-sub">После выбора варианта доставки появится описание</span>
+                    </h2>
 
-                            <div class="order-row__field">
-                                <div class="order-row__delivery-list">
+                    <div class="order-row__field">
+                        <div class="order-row__delivery-list">
 
-                                    <? foreach($arResult['DELIVERY'] as $one_del): ?>
-                                    <? $checkRadio = $one_del["CHECKED"] == "Y" ? ' checked' : "" ?>
+                            <? foreach($arResult['DELIVERY'] as $one_del): ?>
+                            <? $checkRadio = $one_del["CHECKED"] == "Y" ? ' checked' : "" ?>
 
-                                        <div class="order-row__delivery-item">
-                                            <label class="order-row__delivery-row">
-                                                <div class="order-row__delivery-chek">
-                                                    <input id="<?= $one_del["FIELD_NAME"] ?>_<?= $one_del["ID"] ?>" type="radio" <?//=$checkRadio?> class="order-row__delivery-input" name="<?= $one_del["FIELD_NAME"] ?>" value="<?= $one_del["ID"] ?>" />
-                                                    <span class="order-row__delivery-fufel"></span>
-                                                    <span class="order-row__delivery-name"><?= $one_del["NAME"] ?></span>
-                                                    <span class="order-row__delivery-price">0.00 р</span>
-                                                </div>
-
-                                                <? if($one_del["DESCRIPTION"] != ""): ?>
-                                                    <div class="order-row__delivery-desc">
-                                                        <?= $one_del["DESCRIPTION"] ?>
-                                                    </div>
-                                                <? endif; ?>
-                                            </label>
+                                <div class="order-row__delivery-item">
+                                    <label class="order-row__delivery-row">
+                                        <div class="order-row__delivery-chek">
+                                            <input id="<?= $one_del["FIELD_NAME"] ?>_<?= $one_del["ID"] ?>" type="radio" <?//=$checkRadio?> class="order-row__delivery-input" name="<?= $one_del["FIELD_NAME"] ?>" value="<?= $one_del["ID"] ?>" />
+                                            <span class="order-row__delivery-fufel"></span>
+                                            <span class="order-row__delivery-name"><?= $one_del["NAME"] ?></span>
+                                            <span class="order-row__delivery-price">0.00 р</span>
                                         </div>
-                                    <? endforeach; ?>
+
+                                        <? if($one_del["DESCRIPTION"] != ""): ?>
+                                            <div class="order-row__delivery-desc">
+                                                <?= $one_del["DESCRIPTION"] ?>
+                                            </div>
+                                        <? endif; ?>
+                                    </label>
                                 </div>
-                            </div>
+                            <? endforeach; ?>
                         </div>
-                    <? endif; ?>
+                    </div>
+                </div>
+
 
 					<!--	PICKUP BLOCK	-->
 					<div id="bx-soa-pickup" data-visited="false" class="bx-soa-section" style="display:none">
@@ -476,196 +474,193 @@ else
 						<div class="bx-soa-section-content container-fluid"></div>
 					</div>
 
-                    <? if($arResult["JS_DATA"]["IS_AUTHORIZED"]): ?>
-                        <!--	PAY SYSTEMS BLOCK	-->
-                        <div class="order-row  order-block__payment">
-                            <h2 class="order-row__title">
-                                <span>4 шаг: Выберите способ оплаты</span>
-                                <span class="order-row__title-sub">После выбора варианта оплаты появится описание</span>
-                            </h2>
 
-                            <div class="order-row__field">
-                                <div class="order-row__payment-list">
-
-                                    <? foreach($arResult['PAY_SYSTEM'] as $one_pay): ?>
-                                        <div class="order-row__payment-item">
-                                            <label class="order-row__payment-row">
-                                                <div class="order-row__payment-chek">
-                                                    <input id="ID_PAY_SYSTEM_ID_<?= $one_pay["ID"] ?>" type="radio" class="order-row__payment-input" name="PAY_SYSTEM_ID" value="<?= $one_pay["ID"] ?>" />
-                                                    <span class="order-row__payment-fufel"></span>
-                                                    <span class="order-row__payment-name"><?= $one_pay["NAME"] ?></span>
-                                                </div>
-
-                                                <? if($one_pay["DESCRIPTION"] != ""): ?>
-                                                    <div class="order-row__payment-desc">
-                                                        <?= $one_del["DESCRIPTION"] ?>
-                                                    </div>
-                                                <? endif; ?>
-                                            </label>
-                                        </div>
-                                    <? endforeach; ?>
-                                </div>
-                            </div>
-                        </div>
-                    <? endif; ?>
-
-				<? endif ?>
-
-                <? if($arResult["JS_DATA"]["IS_AUTHORIZED"]): ?>
-                    <!--	BUYER PROPS BLOCK	-->
-                    <div class="order-row  order-block__buyer">
+                    <!--	PAY SYSTEMS BLOCK	-->
+                    <div class="order-row  order-block__payment">
                         <h2 class="order-row__title">
-                            <span>5 шаг: Получатель товара и адрес доставки</span>
+                            <span>4 шаг: Выберите способ оплаты</span>
+                            <span class="order-row__title-sub">После выбора варианта оплаты появится описание</span>
                         </h2>
 
-                        <? //echo "<pre>",var_dump($arResult["ORDER_PROP"]["USER_PROPS_N"][22]),"</pre>"; ?>
-
                         <div class="order-row__field">
+                            <div class="order-row__payment-list">
 
-                            <div class="order-buyer-col">
-                                <div class="order-buyer order-buyer-name">
-                                    <div class="order-buyer__title">
-                                        <span>Имя получателя *</span>
+                                <? foreach($arResult['PAY_SYSTEM'] as $one_pay): ?>
+                                    <div class="order-row__payment-item">
+                                        <label class="order-row__payment-row">
+                                            <div class="order-row__payment-chek">
+                                                <input id="ID_PAY_SYSTEM_ID_<?= $one_pay["ID"] ?>" type="radio" class="order-row__payment-input" name="PAY_SYSTEM_ID" value="<?= $one_pay["ID"] ?>" />
+                                                <span class="order-row__payment-fufel"></span>
+                                                <span class="order-row__payment-name"><?= $one_pay["NAME"] ?></span>
+                                            </div>
+
+                                            <? if($one_pay["DESCRIPTION"] != ""): ?>
+                                                <div class="order-row__payment-desc">
+                                                    <?= $one_del["DESCRIPTION"] ?>
+                                                </div>
+                                            <? endif; ?>
+                                        </label>
                                     </div>
-
-                                    <div class="order-buyer__field">
-                                        <input
-                                            type="text"
-                                            placeholder="Ваше имя"
-                                            required
-                                            name="<?=$arResult["ORDER_PROP"]["USER_PROPS_N"][22]["FIELD_NAME"]?>"
-                                            value="<?=$arResult["ORDER_PROP"]["USER_PROPS_N"][22]["VALUE"]?>"
-                                        />
-                                    </div>
-                                </div>
-
-                                <div class="order-buyer order-buyer-famil">
-                                    <div class="order-buyer__title">
-                                        <span>Фамилия получателя *</span>
-                                    </div>
-
-                                    <div class="order-buyer__field">
-                                        <input
-                                            type="text"
-                                            placeholder="Ваша фамилия"
-                                            required
-                                            name="<?=$arResult["ORDER_PROP"]["USER_PROPS_N"][23]["FIELD_NAME"]?>"
-                                            value="<?=$arResult["ORDER_PROP"]["USER_PROPS_N"][23]["VALUE"]?>"
-                                        />
-                                    </div>
-                                </div>
-
-                                <div class="order-buyer order-buyer-otchestvo">
-                                    <div class="order-buyer__title">
-                                        <span>Отчество получателя</span>
-                                    </div>
-
-                                    <div class="order-buyer__field">
-                                        <input
-                                            type="text"
-                                            placeholder="Ваше отчество"
-                                            required
-                                            name="<?=$arResult["ORDER_PROP"]["USER_PROPS_N"][24]["FIELD_NAME"]?>"
-                                            value="<?=$arResult["ORDER_PROP"]["USER_PROPS_N"][24]["VALUE"]?>"
-                                        />
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="order-buyer-col">
-                                <div class="order-buyer order-buyer-phone">
-                                    <div class="order-buyer__title">
-                                        <span>Телефон *</span>
-                                    </div>
-
-                                    <div class="order-buyer__field">
-                                        <input
-                                            type="text"
-                                            placeholder="Ваше телефон"
-                                            required
-                                            name="<?=$arResult["ORDER_PROP"]["USER_PROPS_Y"][20]["FIELD_NAME"]?>"
-                                            value="<?=$arResult["ORDER_PROP"]["USER_PROPS_Y"][20]["VALUE"]?>"
-                                        />
-                                    </div>
-                                </div>
-
-                                <div class="order-buyer order-buyer-email">
-                                    <div class="order-buyer__title">
-                                        <span>Ваш e-mail *</span>
-                                    </div>
-
-                                    <div class="order-buyer__field">
-                                        <input
-                                            type="email"
-                                            placeholder="Ваш e-mail"
-                                            required
-                                            name="<?=$arResult["ORDER_PROP"]["USER_PROPS_Y"][6]["FIELD_NAME"]?>"
-                                            value="<?=$arResult["ORDER_PROP"]["USER_PROPS_Y"][6]["VALUE"]?>"
-                                        />
-                                    </div>
-                                </div>
-
-                                <div class="order-buyer order-buyer-index">
-                                    <div class="order-buyer__title">
-                                        <span>Индекс *</span>
-                                    </div>
-
-                                    <div class="order-buyer__field">
-                                        <input
-                                            type="text"
-                                            placeholder="Ваш индекс"
-                                            required
-                                            name="<?=$arResult["ORDER_PROP"]["USER_PROPS_Y"][4]["FIELD_NAME"]?>"
-                                            value="<?=$arResult["ORDER_PROP"]["USER_PROPS_Y"][4]["VALUE"]?>"
-                                        />
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="order-buyer-col">
-                                <div class="order-buyer order-buyer-gorod" style="display:none">
-                                    <div class="order-buyer__title">
-                                        <span>Город *</span>
-                                    </div>
-
-                                    <div class="order-buyer__field">
-                                        <input
-                                            type="text"
-                                            placeholder="Введите название"
-                                            name="<?=$arResult["ORDER_PROP"]["USER_PROPS_N"][5]["FIELD_NAME"]?>"
-                                            value="<?=$arResult["ORDER_PROP"]["USER_PROPS_N"][5]["VALUE"]?>"
-                                        />
-                                    </div>
-                                </div>
-
-                                <div class="order-buyer order-buyer-dom" style="display:none">
-                                    <div class="order-buyer__title">
-                                        <span>Адрес (пр.Ленина д.3 корп.2 кв.3) *</span>
-                                    </div>
-
-                                    <div class="order-buyer__field">
-                                        <input
-                                            type="text"
-                                            placeholder="Введите название"
-                                            name="<?=$arResult["ORDER_PROP"]["USER_PROPS_Y"][21]["FIELD_NAME"]?>"
-                                            value="<?=$arResult["ORDER_PROP"]["USER_PROPS_Y"][21]["VALUE"]?>"
-                                        />
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="order-buyer order-buyer-desc">
-                                <div class="order-buyer__title">
-                                    <span>Комментарий к заказу</span>
-                                </div>
-
-                                <div class="order-buyer__field">
-                                    <textarea id="orderDescription" name="ORDER_DESCRIPTION" placeholder="Введите текст"></textarea>
-                                </div>
+                                <? endforeach; ?>
                             </div>
                         </div>
                     </div>
-                <? endif; ?>
+				<? endif ?>
+
+                <!--	BUYER PROPS BLOCK	-->
+                <div class="order-row  order-block__buyer">
+                    <h2 class="order-row__title">
+                        <span>5 шаг: Получатель товара и адрес доставки</span>
+                    </h2>
+
+                    <? //echo "<pre>",var_dump($arResult["ORDER_PROP"]["USER_PROPS_N"][22]),"</pre>"; ?>
+
+                    <div class="order-row__field">
+
+                        <div class="order-buyer-col">
+                            <div class="order-buyer order-buyer-name">
+                                <div class="order-buyer__title">
+                                    <span>Имя получателя *</span>
+                                </div>
+
+                                <div class="order-buyer__field">
+                                    <input
+                                        type="text"
+                                        placeholder="Ваше имя"
+                                        required
+                                        name="<?=$arResult["ORDER_PROP"]["USER_PROPS_N"][22]["FIELD_NAME"]?>"
+                                        value="<?=$arResult["ORDER_PROP"]["USER_PROPS_N"][22]["VALUE"]?>"
+                                    />
+                                </div>
+                            </div>
+
+                            <div class="order-buyer order-buyer-famil">
+                                <div class="order-buyer__title">
+                                    <span>Фамилия получателя *</span>
+                                </div>
+
+                                <div class="order-buyer__field">
+                                    <input
+                                        type="text"
+                                        placeholder="Ваша фамилия"
+                                        required
+                                        name="<?=$arResult["ORDER_PROP"]["USER_PROPS_N"][23]["FIELD_NAME"]?>"
+                                        value="<?=$arResult["ORDER_PROP"]["USER_PROPS_N"][23]["VALUE"]?>"
+                                    />
+                                </div>
+                            </div>
+
+                            <div class="order-buyer order-buyer-otchestvo">
+                                <div class="order-buyer__title">
+                                    <span>Отчество получателя</span>
+                                </div>
+
+                                <div class="order-buyer__field">
+                                    <input
+                                        type="text"
+                                        placeholder="Ваше отчество"
+                                        required
+                                        name="<?=$arResult["ORDER_PROP"]["USER_PROPS_N"][24]["FIELD_NAME"]?>"
+                                        value="<?=$arResult["ORDER_PROP"]["USER_PROPS_N"][24]["VALUE"]?>"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="order-buyer-col">
+                            <div class="order-buyer order-buyer-phone">
+                                <div class="order-buyer__title">
+                                    <span>Телефон *</span>
+                                </div>
+
+                                <div class="order-buyer__field">
+                                    <input
+                                        type="text"
+                                        placeholder="Ваше телефон"
+                                        required
+                                        name="<?=$arResult["ORDER_PROP"]["USER_PROPS_N"][20]["FIELD_NAME"]?>"
+                                        value="<?=$arResult["ORDER_PROP"]["USER_PROPS_N"][20]["VALUE"]?>"
+                                    />
+                                </div>
+                            </div>
+
+                            <div class="order-buyer order-buyer-email">
+                                <div class="order-buyer__title">
+                                    <span>Ваш e-mail *</span>
+                                </div>
+
+                                <div class="order-buyer__field">
+                                    <input
+                                        type="text"
+                                        placeholder="Ваш e-mail"
+                                        required
+                                        name="<?=$arResult["ORDER_PROP"]["USER_PROPS_Y"][6]["FIELD_NAME"]?>"
+                                        value="<?=$arResult["ORDER_PROP"]["USER_PROPS_Y"][6]["VALUE"]?>"
+                                    />
+                                </div>
+                            </div>
+
+                            <div class="order-buyer order-buyer-index">
+                                <div class="order-buyer__title">
+                                    <span>Индекс *</span>
+                                </div>
+
+                                <div class="order-buyer__field">
+                                    <input
+                                        type="text"
+                                        placeholder="Ваш индекс"
+                                        required
+                                        name="<?=$arResult["ORDER_PROP"]["USER_PROPS_Y"][4]["FIELD_NAME"]?>"
+                                        value="<?=$arResult["ORDER_PROP"]["USER_PROPS_Y"][4]["VALUE"]?>"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="order-buyer-col">
+                            <div class="order-buyer order-buyer-gorod" style="display:none">
+                                <div class="order-buyer__title">
+                                    <span>Город *</span>
+                                </div>
+
+                                <div class="order-buyer__field">
+                                    <input
+                                        type="text"
+                                        placeholder="Введите название"
+                                        name="ORDER_PROP_5"
+                                        value="<?=$arResult["ORDER_PROP"]["USER_PROPS_Y"][5]["VALUE"]?>"
+                                    />
+                                </div>
+                            </div>
+
+                            <div class="order-buyer order-buyer-dom" style="display:none">
+                                <div class="order-buyer__title">
+                                    <span>Адрес (пр.Ленина д.3 корп.2 кв.3) *</span>
+                                </div>
+
+                                <div class="order-buyer__field">
+                                    <input
+                                        type="text"
+                                        placeholder="Введите название"
+                                        name="<?=$arResult["ORDER_PROP"]["USER_PROPS_N"][21]["FIELD_NAME"]?>"
+                                        value="<?=$arResult["ORDER_PROP"]["USER_PROPS_N"][21]["VALUE"]?>"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="order-buyer order-buyer-desc">
+                            <div class="order-buyer__title">
+                                <span>Комментарий к заказу</span>
+                            </div>
+
+                            <div class="order-buyer__field">
+                                <textarea id="orderDescription" name="ORDER_DESCRIPTION" placeholder="Введите текст"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
 
 				<? if ($arParams['BASKET_POSITION'] === 'after'): ?>
 					<!--	BASKET ITEMS BLOCK	-->

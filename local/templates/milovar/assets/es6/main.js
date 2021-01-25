@@ -152,6 +152,23 @@
     }
 
     function addBascet(){
+        $(document).on('input', '.js-card-count', function(){
+            var inpU = $(this);
+            var prodBlock = inpU.parents('.js-prod-item');
+            var count = inpU.val() * 1;
+
+            if(count <= 0){
+                count = 1;
+                inpU.val(count);
+            }
+
+            var price = prodBlock.find('.js-add-basket').attr('data-link');
+            price = $.parseJSON(price).price;
+            price = parseFloat(price) * count;
+            price = number_format(price, 2, '.', ' ') + "р";
+            prodBlock.find('.js-cart-price').text(price);
+        })
+
         $(document).on('click', ".js-sel-product", function(){
             var buttData = $(this);
             var blockData = buttData.parents('.js-prod-item');
@@ -159,6 +176,11 @@
 
             blockData.find('.js-sel-product').removeClass('is-chek');
             buttData.addClass('is-chek');
+
+            var priceAll = $.parseJSON(bigData).price;
+            priceAll = parseFloat(priceAll) * (blockData.find('.js-card-count').val() * 1)
+            priceAll = number_format(priceAll, 2, '.', ' ') + "р";
+            blockData.find('.js-cart-price').text(priceAll);
 
             blockData.find('.js-add-basket').attr('data-link', bigData);
             blockData.find('.price-show').text(new Intl.NumberFormat('ru-RU').format(bigData.price));
@@ -171,7 +193,12 @@
         })
 
         $(document).on('click', ".js-add-basket", function(){
-            window.location.href = atob($(this).attr('data-link')).replace(/&amp;/gi, "&");
+            var parBlock = $(this).parents('.js-prod-item');
+            var linkAdd = $(this).attr('data-link');
+            linkAdd = $.parseJSON(linkAdd).basket_link;
+            linkAdd += "&quantity=" + parBlock.find('.js-card-count').val();
+
+            window.location.href = linkAdd;
         })
 
         $(document).on('click', ".js-card-plus, .js-card-minus", function(){
@@ -185,6 +212,11 @@
                 count--;
                 count = count <= 0 ? 1 : count;
             }
+
+            var priceAll = $.parseJSON(cartBlock.find('.js-add-basket').attr('data-link'));
+            priceAll = parseFloat(priceAll.price) * count;
+            priceAll = number_format(priceAll, 2, '.', ' ') + "р";
+            cartBlock.find('.js-cart-price').text(priceAll);
 
             cartBlock.find('.js-card-count').val(count);
         })
@@ -332,15 +364,15 @@
     function orderCalculate(){
         $(document).on('change', ".order-row__delivery-input", function(){
 
-            if(validateOrder()){
-                $('.order-row__delivery-desc').slideUp();
-                $(this).parents('.order-row__delivery-row').find('.order-row__delivery-desc').slideDown();
-                BX.Sale.OrderAjaxComponent.sendRequest();
-
-                window.order_step.deliver = true;
-            } else {
-                $(this).prop('checked', false);
-            }
+            // if(validateOrder()){
+            //     $('.order-row__delivery-desc').slideUp();
+            //     $(this).parents('.order-row__delivery-row').find('.order-row__delivery-desc').slideDown();
+            //     BX.Sale.OrderAjaxComponent.sendRequest();
+            //
+            //     window.order_step.deliver = true;
+            // } else {
+            //     $(this).prop('checked', false);
+            // }
 
 
             // $('.order-row__delivery-desc').slideUp();
@@ -394,6 +426,32 @@
     //         $('#DELIVERY_ID_31, #DELIVERY_ID_32').parents('.order-row__delivery-item').removeAttr('style');
     //     }
 
+    function number_format(number, decimals, dec_point, thousands_sep) {
+        number = (number + '').replace(/[^0-9+\-Ee.]/g, '');
+        var n = !isFinite(+number) ? 0 : +number,
+            prec = !isFinite(+decimals) ? 0 : Math.abs(decimals),
+            sep = (typeof thousands_sep === 'undefined') ? ',' : thousands_sep,
+            dec = (typeof dec_point === 'undefined') ? '.' : dec_point,
+            s = '',
+            toFixedFix = function(n, prec) {
+                var k = Math.pow(10, prec);
+                return '' + (Math.round(n * k) / k)
+                    .toFixed(prec);
+            };
+        // Fix for IE parseFloat(0.55).toFixed(0) = 0;
+        s = (prec ? toFixedFix(n, prec) : '' + Math.round(n))
+            .split('.');
+        if (s[0].length > 3) {
+            s[0] = s[0].replace(/\B(?=(?:\d{3})+(?!\d))/g, sep);
+        }
+        if ((s[1] || '')
+            .length < prec) {
+            s[1] = s[1] || '';
+            s[1] += new Array(prec - s[1].length + 1)
+                .join('0');
+        }
+        return s.join(dec);
+    }
 
     $(function(){
         ourAddress(); // показать адреса в шапке

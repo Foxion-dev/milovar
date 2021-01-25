@@ -81,8 +81,8 @@ body {
   max-width: 1170px;
   margin: 0 auto;
 
-  @include max-screen (1170px) {
-    max-width: 960px;
+  @include max-screen (1200px) {
+    max-width: 100%;
     padding-right: 15px;
     padding-left: 15px;
   }
@@ -142,3 +142,8 @@ select {
   }
 }
 
+@media screen and (max-width: 768px) {
+   .main{
+      padding-top: 170px;
+   }
+}

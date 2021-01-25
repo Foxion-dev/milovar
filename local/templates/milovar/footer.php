@@ -75,10 +75,10 @@ global $site_set;
                 <hr>
                 <div class="container">
                     <div class="footer-prava">
-                        <a href="#">© 2020 «Milovarpro.ru»</a>
-                        <a href="#">Наш SMS-провайдер</a>
-                        <a href="#">Политика конфиденциальности</a>
-                        <a href="#">Разработка сайта <span>German Web</span></a>
+                        <a href="javascript:void(0);">© <?= date('Y', time()) ?> «Milovarpro.ru»</a>
+                        <a href="javascript:void(0);">Наш SMS-провайдер</a>
+                        <a href="javascript:void(0);">Политика конфиденциальности</a>
+                        <a href="https://german-web.org/">Разработка сайта <span>German Web</span></a>
                     </div>
                 </div>
             </footer>

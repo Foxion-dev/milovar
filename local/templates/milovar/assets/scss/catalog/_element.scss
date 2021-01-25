@@ -73,10 +73,6 @@
         padding: 0 60px 0 30px;
         margin-bottom: 25px;
 
-        @include max-screen (1200px) {
-            height: 100%;
-        }
-
         @include max-screen (992px) {
             flex-wrap: wrap;
         }
@@ -90,14 +86,17 @@
             flex-basis: 50%;
             margin-top: 30px;
             margin-bottom: 30px;
+            display: flex;
+            flex-direction: column;
 
-            @include flex($j-sb,$a-fs,$fww);
             @include max-screen (1170px) {
                 margin-right: 20px;
             }
 
             @include max-screen (992px) {
+                flex-basis: 100%;
                 margin-right: 0;
+                align-items: center;
             }
 
             @include max-screen (768px) {
@@ -189,12 +188,11 @@
                 display: flex;
                 justify-content: center;
                 padding: 0 5px;
+                border: 2px solid transparent;
+                border-radius: 5px;
 
                 &.slick-current{
-
-                    .slide-item-img{
-                        border-color: $c_func_color;
-                    }
+                    border-color: $c_func_color;
                 }
 
                 &:focus{
@@ -204,7 +202,7 @@
                 .slide-item-img{
                     max-height: 94px;
                     border-radius: 5px;
-                    border: 2px solid transparent;
+                    //border: 2px solid transparent;
                     cursor: pointer;
                 }
             }
@@ -213,7 +211,6 @@
         .right-info {
             flex-basis: 50%;
             margin-top: 30px;
-            height: 100%;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -378,7 +375,7 @@
                 margin-bottom: 50px;
                 display: flex;
                 align-items: center;
-                justify-content: space-between;
+                //justify-content: space-between;
 
                 @include max-screen (1170px) {
                     flex-wrap: wrap;
@@ -397,13 +394,10 @@
                 .colvo {
                     outline: none;
                     border: none;
-                    margin-right: -40px;
+                    margin-right: 40px;
+                    margin-left: auto;
                     display: flex;
                     align-items: center;
-
-                    @include max-screen (1170px) {
-                        margin-right: 0;
-                    }
 
                     input[type=number]::-webkit-inner-spin-button,
                     input[type=number]::-webkit-outer-spin-button {
@@ -452,29 +446,23 @@
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    width: 170px;
+                    width: 150px;
                     height: 60px;
                     border-radius: 50px;
                     text-align: center;
                     background: $c_func_color;
-                    transition: background .7s ease;
                     position: relative;
                     z-index: 10;
-                    @include max-screen (1170px) {
-                        height: 45px;
-                        margin-bottom: 10px;
-                        margin-top: 10px;
+                    border: 1px solid $c_func_color;
+                    cursor: pointer;
+
+                    &:focus{
+                        outline: 0;
                     }
-                    &:after{
-                        @include psev_full;
-                        border-radius: 50px;
-                        //background: $bg_btn_hover;
-                        opacity: 0;
-                        z-index: -1;
-                        transition: all .7s ;
-                    }
-                    &:hover:after{
-                        opacity: 1;
+
+                    &:hover{
+                        background-color: $c_white;
+                        color: $c_func_color;
                     }
                 }
             }
@@ -575,5 +563,40 @@
 
     .fancybox-image{
         border-radius: 5px;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+
+    .prod-element{
+
+        .block-gallery-product{
+            padding: 0 15px;
+            height: auto;
+
+            .right-info .buy-price .colvo{
+                margin-right: 10px;
+            }
+        }
+    }
+
+    .prod-element .info-product-content{
+        padding: 0 15px 20px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .prod-element .block-gallery-product .right-info .buy-price .into-basket{
+        margin-top: 20px;
+        width: 100%;
+    }
+
+    .prod-element .block-gallery-product .right-info .buy-price .price{
+        width: 100%;
+        text-align: center;
+    }
+
+    .prod-element .block-gallery-product .right-info .buy-price .colvo{
+        margin: 15px auto 0;
     }
 }

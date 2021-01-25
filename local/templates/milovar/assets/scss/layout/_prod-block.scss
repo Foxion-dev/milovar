@@ -195,16 +195,39 @@
             background-color: $c_white;
             display: flex;
             padding: 0 20px 0 7px;
+            position: relative;
 
             &::before,
             &::after{
+                content: "";
+                position: absolute;
+                width: 7px;
+                height: 1px;
+                background-color: $c_func_color;
+                right: 10px;
+                top: 12px;
+                transform-origin: right;
+                transform: rotate(45deg);
+            }
 
+            &::after{
+                transform: rotate(135deg);
             }
 
         }
 
         &-close{
             display: none;
+
+            &::before,
+            &::after{
+                transform: rotate(225deg);
+                top: 8px;
+            }
+
+            &::after{
+                transform: rotate(315deg);
+            }
         }
     }
 

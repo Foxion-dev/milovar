@@ -74,15 +74,12 @@ foreach ($arResult['PAY_SYSTEM'] as $key_pay => $one_pay){
         break;
     }
 }
-
-//foreach ($arResult as $tyut => $item) {
-//    echo "<pre>",var_dump($tyut),"</pre>";
-//    echo "<pre>",var_dump($item),"</pre>";
-//
+$arResult['LOCATIONS'][array_key_first($arResult['LOCATIONS'])]["showAlt"] = true;
+//foreach ($arResult['LOCATIONS'] as $tyut => $item) {
+////    echo "<pre>",var_dump($tyut),"</pre>";
+////    echo "<pre>",var_dump($item["showAlt"]),"</pre>";
 //}
-
-//echo "<pre>",var_dump($arResult),"</pre>";
-
+//echo "<pre>",var_dump($arResult['LOCATIONS']),"</pre>";
 //$db_groups = CIBlockElement::GetElementGroups($product['ID'], false);
 //$cat_path = [];
 //

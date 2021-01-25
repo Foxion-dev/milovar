@@ -580,15 +580,17 @@
 	}
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1160px) {
+	#serch-form input{
+		width: 155px;
+	}
+
 	.header .head-nav__item{
 		padding: 0 10px;
 	}
+}
 
-	#serch-form input{
-		width: 156px;
-	}
-
+@media screen and (max-width: 1024px) {
 	.header .header-block .nav-items .header-nav li{
 		margin-right: 20px;
 	}
@@ -596,6 +598,10 @@
 
 @media screen and (max-width: 768px) {
 	.header .head-nav__list{
+		display: none;
+	}
+
+	.breadcrumbs{
 		display: none;
 	}
 

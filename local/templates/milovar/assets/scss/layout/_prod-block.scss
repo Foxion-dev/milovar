@@ -349,3 +349,17 @@
         }
     }
 }
+
+@media screen and (max-width: 800px) {
+
+    .catalog-product__item{
+        max-width: 50%;
+    }
+}
+
+@media screen and (max-width: 550px) {
+
+    .catalog-product__item{
+        max-width: 100%;
+    }
+}

@@ -18,9 +18,15 @@ $APPLICATION->SetTitle("Каталог товаров");
 	</div>
 	<div class="catalog-full">
 		<div class="catalog-category">
+            <div class="mobile-button">
+                <span class="cat-open">Меню<br />Каталога</span>
+                <span class="cat-close"></span>
+            </div>
+
 			<div class="catalog-category__title">
                 <span>Категории</span>
 			</div>
+
 			<div class="catalog-category__block">
 				 <?$APPLICATION->IncludeComponent(
 	"bitrix:catalog.section.list", 

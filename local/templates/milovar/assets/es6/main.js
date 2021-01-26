@@ -65,6 +65,10 @@
                 papa.find('.deep-lev-1').slideToggle();
             })
         }
+
+        $(document).on('click', '.mobile-button', function(){
+            $(this).parent('.catalog-category').toggleClass('opened');
+        })
     }
 
     function catalogFilters(){

@@ -57,13 +57,27 @@ global $site_set;
                         </div>
                         <div class="footer-nav-block">
                             <ul class="foot-list">
-                                <li><a href="#">Каталог товаров</a></li>
-                                <li><a href="#">Рецепты</a></li>
-                                <li><a href="#">Статьи</a></li>
-                                <li><a href="#">Новости</a></li>
-                                <li><a href="#">Доставка и оплата</a></li>
-                                <li><a href="#">Накопительные скидки</a></li>
-                                <li><a href="#">Помощь</a></li>
+                                <li class="foot-item">
+                                    <a href="javascript:void(0);" class="foot-link">Каталог товаров</a>
+                                </li>
+                                <li class="foot-item">
+                                    <a href="javascript:void(0);" class="foot-link">Рецепты</a>
+                                </li>
+                                <li class="foot-item">
+                                    <a href="javascript:void(0);" class="foot-link">Статьи</a>
+                                </li>
+                                <li class="foot-item">
+                                    <a href="javascript:void(0);" class="foot-link">Новости</a>
+                                </li>
+                                <li class="foot-item">
+                                    <a href="javascript:void(0);" class="foot-link">Доставка и оплата</a>
+                                </li>
+                                <li class="foot-item">
+                                    <a href="javascript:void(0);" class="foot-link">Накопительные скидки</a>
+                                </li>
+                                <li class="foot-item">
+                                    <a href="javascript:void(0);" class="foot-link">Помощь</a>
+                                </li>
                             </ul>
                         </div>
                         <div class="footer-contact-block">
@@ -75,10 +89,21 @@ global $site_set;
                 <hr>
                 <div class="container">
                     <div class="footer-prava">
-                        <a href="javascript:void(0);">© <?= date('Y', time()) ?> «Milovarpro.ru»</a>
-                        <a href="javascript:void(0);">Наш SMS-провайдер</a>
-                        <a href="javascript:void(0);">Политика конфиденциальности</a>
-                        <a href="https://german-web.org/">Разработка сайта <span>German Web</span></a>
+                        <div class="footer-prava-block">
+                            <a href="javascript:void(0);">© <?= date('Y', time()) ?> «Milovarpro.ru»</a>
+                        </div>
+
+                        <div class="footer-prava-block">
+                            <a href="javascript:void(0);" class="footer-prava-link">Наш SMS-провайдер</a>
+                        </div>
+
+                        <div class="footer-prava-block">
+                            <a href="javascript:void(0);" class="footer-prava-link">Политика конфиденциальности</a>
+                        </div>
+
+                        <div class="footer-prava-block">
+                            <a href="https://german-web.org/" class="footer-prava-link">Разработка сайта <span>German Web</span></a>
+                        </div>
                     </div>
                 </div>
             </footer>

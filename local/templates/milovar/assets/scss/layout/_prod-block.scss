@@ -406,6 +406,21 @@
     }
 }
 
+.home{
+    .catalog-product__variation-item{
+        max-width: 30%;
+
+        &:nth-child(3n + 2){
+            margin-left: 5%;
+            margin-right: 5%;
+        }
+    }
+
+    .catalog-product__variation-list{
+        justify-content: flex-start;
+    }
+}
+
 @media screen and (max-width: 800px) {
 
     .catalog-product__item{

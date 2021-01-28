@@ -715,3 +715,51 @@
 		max-width: 100%;
 	}
 }
+
+.catalog-seo-block{
+	background-color: $c_white;
+	display: flex;
+	padding: 50px 0;
+
+	h2{
+		font-size: 36px;
+		@include museo700;
+		margin: 30px 0;
+	}
+
+	p{
+		margin-bottom: 10px;
+	}
+
+	ul{
+		padding-left: 20px;
+		list-style: none;
+	}
+
+	li{
+		position: relative;
+		margin-bottom: 10px;
+
+		&::after{
+			content: "";
+			display: block;
+			width: 10px;
+			height: 10px;
+			background-color: $c_func_color;
+			border-radius: 5px;
+			position: absolute;
+			top: 50%;
+			margin-top: -5px;
+			left: -20px;
+		}
+	}
+}
+
+@media screen and (max-width: 700px) {
+
+	.milovar-catalog .milivar-catalog-title .view-catalog{
+		width: 100%;
+		justify-content: flex-end;
+		margin-top: 20px;
+	}
+}

@@ -157,6 +157,9 @@ if(CModule::IncludeModule("sale")){
                         </div>
                     </div>
                 </div>
+            </header>
+
+            <main class="main">
                 <? if ($APPLICATION->GetCurPage(false) !== '/'): ?>
                     <div class="breadcrumbs">
                         <div class="container">
@@ -174,6 +177,3 @@ if(CModule::IncludeModule("sale")){
                         </div>
                     </div>
                 <? endif; ?>
-            </header>
-
-            <main class="main">

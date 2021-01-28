@@ -63,6 +63,10 @@ use Bitrix\Sale;
                                 <? endif; ?>
 
                                 <div class="catalog-product__variation-item js-sel-product<?= $odin_offer['class'] ?>" data-big-data='<?= $odin_offer["big_data"] ?>'>
+                                    <span class="catalog-product__variation-quest">
+                                        <span class="catalog-product__variation-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span>
+                                    </span>
+
                                     <span class="catalog-product__variation-title"><?= $odin_offer['value'] ?></span>
                                 </div>
 

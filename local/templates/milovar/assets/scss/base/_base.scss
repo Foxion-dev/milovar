@@ -63,12 +63,9 @@ body {
 
 .main{
   flex: 1 0 auto;
-  padding-top: 226px;
-}
-
-.home .main{
   padding-top: 162px;
 }
+
 
 .footer{
   flex: 0 0 auto;
@@ -142,8 +139,19 @@ select {
   }
 }
 
-@media screen and (max-width: 768px) {
-   .main{
-      //padding-top: 170px;
-   }
+@media screen and (max-width: 650px) {
+  .main{
+    padding-top: 218px;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .main{
+    padding-top: 258px;
+  }
+}
+@media screen and (max-width: 460px) {
+  .main{
+    padding-top: 324px;
+  }
 }

@@ -208,7 +208,7 @@ $APPLICATION->SetTitle("Каталог товаров");
 		"USE_ENHANCED_ECOMMERCE" => "N",
 		"USE_MAIN_ELEMENT_SECTION" => "N",
 		"USE_PRICE_COUNT" => "N",
-		"USE_PRODUCT_QUANTITY" => "N",
+		"USE_PRODUCT_QUANTITY" => "Y",
 		"OFFERS_SORT_FIELD" => "sort",
 		"OFFERS_SORT_ORDER" => "asc",
 		"OFFERS_SORT_FIELD2" => "id",

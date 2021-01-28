@@ -19,7 +19,7 @@ if (\Bitrix\Main\Loader::includeModule('iblock')) {
 }
 
 $site_set['style_file'] = null;
-$site_set['style_file'] = "catalog-category";
+$site_set['style_file'] = "catalog-section";
 
 if (CHTTP::GetLastStatus() == "404 Not Found"){
     $site_set['style_file'] = "404";
@@ -28,7 +28,7 @@ if (CHTTP::GetLastStatus() == "404 Not Found"){
     $site_set['style_file'] = "home";
 
 } elseif ($APPLICATION->GetCurPage(false) == "/catalog/"){
-    $site_set['style_file'] = "catalog-category";
+    $site_set['style_file'] = "catalog-section";
 
 } elseif ($APPLICATION->GetCurPage(false) == "/personal/cart/"){
     $site_set['style_file'] = "cart";
@@ -38,6 +38,9 @@ if (CHTTP::GetLastStatus() == "404 Not Found"){
 
 } elseif (strripos($APPLICATION->GetCurPage(false), 'element.php')){
     $site_set['style_file'] = "catalog-element";
+
+} elseif ($APPLICATION->GetCurPage(false) == "/privacy-policy/"){
+    $site_set['style_file'] = "privacy-policy";
 }
 
 $site_set = (object)$site_set;

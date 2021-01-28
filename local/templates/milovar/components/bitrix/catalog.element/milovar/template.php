@@ -101,7 +101,7 @@ $this->setFrameMode(true);
 
         <div class="buy-price js-cart-counter">
             <? $price_tov = (float)json_decode($arResult['offer_data'][0]['big-date'])->price ?>
-            <span class="price js-cart-price"><?= number_format($price_tov, 2, '.', " ") ?>р</span>
+            <span class="price js-cart-price"><?= number_format($price_tov, 2, '.', " ") ?> Р</span>
 
             <div class="colvo">
                 <button class="quan-minus js-card-minus">&ndash;</button>

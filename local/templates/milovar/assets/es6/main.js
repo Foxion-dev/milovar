@@ -169,7 +169,7 @@
             var price = prodBlock.find('.js-add-basket').attr('data-link');
             price = $.parseJSON(price).price;
             price = parseFloat(price) * count;
-            price = number_format(price, 2, '.', ' ') + "р";
+            price = number_format(price, 2, '.', ' ') + " Р";
             prodBlock.find('.js-cart-price').text(price);
         })
 
@@ -182,12 +182,11 @@
             buttData.addClass('is-chek');
 
             var priceAll = $.parseJSON(bigData).price;
-            priceAll = parseFloat(priceAll) * (blockData.find('.js-card-count').val() * 1)
-            priceAll = number_format(priceAll, 2, '.', ' ') + "р";
-            blockData.find('.js-cart-price').text(priceAll);
+            priceAll = parseFloat(priceAll) * (blockData.find('.js-card-count').val() * 1);
+            priceAll = number_format(priceAll, 2, '.', ' ') + " Р";
 
+            blockData.find('.js-cart-price').text(priceAll);
             blockData.find('.js-add-basket').attr('data-link', bigData);
-            blockData.find('.price-show').text(new Intl.NumberFormat('ru-RU').format(bigData.price));
         })
 
         $(document).on('click', '.js-offers-toggle', function(){
@@ -201,6 +200,8 @@
             var linkAdd = $(this).attr('data-link');
             linkAdd = $.parseJSON(linkAdd).basket_link;
             linkAdd += "&quantity=" + parBlock.find('.js-card-count').val();
+
+            // console.log(linkAdd);
 
             window.location.href = linkAdd;
         })
@@ -219,7 +220,7 @@
 
             var priceAll = $.parseJSON(cartBlock.find('.js-add-basket').attr('data-link'));
             priceAll = parseFloat(priceAll.price) * count;
-            priceAll = number_format(priceAll, 2, '.', ' ') + "р";
+            priceAll = number_format(priceAll, 2, '.', ' ') + " Р";
             cartBlock.find('.js-cart-price').text(priceAll);
 
             cartBlock.find('.js-card-count').val(count);

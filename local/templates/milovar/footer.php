@@ -58,7 +58,7 @@ global $site_set;
                         <div class="footer-nav-block">
                             <ul class="foot-list">
                                 <li class="foot-item">
-                                    <a href="javascript:void(0);" class="foot-link">Каталог товаров</a>
+                                    <a href="/catalog" class="foot-link">Каталог товаров</a>
                                 </li>
                                 <li class="foot-item">
                                     <a href="javascript:void(0);" class="foot-link">Рецепты</a>
@@ -90,15 +90,15 @@ global $site_set;
                 <div class="container">
                     <div class="footer-prava">
                         <div class="footer-prava-block">
-                            <a href="javascript:void(0);">© <?= date('Y', time()) ?> «Milovarpro.ru»</a>
+                            <span>© <?= date('Y', time()) ?> «Milovarpro.ru»</span>
                         </div>
 
                         <div class="footer-prava-block">
-                            <a href="javascript:void(0);" class="footer-prava-link">Наш SMS-провайдер</a>
+                            <a href="https://smsc.ru/" class="footer-prava-link" target="_blank">Наш SMS-провайдер</a>
                         </div>
 
                         <div class="footer-prava-block">
-                            <a href="javascript:void(0);" class="footer-prava-link">Политика конфиденциальности</a>
+                            <a href="/privacy-policy" class="footer-prava-link">Политика конфиденциальности</a>
                         </div>
 
                         <div class="footer-prava-block">

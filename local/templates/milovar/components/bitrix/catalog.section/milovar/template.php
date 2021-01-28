@@ -56,25 +56,17 @@ use Bitrix\Sale;
 
                         <div class="catalog-product__variation-list">
 
-                            <? foreach($item["OFFERS"] as $num_of => $odin_offer): ?>
-                                <? $id_prop = array_search("Фасовка", $odin_offer["PROPERTIES"]["CML2_ATTRIBUTES"]["DESCRIPTION"]); ?>
-                                <? $prop_val = $odin_offer["PROPERTIES"]["CML2_ATTRIBUTES"]["VALUE"][$id_prop]; ?>
-                                <? $basket_link = base64_encode($odin_offer["ADD_URL"]) ?>
-                                <? $price_id = $odin_offer["PRICES"]["RETAIL"]["PRICE_ID"]; ?>
-                                <? $price = $odin_offer["CATALOG_PRICE_" . $price_id] ?>
-                                <? $class_active = $num_of == 0 ? " is-chek" : "" ?>
-
-                                <? if($num_of == 0){ $price_start = $price; $data_link = $basket_link; } ?>
+                            <? foreach($item['variacii'] as $num_of => $odin_offer): ?>
 
                                 <? if($num_of == 2): ?>
                                     <div class="catalog-product__variation-hidden js-offers-hid">
                                 <? endif; ?>
 
-                                <div class="catalog-product__variation-item js-sel-product<?= $class_active ?>" data-big-data='<?= json_encode(compact('price', 'basket_link')) ?>'>
-                                    <span class="catalog-product__variation-title"><?= $prop_val ?></span>
+                                <div class="catalog-product__variation-item js-sel-product<?= $odin_offer['class'] ?>" data-big-data='<?= $odin_offer["big_data"] ?>'>
+                                    <span class="catalog-product__variation-title"><?= $odin_offer['value'] ?></span>
                                 </div>
 
-                                <? if(($num_of == count($item["OFFERS"]) - 1) && (count($item["OFFERS"]) > 2)): ?>
+                                <? if(($num_of == count($item['variacii']) - 1) && (count($item['variacii']) > 2)): ?>
                                     </div>
                                     <div class="catalog-product__variation-toggle js-offers-toggle">
                                         <span class="catalog-product__variation-open">Показать ещё</span>
@@ -88,20 +80,19 @@ use Bitrix\Sale;
                     <div class="catalog-product__card js-cart-counter">
                         <div class="catalog-product__card-price">
                             <span>
-                                <span class="price-show js-cart-price"><?= number_format($price_start, 0, "", " ") ?></span>
-                                <span> Р</span>
+                                <span class="price-show js-cart-price"><?= $item['but_big_data']['price'] ?> Р</span>
                             </span>
                         </div>
 
                         <div class="catalog-product__card-but">
                             <div class="catalog-product__card-calc">
                                 <button class="catalog-product__card-min js-card-minus"></button>
-                                <input type="text" class="catalog-product__card-did js-card-count" name="prod_count" data-max-count="10" value="1" />
+                                <input type="number" class="catalog-product__card-did js-card-count" name="prod_count" value="1" />
                                 <button class="catalog-product__card-plus js-card-plus"></button>
                             </div>
 
                             <div class="catalog-product__card-buy">
-                                <button type="button" data-link='<?= $data_link ?>' class='catalog-product__card-boot js-add-basket'>В корзину</button>
+                                <button type="button" data-link='<?= $item['but_big_data']['info'] ?>' class='catalog-product__card-boot js-add-basket'>В корзину</button>
                             </div>
                         </div>
                     </div>

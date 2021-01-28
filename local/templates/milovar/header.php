@@ -13,8 +13,25 @@ if(CModule::IncludeModule("sale")){
             "LID" => SITE_ID,
             "ORDER_ID" => "NULL"
         ),
-        array()
+        array("ID", "QUANTITY", "PRICE")
     );
+
+    $bascet_info = [
+        'count' => 0,
+        'price' => 0
+    ];
+
+    $cntBasketItems = $cntBasketItems->arResult;
+
+    if(count($cntBasketItems) > 0){
+        $bascet_info['count'] = count($cntBasketItems);
+
+        foreach ($cntBasketItems as $prod){
+            $bascet_info['price'] += (int)$prod["QUANTITY"] * (float)$prod["PRICE"];
+        }
+
+        $bascet_info['price'] = number_format($bascet_info['price'], 0, '.', " ");
+    }
 }
 
 
@@ -59,10 +76,10 @@ if(CModule::IncludeModule("sale")){
                             </div>
                             <div class="nav-items">
                                 <ul class="header-nav">
-                                    <li><a href="#">Доставка и оплата</a></li>
-                                    <li><a href="#">Накопительные скидки</a></li>
-                                    <li><a href="help-page.html">Помощь</a></li>
-                                    <li><a href="#">Клиентам</a></li>
+                                    <li><a href="javascript:void(0);">Доставка и оплата</a></li>
+                                    <li><a href="javascript:void(0);">Накопительные скидки</a></li>
+                                    <li><a href="javascript:void(0);">Помощь</a></li>
+                                    <li><a href="javascript:void(0);">Клиентам</a></li>
                                 </ul>
                             </div>
                             <div class="register">
@@ -84,12 +101,14 @@ if(CModule::IncludeModule("sale")){
                             <div class="container">
                                 <ul class="header-mobile-nav">
                                     <li><a href="/catalog/">Каталог товаров</a></li>
-                                    <li><a href="recipes.html">Рецепты</a></li>
-                                    <li><a href="#">Статьи</a></li>
-                                    <li><a href="news.html">Новости</a></li>
-                                    <li><a href="#">Доставка и оплата</a></li>
-                                    <li><a href="#">Накопительные скидки</a></li>
-                                    <li><a href="#">Помощь</a></li>
+                                    <li><a href="javascript:void(0);">Рецепты</a></li>
+                                    <li><a href="javascript:void(0);">Статьи</a></li>
+                                    <li><a href="javascript:void(0);">Новости</a></li>
+                                    <li><a href="javascript:void(0);" class="red-label">Акции%</a></li>
+                                    <li><a href="javascript:void(0);">Доставка и оплата</a></li>
+                                    <li><a href="javascript:void(0);">Накопительные скидки</a></li>
+                                    <li><a href="javascript:void(0);">Помощь</a></li>
+                                    <li><a href="javascript:void(0);">Клиентам</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -100,7 +119,9 @@ if(CModule::IncludeModule("sale")){
                     <div class="container">
                         <div class="head-content-nav">
                             <div class="logo-block">
-                                <a href="/"><img src="<?= $site_set->site_logo ?>" alt="logo"></a>
+                                <a href="/" class="logo-block__link" >
+                                    <img src="<?= $site_set->site_logo ?>" class="logo-block__img" alt="logo" />
+                                </a>
                             </div>
 
                             <ul class="head-nav__list">
@@ -108,16 +129,16 @@ if(CModule::IncludeModule("sale")){
                                     <a class="head-nav__link" href="/catalog/">Каталог товаров</a>
                                 </li>
                                 <li class="head-nav__item">
-                                    <a class="head-nav__link" href="#">Рецепты</a>
+                                    <a class="head-nav__link" href="javascript:void(0);">Рецепты</a>
                                 </li>
                                 <li class="head-nav__item">
-                                    <a class="head-nav__link" href="#">Статьи</a>
+                                    <a class="head-nav__link" href="javascript:void(0);">Статьи</a>
                                 </li>
                                 <li class="head-nav__item">
-                                    <a class="head-nav__link" href="#">Новости</a>
+                                    <a class="head-nav__link" href="javascript:void(0);">Новости</a>
                                 </li>
                                 <li class="head-nav__item">
-                                    <a class="head-nav__link red-label" href="#">Акции %</a>
+                                    <a class="head-nav__link red-label" href="javascript:void(0);">Акции %</a>
                                 </li>
                             </ul>
                             <div class="phone-basket-block">
@@ -128,9 +149,9 @@ if(CModule::IncludeModule("sale")){
 
                                 <a class="basket-item" href="/personal/cart/">
                                     <span class="basket-item__ico">
-                                        <span class="basket-item__col"><?= $cntBasketItems ?></span>
+                                        <span class="basket-item__col"><?= $bascet_info['count'] ?></span>
                                     </span>
-                                    <span class="basket-item__text">0 Р</span>
+                                    <span class="basket-item__text"><?= $bascet_info['price'] ?> Р</span>
                                 </a>
                             </div>
                         </div>

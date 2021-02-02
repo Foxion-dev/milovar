@@ -49,6 +49,7 @@ Loc::loadMessages(__FILE__);
                     </div>
 
                     <label class="kolhoz-text-chek">
+                        <input type="hidden" id="alt-local" name="LOCATION_ALT_PROP_DISPLAY_MANUAL[<?= $GLOBALS['id_fild_loc'] ?>]" value="0" />
                         <input type="checkbox" class="kolhoz-text-chek-input" id="kolhoz-text-chek-input" />
                         <span class="kolhoz-text-chek-fufel"></span>
                         <span class="kolhoz-text-chek-text">

@@ -402,12 +402,12 @@
                 $('.order-buyer-gorod, .order-buyer-dom').removeAttr('style');
                 $('#select-region-origin, #select-region-order, #recent-delivery-value').val('');
                 $('#select-region-order').css({"opacity": .3, "pointer-events": "none"}).removeClass('error')
-                window.order_step.city = true;
+                $('#alt-local').val(1);
 
             } else {
                 $('.order-buyer-gorod, .order-buyer-dom').css('display', "none");
                 $('#select-region-order').removeAttr('style');
-                window.order_step.city = false;
+                $('#alt-local').val(0);
             }
         })
 

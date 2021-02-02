@@ -14,6 +14,7 @@ foreach ($arResult["ORDER_PROP"]["USER_PROPS_Y"] as $prop_one){
 
     if($prop_one["CODE"] == 'LOCATION'){
         $GLOBALS['name_fild_loc'] = $prop_one["FIELD_NAME"];
+        $GLOBALS['id_fild_loc'] = $prop_one["ID"];
 
         foreach ($prop_one["VARIANTS"] as $rt => $ret){
 
@@ -74,7 +75,9 @@ foreach ($arResult['PAY_SYSTEM'] as $key_pay => $one_pay){
         break;
     }
 }
-$arResult['LOCATIONS'][array_key_first($arResult['LOCATIONS'])]["showAlt"] = true;
+
+//echo "<pre>",var_dump($arResult),"</pre>";
+
 //foreach ($arResult['LOCATIONS'] as $tyut => $item) {
 ////    echo "<pre>",var_dump($tyut),"</pre>";
 ////    echo "<pre>",var_dump($item["showAlt"]),"</pre>";

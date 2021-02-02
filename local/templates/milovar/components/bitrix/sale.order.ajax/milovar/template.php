@@ -630,6 +630,8 @@ else
                                         name="ORDER_PROP_5"
                                         value="<?=$arResult["ORDER_PROP"]["USER_PROPS_Y"][5]["VALUE"]?>"
                                     />
+
+
                                 </div>
                             </div>
 

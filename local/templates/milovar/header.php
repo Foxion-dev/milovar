@@ -86,8 +86,11 @@ if(CModule::IncludeModule("sale")){
                                 <a href="entrance.html">Вход </a>/<a href="register.html">Регистрация</a>
                             </div>
                             <div class="search">
-                                <form id="serch-form">
-                                    <input type="text" name="search-phrase" placeholder="Поиск по сайту" />
+                                <form id="serch-form" action="/search" method="get">
+                                    <input type="hidden" name="tags" value="" />
+                                    <input type="text" name="q" value="" size="40" placeholder="Поиск по сайту" />
+                                    <input type="hidden" name="where" value="iblock_xmlcatalog" />
+                                    <input type="hidden" name="how" value="r" />
                                 </form>
                             </div>
 

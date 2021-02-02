@@ -82,6 +82,14 @@ if(CModule::IncludeModule("sale")){
                                     <li><a href="javascript:void(0);">Клиентам</a></li>
                                 </ul>
                             </div>
+
+                            <div class="phone-mobile">
+                                <a class="phone-item" href="tel:<?= str_replace([" ", "-", "(", ")"], "", $site_set->site_phone) ?>">
+                                    <span class="phone-item__ico"></span>
+                                    <span class="phone-item__text"><?= $site_set->site_phone ?></span>
+                                </a>
+                            </div>
+
                             <div class="register">
                                 <a href="entrance.html">Вход </a>/<a href="register.html">Регистрация</a>
                             </div>
@@ -103,6 +111,12 @@ if(CModule::IncludeModule("sale")){
                         <div class="header-mobile-menu">
                             <div class="container">
                                 <ul class="header-mobile-nav">
+                                    <li class="mobile-register">
+                                        <div class="register">
+                                            <a href="entrance.html">Вход </a>/<a href="register.html">Регистрация</a>
+                                        </div>
+                                    </li>
+
                                     <li><a href="/catalog/">Каталог товаров</a></li>
                                     <li><a href="javascript:void(0);">Рецепты</a></li>
                                     <li><a href="javascript:void(0);">Статьи</a></li>
@@ -144,6 +158,7 @@ if(CModule::IncludeModule("sale")){
                                     <a class="head-nav__link red-label" href="javascript:void(0);">Акции %</a>
                                 </li>
                             </ul>
+
                             <div class="phone-basket-block">
                                 <a class="phone-item" href="tel:<?= str_replace([" ", "-", "(", ")"], "", $site_set->site_phone) ?>">
                                     <span class="phone-item__ico"></span>
@@ -156,6 +171,12 @@ if(CModule::IncludeModule("sale")){
                                     </span>
                                     <span class="basket-item__text" id="header-cart"><?= $bascet_info['price'] ?> Р</span>
                                 </a>
+
+                                <div class="nav-burger" role="navigation" id="navToggle-mini">
+                                    <span class="nav-burger__bar nav-burger__bar-1"></span>
+                                    <span class="nav-burger__bar nav-burger__bar-2"></span>
+                                    <span class="nav-burger__bar nav-burger__bar-3"></span>
+                                </div>
                             </div>
                         </div>
                     </div>

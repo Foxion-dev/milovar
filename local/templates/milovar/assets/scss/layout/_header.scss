@@ -582,6 +582,15 @@
 	color: $c_red !important;
 }
 
+#navToggle-mini{
+	display: none;
+}
+
+.header-mobile-menu.open li.mobile-register,
+.phone-mobile{
+	display: none;
+}
+
 @media screen and (max-width: 1160px) {
 	#serch-form input{
 		width: 155px;
@@ -656,18 +665,89 @@
 }
 
 @media screen and (max-width: 650px) {
-	.phone-basket-block{
-		flex-direction: column;
-		max-width: fit-content;
-		margin-left: auto;
+	.header .header-block #navToggle{
+		display: none;
 	}
 
-	.home .head-content-nav{
-		align-items: flex-start;
+	.header .header-block .register{
+		display: none;
+	}
+
+	#header-cart{
+		display: none;
+	}
+
+	#navToggle-mini{
+		display: flex;
+	}
+
+	.phone-basket-block .basket-item__ico{
+		margin-right: 35px;
 	}
 
 	.phone-basket-block .basket-item{
-		margin-top: 15px;
+		margin-left: auto;
+	}
+
+	.phone-basket-block .phone-item{
+		display: none;
+	}
+
+	.phone-basket-block{
+		align-items: center;
+	}
+
+	.phone-mobile{
+		display: block;
+
+		.phone-item{
+			display: flex;
+			align-items: center;
+
+			&:hover{
+
+				.phone-item__text{
+					color: $c_func_color;
+				}
+
+				.phone-item__ico{
+					background-position: -46px -63px;
+				}
+			}
+
+			&__ico{
+				display: flex;
+				height: 14px;
+				width: 14px;
+				background-image: url('../images/strip.png');
+				background-position: -46px -43px;
+				margin-right: 8px;
+			}
+
+			&__text{
+				font-size: 13px;
+				@include museo300;
+				color: $c_content;
+			}
+		}
+	}
+
+	.header-mobile-menu.open li.mobile-register{
+		display: block;
+		padding-bottom: 20px;
+	}
+
+	#serch-form{
+
+		&::before{
+			cursor: pointer;
+		}
+
+		input{
+			border-color: transparent;
+			padding-right: 0;
+			width: 40px;
+		}
 	}
 }
 
@@ -679,34 +759,20 @@
 			order: 1;
 		}
 
-		.register{
+		.phone-mobile{
 			order: 2;
 		}
 
-		.nav-burger{
-			order: 3;
-		}
-
 		.search{
-			margin-top: 15px;
-			order: 4;
-			width: 100%;
-
-			#serch-form input{
-				width: 100%;
-			}
+			order: 3;
 		}
 	}
 }
 
 @media screen and (max-width: 460px) {
-	.head-content-nav{
-		flex-direction: column;
-	}
 
 	.header .head-content-nav .logo-block{
 		max-width: fit-content;
-		margin: 0 auto 15px;
 	}
 
 	.phone-basket-block{

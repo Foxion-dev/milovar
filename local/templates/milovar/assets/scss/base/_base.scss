@@ -138,20 +138,3 @@ select {
     scroll-behavior: auto !important;
   }
 }
-
-@media screen and (max-width: 650px) {
-  .main{
-    padding-top: 218px;
-  }
-}
-
-@media screen and (max-width: 650px) {
-  .main{
-    padding-top: 258px;
-  }
-}
-@media screen and (max-width: 460px) {
-  .main{
-    padding-top: 324px;
-  }
-}

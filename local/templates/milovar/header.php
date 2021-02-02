@@ -149,9 +149,9 @@ if(CModule::IncludeModule("sale")){
 
                                 <a class="basket-item" href="/personal/cart/">
                                     <span class="basket-item__ico">
-                                        <span class="basket-item__col"><?= $bascet_info['count'] ?></span>
+                                        <span class="basket-item__col" id="header-count"><?= $bascet_info['count'] ?></span>
                                     </span>
-                                    <span class="basket-item__text"><?= $bascet_info['price'] ?> Р</span>
+                                    <span class="basket-item__text" id="header-cart"><?= $bascet_info['price'] ?> Р</span>
                                 </a>
                             </div>
                         </div>

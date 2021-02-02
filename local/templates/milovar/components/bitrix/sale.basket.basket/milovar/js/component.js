@@ -661,6 +661,10 @@
 						this.deleteBasketItems(result.MERGED_BASKET_ITEMS, false, true);
 					}
 
+					var priceCArt = result.BASKET_DATA.TOTAL_RENDER_DATA.PRICE_FORMATED.replace("руб.", "Р");
+					$('#header-cart').html(priceCArt);
+					$('#header-count').html(result.BASKET_DATA.BASKET_ITEMS_COUNT);
+					
 					this.applyBasketResult(result.BASKET_DATA);
 					this.editBasketItems(this.getItemsToEdit());
 					this.editTotal();

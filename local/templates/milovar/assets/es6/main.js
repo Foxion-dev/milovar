@@ -1,5 +1,15 @@
 (function ($) {
 
+    function mobileSearch(){
+        $(document).on('click', '.search-form-ico-mobile', function(){
+            $('#serch-form').addClass('full-width');
+        })
+
+        $(document).on('click', '.search-form-close', function(){
+            $('#serch-form').removeClass('full-width');
+        })
+    }
+
     function ourAddress(){
         var aderBlock = $(".adress");
 
@@ -367,28 +377,6 @@
     }
 
     function orderCalculate(){
-        $(document).on('change', ".order-row__delivery-input", function(){
-
-            // if(validateOrder()){
-            //     $('.order-row__delivery-desc').slideUp();
-            //     $(this).parents('.order-row__delivery-row').find('.order-row__delivery-desc').slideDown();
-            //     BX.Sale.OrderAjaxComponent.sendRequest();
-            //
-            //     window.order_step.deliver = true;
-            // } else {
-            //     $(this).prop('checked', false);
-            // }
-
-
-            // $('.order-row__delivery-desc').slideUp();
-            // $(this).parents('.order-row__delivery-row').find('.order-row__delivery-desc').slideDown();
-
-            // $(this).prop('checked', false)
-            // if(){
-            //
-            // }
-            // BX.Sale.OrderAjaxComponent.sendRequest();
-        })
 
         $(document).on('change', ".order-row__payment-input", function () {
             $('.order-row__payment-desc').slideUp();
@@ -415,21 +403,6 @@
             BX.Sale.OrderAjaxComponent.sendRequest('saveOrderAjax');
         })
     }
-
-
-    // if(value.CODE == 'LOCATION'){
-    //
-    //     if(value.VALUE[0] == ""){
-    //         var top = $('#bx-soa-order-form').offset().top;
-    //         $('body,html').animate({scrollTop: top}, 500);
-    //         $('#select-region-order').addClass('error');
-    //
-    //     } else if(value.VALUE[0] !== '0000073738'){
-    //         $('#DELIVERY_ID_31, #DELIVERY_ID_32').parents('.order-row__delivery-item').css('display', 'none');
-    //
-    //     } else {
-    //         $('#DELIVERY_ID_31, #DELIVERY_ID_32').parents('.order-row__delivery-item').removeAttr('style');
-    //     }
 
     function number_format(number, decimals, dec_point, thousands_sep) {
         number = (number + '').replace(/[^0-9+\-Ee.]/g, '');
@@ -459,6 +432,7 @@
     }
 
     $(function(){
+        mobileSearch();
         ourAddress(); // показать адреса в шапке
         catalogVid(); // переключение вида каталога
         catalogMenu(); // анимация меню каталога

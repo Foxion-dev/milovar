@@ -76,30 +76,40 @@ foreach ($arResult['PAY_SYSTEM'] as $key_pay => $one_pay){
     }
 }
 
-//echo "<pre>",var_dump($arResult),"</pre>";
+foreach ($arResult["GRID"]["ROWS"] as $key_prod => $key_val) {
+    $offId = $key_val["data"]["PRODUCT_ID"];
+    $product = CCatalogSku::GetProductInfo($offId);
+    $db_groups = CIBlockElement::GetElementGroups($product['ID'], false);
 
-//foreach ($arResult['LOCATIONS'] as $tyut => $item) {
-////    echo "<pre>",var_dump($tyut),"</pre>";
-////    echo "<pre>",var_dump($item["showAlt"]),"</pre>";
-//}
-//echo "<pre>",var_dump($arResult['LOCATIONS']),"</pre>";
-//$db_groups = CIBlockElement::GetElementGroups($product['ID'], false);
-//$cat_path = [];
-//
-//while($parent = $db_groups->getNext()){
-//    $cat_path[] = $parent['NAME'];
-//    $db_groups_main = CIBlockSection::GetByID($parent['IBLOCK_SECTION_ID']);
-//
-//    while($parent_main = $db_groups_main->getNext()){
-//        $cat_path[] = $parent_main['NAME'];
-//    }
-//}
-//
-//if(count($cat_path) > 1){
-//    $cat_path = array_reverse($cat_path);
-//    $cat_path = implode("/", $cat_path);
-//} else {
-//    $cat_path = $cat_path[0];
-//}
-//echo "<pre>",var_dump($arResult["GRID"]["ROWS"][80]"data"),"</pre>";
+    $cat_path = [];
+
+    while ($parent = $db_groups->getNext()) {
+        $cat_path[] = $parent['NAME'];
+        $db_groups_main = CIBlockSection::GetByID($parent['IBLOCK_SECTION_ID']);
+
+        while ($parent_main = $db_groups_main->getNext()) {
+            $cat_path[] = $parent_main['NAME'];
+        }
+    }
+
+    if (count($cat_path) > 1) {
+        $cat_path = array_reverse($cat_path);
+        $cat_path = implode("/", $cat_path);
+    } else {
+        $cat_path = $cat_path[0];
+    }
+
+    $off_object = CIBlockElement::GetList(array(), array("ID" => $offId));
+
+    while ($off_or = $off_object->GetNextElement()) {
+        $turi = $off_or->GetProperties();
+        $id_fas = array_search("Фасовка", $turi["CML2_ATTRIBUTES"]["DESCRIPTION"]);
+
+        $arResult["GRID"]["ROWS"][$key_prod]['CUSTOM'] = [
+            "CAT_PATH" => $cat_path,
+            "FASOVKA" => $turi["CML2_ATTRIBUTES"]["VALUE"][$id_fas]
+        ];
+
+    }
+}
 

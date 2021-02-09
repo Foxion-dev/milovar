@@ -44,8 +44,6 @@ foreach ($arr_link as $key_link => $val_link){
 //фасовка
 foreach ($arResult["OFFERS"] as $num_offer => $one_offer){
 
-	echo "<pre>",var_dump($one_offer),"</pre>";
-
 	$id_prop = array_search("Фасовка", $one_offer["PROPERTIES"]["CML2_ATTRIBUTES"]["DESCRIPTION"]);
 	$prop_val = $one_offer["PROPERTIES"]["CML2_ATTRIBUTES"]["VALUE"][$id_prop];
 	$basket_link = $one_offer["ADD_URL"];

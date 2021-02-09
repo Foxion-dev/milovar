@@ -703,29 +703,37 @@ else
                             <div class="cart-prod__list">
 
                                 <? foreach($arResult["GRID"]["ROWS"] as $odin_row): ?>
+
                                     <div class="cart-prod__item">
                                         <div class="cart-prod__item-name">
                                             <img src="<?= $odin_row['data']["DETAIL_PICTURE_SRC"] ?>" alt="" />
                                             <span><?= $odin_row['data']["NAME"] ?></span>
                                         </div>
+
                                         <div class="cart-prod__item-category">
-                                            <span>глина</span>
+                                            <span><?= $odin_row['CUSTOM']['CAT_PATH'] ?></span>
                                         </div>
+
                                         <div class="cart-prod__item-packing">
-                                            <span><?= current($odin_row['data']["PROPS"])["VALUE"] ?></span>
+                                            <span><?= $odin_row['CUSTOM']["FASOVKA"] ?></span>
                                         </div>
+
                                         <div class="cart-prod__item-price">
                                             <span><?= str_replace("руб.", "р", $odin_row['data']["BASE_PRICE_FORMATED"]) ?></span>
                                         </div>
+
                                         <div class="cart-prod__item-sale">
                                             <span><?= $odin_row['data']["DISCOUNT_PRICE_PERCENT_FORMATED"] ?></span>
                                         </div>
+
                                         <div class="cart-prod__item-pricesale">
                                             <span><?= str_replace("руб.", "р", $odin_row['data']["PRICE_FORMATED"]) ?></span>
                                         </div>
+
                                         <div class="cart-prod__item-count">
                                             <span><?= $odin_row['data']["QUANTITY"] ?></span>
                                         </div>
+
                                         <div class="cart-prod__item-final">
                                             <span><?= str_replace("руб.", "р", $odin_row['data']["SUM"]) ?></span>
                                         </div>
@@ -818,7 +826,17 @@ else
             </div>
 
             <div class="order-row  order-block__valid">
+                <label class="valid-order">
+                    <input type="checkbox" id="valid-one" class="valid-order-origin" />
+                    <span class="valid-order-fufel"></span>
+                    <span class="valid-order-text">Нажимая кнопку "Подтвердить заказ", я принимаю Условия продажи товаров в интернет-магазине MilovarPro Клиент обязуется: принять и оплатить заказв соответствии с условиями, указанными Клиентом в процессе оформления данного заказа; проверить ассортимент, внешний вид, комплектность, тару и упаковку в момент получения товара.</span>
+                </label>
 
+                <label class="valid-order">
+                    <input type="checkbox" id="valid-two" class="valid-order-origin" />
+                    <span class="valid-order-fufel"></span>
+                    <span class="valid-order-text">Настоящим подтверждаю, что я ознакомлен и согласен с условиями политики конфиденциальности.</span>
+                </label>
             </div>
 
 			<div id="bx-soa-total" class="col-sm-3 bx-soa-sidebar" style="display:none">

@@ -64,6 +64,10 @@ body {
 .main{
   flex: 1 0 auto;
   padding-top: 162px;
+
+  @media screen and (max-width: 650px){
+    padding-top: 122px;
+  }
 }
 
 

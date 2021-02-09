@@ -1,8 +1,8 @@
 .market-order{
 
-    .container{
-        padding-left: 0;
-        padding-right: 0;
+    .order-row__delivery-price{
+        white-space: nowrap;
+        padding-left: 10px;
     }
 
     &__box{
@@ -102,7 +102,8 @@
                 &-fufel{
                     display: flex;
                     height: 24px;
-                    width: 24px;
+                    max-width: 24px;
+                    min-width: 24px;
                     border: 1px solid $c_func_color;
                     border-radius: 12px;
                     margin-right: 10px;
@@ -332,6 +333,8 @@
 
         &-title{
             font-size: 15px;
+            width: 98px;
+            min-width: 98px;
         }
 
         &-chek{
@@ -376,6 +379,7 @@
             &-fufel{
                 display: flex;
                 width: 32px;
+                min-width: 32px;
                 height: 32px;
                 border: 1px solid $c_grey_border;
                 border-radius: 5px;
@@ -604,5 +608,283 @@
     .itog-res{
         font-size: 13px;
         @include museo700;
+    }
+
+    .order-block__valid{
+        display: flex;
+        flex-direction: column;
+
+        .valid-order{
+            display: flex;
+            margin-bottom: 20px;
+            align-items: center;
+            cursor: pointer;
+
+            &-origin{
+                display: none;
+
+                &:checked{
+
+                    + .valid-order{
+
+                        &-fufel{
+                            border-color: $c_func_color;
+                            position: relative;
+
+                            &:before,
+                            &:after{
+                                content: "";
+                                width: 15px;
+                                height: 1px;
+                                border-radius: 2px;
+                                background-color: $c_func_color;
+                                position: absolute;
+                                transform-origin: left;
+                                transform: rotate(-45deg);
+                                top: 20px;
+                                left: 14px;
+                            }
+
+                            &:after{
+                                transform: rotate(-135deg);
+                                width: 10px;
+                            }
+                        }
+                    }
+                }
+            }
+
+            &-fufel{
+                display: flex;
+                width: 32px;
+                min-width: 32px;
+                height: 32px;
+                border: 1px solid $c_grey_border;
+                border-radius: 5px;
+                margin-right: 10px;
+            }
+
+            &-text{
+                @include museo300;
+                font-size: 13px;
+            }
+        }
+    }
+}
+
+
+
+@media screen and (max-width: 1000px) {
+    .market-order{
+
+        &__title{
+            font-size: 24px;
+            margin-bottom: 30px;
+        }
+
+        &__box{
+            padding: 30px 15px;
+        }
+
+        .order-row{
+            padding-top: 30px;
+        }
+
+        &__box{
+            margin-bottom: 30px;
+        }
+
+        .order-block{
+
+            &__save{
+                flex-wrap: wrap;
+                padding-bottom: 30px;
+
+                &-col1{
+                    max-width: calc(30% - 75px);
+                }
+
+                &-col2,
+                &-col3{
+                    max-width: 35%;
+                }
+
+                &-submit{
+                    max-width: 100%;
+                    margin-top: 30px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .market-order{
+
+        .cart-prod__item-count,
+        .cart-prod__item-pricesale,
+        .cart-prod__item-sale,
+        .cart-prod__item-price,
+        .cart-prod__item-packing,
+        .cart-prod__item-category{
+            display: none;
+        }
+
+        .cart-prod__item-final{
+            max-width: 65px;
+        }
+
+        .cart-prod__item-name{
+            max-width: calc(100% - 65px);
+
+            span{
+                line-height: 12px;
+            }
+        }
+
+        .order-row__city{
+            flex-wrap: wrap;
+        }
+
+        .cart-prod-title{
+            display: none;
+        }
+
+        .order-block__basket{
+            margin-bottom: 0;
+
+            .order-row__title{
+                margin-bottom: 25px;
+            }
+        }
+
+        .order-row__field{
+            padding-top: 25px;
+        }
+
+        .kolhoz-text{
+            flex-wrap: wrap;
+            padding-left: 0;
+
+            &-title{
+                padding-top: 25px;
+                margin-left: 25px;
+            }
+
+            &-chek{
+                width: 100%;
+                padding-left: 0;
+                padding-top: 25px;
+            }
+        }
+
+        .order-buyer-col{
+            max-width: 50%;
+        }
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .market-order{
+
+        .order-block{
+
+            &__save{
+                align-items: flex-start;
+
+                &-col1{
+                    max-width: calc(33.3333% - 75px);
+                }
+
+                &-col2{
+                    max-width: 33.3333%;
+                    padding-left: 10px;
+                }
+
+                &-col3{
+                    max-width: 33.3333%;
+                }
+
+                &-row{
+                    display: flex;
+                    flex-direction: column;
+                    margin-bottom: 10px;
+                }
+            }
+        }
+
+        .order-block__valid .valid-order{
+            align-items: flex-start;
+        }
+
+        .order-block__valid .valid-order-fufel{
+            margin-top: 5px;
+        }
+    }
+
+    .market-order .order-row__delivery-chek,
+    .market-order .order-row__payment-chek{
+        min-height: 80px;
+        height: auto;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+}
+
+@media screen and (max-width: 560px){
+    .market-order{
+
+        .order-buyer-col{
+            max-width: 100%;
+            padding-right: 0;
+        }
+
+        .itog-title{
+            margin-right: 8px;
+        }
+
+        .order-block{
+
+            &__save{
+
+                &-logo {
+                    display: none;
+                }
+
+                &-col2,
+                &-col3,
+                &-col1{
+                    max-width: 100%;
+                    padding-left: 0;
+                    flex-direction: row;
+                }
+
+                &-col1{
+                    margin: 0 auto 10px;
+                    width: 212px;
+                }
+
+                &-row{
+                    margin: 0 auto 10px;
+                    flex-direction: row;
+                    width: 212px;
+                }
+            }
+        }
+    }
+
+    .market-order .order-row__delivery-row,
+    .market-order .order-row__payment-row{
+        padding: 0 15px;
+    }
+}
+
+@media screen and (max-width: 370px) {
+    .market-order .order-city-sel .sel-plag__option{
+        width: 100%;
+    }
+
+    .market-order #select-region-order{
+        width: 100%;
     }
 }

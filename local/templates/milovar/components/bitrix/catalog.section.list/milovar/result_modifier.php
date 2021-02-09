@@ -1,5 +1,6 @@
 <?
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
+
 $sec_custom = CIBlockSection::GetList(["SORT"=>"ASC"], ['IBLOCK_ID'=>$arParams["IBLOCK_ID"]], false, $arSelect);
 $sec_custom->SetUrlTemplates("", $arParams["SECTION_URL"]);
 $arResult["SECTIONS_CUSTOM"] = [];

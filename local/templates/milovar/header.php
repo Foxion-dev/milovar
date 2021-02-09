@@ -99,7 +99,6 @@ if(CModule::IncludeModule("sale")){
                                     <span class="search-form-ico-mobile"></span>
                                     <input type="hidden" name="tags" value="" />
                                     <input type="text" name="q" value="" size="40" placeholder="Поиск по сайту" />
-                                    <input type="hidden" name="where" value="iblock_xmlcatalog" />
                                     <input type="hidden" name="how" value="r" />
                                     <span class="search-form-close"></span>
                                 </form>

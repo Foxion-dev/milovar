@@ -41,6 +41,9 @@ if (CHTTP::GetLastStatus() == "404 Not Found"){
 
 } elseif ($APPLICATION->GetCurPage(false) == "/privacy-policy/"){
     $site_set['style_file'] = "privacy-policy";
+
+} elseif ($APPLICATION->GetCurPage(false) == "/search/"){
+    $site_set['style_file'] = "search";
 }
 
 $site_set = (object)$site_set;

@@ -318,6 +318,10 @@ if (!empty($arParams['LABEL_PROP_POSITION']))
 						<div class="basket-items-list-item-overlay"></div>
 					{{/SHOW_LOADING}}
 				</div>
+
+                <div class="mobile-car">
+
+                </div>
 			</td>
 			<?
 			if ($usePriceInAdditionalColumn)
@@ -443,5 +447,13 @@ if (!empty($arParams['LABEL_PROP_POSITION']))
 			}
 			?>
 		{{/SHOW_RESTORE}}
+
+        <td class="mobi-par-cart">
+
+            <div class="mobi-par-cart__door">
+                <span class="mobi-par-cart__door-open">Информация о товаре</span>
+                <span class="mobi-par-cart__door-close">Скрыть информацию о товаре</span>
+            </div>
+        </td>
 	</tr>
 </script>

@@ -4,6 +4,10 @@
     margin-bottom: 75px;
 }
 
+.mobi-par-cart{
+    display: none;
+}
+
 .cart-prod-title{
     display: flex;
     padding-bottom: 15px;
@@ -480,7 +484,7 @@
 
     .basket-checkout-block-total{
         width: 100%;
-        max-width: 11.5384%;
+        max-width: 7.5384%;
         text-align: left;
     }
 
@@ -491,7 +495,7 @@
     .basket-checkout-block-total-price{
         padding-left: 0;
         width: 100%;
-        max-width: 14.1025%;
+        max-width: 19.1025%;
     }
 
     .basket-checkout-block-total-price-inner{
@@ -500,5 +504,296 @@
 
     .basket-coupon-block-total-price-current{
         margin-bottom: 0;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .basket-coupon-block-total-price-current{
+        font-size: 25px;
+    }
+
+    .basket-checkout-block-btn{
+        padding-right: 15px;
+    }
+}
+
+@media screen and (max-width: 768px){
+
+    .market-cart{
+        .mobi-par-cart{
+            display: table-cell;
+            order: 11;
+            width: 100%;
+
+            &__door{
+                display: flex;
+                width: 100%;
+                height: 50px;
+                align-items: center;
+                justify-content: center;
+                color: $c_func_color;
+                font-size: 13px;
+                border-top: 1px solid $c_grey_border;
+
+                &-close,
+                &-open{
+                    padding-right: 20px;
+                    position: relative;
+                    cursor: pointer;
+
+                    &::before,
+                    &::after{
+                        content: "";
+                        position: absolute;
+                        width: 7px;
+                        height: 1px;
+                        background-color: #87c5ef;
+                        right: 10px;
+                        top: 10px;
+                        transform-origin: right;
+                        transform: rotate(45deg);
+                    }
+
+                    &::after{
+                        transform: rotate(135deg);
+                    }
+                }
+
+                &-close{
+                    display: none;
+
+                    &::before{
+                        transform: rotate(225deg);
+                        top: 5px;
+                    }
+
+                    &::after{
+                        transform: rotate(315deg);
+                        top: 5px;
+                    }
+                }
+            }
+        }
+    }
+
+    .cart-prod-title{
+        display: none;
+    }
+
+    .market-cart{
+
+        .basket-checkout-section-inner{
+            flex-wrap: wrap;
+            padding: 0 36px;
+        }
+
+        .basket-checkout-container{
+            height: auto;
+        }
+
+        .basket-checkout-block-scidos__img{
+            display: none;
+        }
+
+        .basket-checkout-block-total-price{
+            order: 1;
+            max-width: 100%;
+            border-bottom: 1px solid $c_grey_border;
+            padding-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            @include museo700();
+            margin-bottom: 15px;
+
+            &::before{
+                content: "Итоговая сумма";
+                margin-right: auto;
+                font-size: 25px;
+            }
+        }
+
+        .basket-checkout-block-scidos{
+            order: 2;
+            padding-left: 0;
+            max-width: 25%;
+            min-width: 1px;
+        }
+
+        .basket-checkout-block-pred-scidos{
+            order: 3;
+            max-width: 25%;
+            min-width: 1px;
+        }
+
+        .basket-checkout-block-sum{
+            order: 4;
+            max-width: 25%;
+            min-width: 1px;
+        }
+
+        .basket-checkout-block-total{
+            order: 5;
+            max-width: 25%;
+            min-width: 1px;
+        }
+
+        .basket-checkout-block-btn{
+            order: 6;
+            text-align: center;
+            padding-top: 20px;
+            max-width: 100%;
+            width: 100%;
+            padding-right: 0;
+        }
+
+        .basket-coupon-block-total-price-current{
+           @include museo700();
+        }
+
+        .button-promo{
+            width: 224px;
+            height: 60px;
+            border: 1px solid $c_func_color;
+            border-radius: 30px;
+            background-color: $c_white;
+            color: $c_white;
+            font-size: 16px;
+            @include museo500;
+            cursor: pointer;
+            margin: 15px auto 0;
+
+            &:hover{
+                background-color: $c_white;
+                color: $c_func_color;
+            }
+
+            &:active,
+            &:focus{
+                outline: 0;
+            }
+        }
+
+        .basket-items-list-item-price-for-one,
+        .basket-items-list-item-price-two,
+        .basket-items-list-item-scidos,
+        .basket-item-block-properties{
+            display: none;
+        }
+
+        .basket-items-list-item-container{
+            height: auto;
+            padding: 20px 20px 52px;
+            flex-wrap: wrap;
+        }
+
+        .basket-items-list-item-remove{
+            top: 14px;
+            right: 14px;
+        }
+
+        .basket-items-list-item-descriptions{
+            padding: 0 0 15px 0;
+
+            .basket-items-list-item-descriptions-inner{
+                align-items: flex-start;
+                flex-direction: row;
+            }
+        }
+
+        .basket-items-list-item-amount{
+            padding-bottom: 0;
+            max-width: 100%;
+            position: absolute;
+            bottom: 20px;
+
+            .basket-item-block-amount{
+                margin-bottom: 0;
+                margin-left: auto;
+                left: auto;
+                right: 125px;
+                width: fit-content;
+            }
+        }
+
+        .basket-items-list-item-price-full{
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            padding: 0;
+
+            .basket-item-block-price{
+                margin-bottom: 0;
+            }
+        }
+
+        .basket-item-block-info{
+            padding-right: 30px;
+        }
+    }
+}
+
+@media screen and (max-width: 580px){
+
+    .market-cart{
+
+        .basket-item-block-price{
+            padding: 0;
+        }
+
+        .basket-item-block-image,
+        .basket-item-image{
+            max-width: 60px;
+            margin: 0;
+            min-width: 60px;
+        }
+
+        .basket-checkout-block-scidos{
+            max-width: 50%;
+            margin-bottom: 15px;
+        }
+
+        .basket-checkout-block-pred-scidos{
+            max-width: 50%;
+            margin-bottom: 15px;
+
+        }
+
+        .basket-checkout-block-sum{
+            max-width: 50%;
+        }
+
+        .basket-checkout-block-total{
+            max-width: 50%;
+        }
+
+        .basket-coupon-block-total-price-current{
+            font-size: 16px;
+        }
+
+        .basket-checkout-block-total-price:before{
+            font-size: 14px;
+        }
+    }
+}
+
+@media screen and (max-width: 420px){
+
+    .market-cart .basket-items-list-item-container{
+        padding-bottom: 52px;
+    }
+}
+
+@media screen and (max-width: 400px){
+    .market-cart .btn.btn-lg.btn-primary.basket-btn-checkout{
+        width: 100%;
+    }
+
+    .market-cart .button-promo{
+        width: 100%;
+    }
+
+    .market-cart .basket-checkout-section-inner{
+        padding:  20px;
     }
 }

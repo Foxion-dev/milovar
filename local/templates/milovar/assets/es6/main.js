@@ -8,6 +8,14 @@
         $(document).on('click', '.search-form-close', function(){
             $('#serch-form').removeClass('full-width');
         })
+
+        $(document).on('click', '.mobi-par-cart__door-open', function(){
+            $(this).css('display', "none").parents('.mobi-par-cart').find('.mobi-par-cart__door-close').css('display', "inline-block");
+        })
+
+        $(document).on('click', '.mobi-par-cart__door-close', function(){
+            $(this).css('display', "none").parents('.mobi-par-cart').find('.mobi-par-cart__door-open').css('display', "inline-block");
+        })
     }
 
     function ourAddress(){

@@ -268,6 +268,9 @@ if (empty($arResult['ERROR_MESSAGE']))
 			siteTemplateId: '<?=CUtil::JSEscape($component->getSiteTemplateId())?>',
 			templateFolder: '<?=CUtil::JSEscape($templateFolder)?>'
 		});
+
+		BX.arh_obj = <?=CUtil::PhpToJSObject($arResult["BASKET_ITEM_RENDER_DATA"])?>;
+		BX.arh_obj_block_open = <?=CUtil::PhpToJSObject($arResult["cart_block_open"])?>;
 	</script>
 	<?
 	if ($arParams['USE_GIFTS'] === 'Y' && $arParams['GIFTS_PLACE'] === 'BOTTOM')

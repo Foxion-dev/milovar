@@ -278,17 +278,17 @@ if (!empty($arParams['LABEL_PROP_POSITION']))
 												{{/IS_IMAGE}}
 
 												{{#IS_TEXT}}
-													<div class="basket-item-property-custom basket-item-property-custom-text
-														{{#HIDE_MOBILE}}d-none d-sm-block{{/HIDE_MOBILE}}"
-														data-entity="basket-item-property">
-														<div class="basket-item-property-custom-name">{{NAME}}</div>
-														<div class="basket-item-property-custom-value"
-															data-column-property-code="{{CODE}}"
-															data-entity="basket-item-property-column-value">
-                                                            <span class="cust-link">{{VALUE}}</span>
-                                                            <span class="cust-link-2">{{VALUE_2}}</span>
-														</div>
-													</div>
+<!--													<div class="basket-item-property-custom basket-item-property-custom-text-->
+<!--														{{#HIDE_MOBILE}}d-none d-sm-block{{/HIDE_MOBILE}}"-->
+<!--														data-entity="basket-item-property">-->
+<!--														<div class="basket-item-property-custom-name">{{NAME}}</div>-->
+<!--														<div class="basket-item-property-custom-value"-->
+<!--															data-column-property-code="{{CODE}}"-->
+<!--															data-entity="basket-item-property-column-value">-->
+<!--                                                            <span class="cust-link">{{VALUE}}</span>-->
+<!--                                                            <span class="cust-link-2">{{VALUE_2}}</span>-->
+<!--														</div>-->
+<!--													</div>-->
 												{{/IS_TEXT}}
 
 												{{#IS_LINK}}
@@ -318,11 +318,17 @@ if (!empty($arParams['LABEL_PROP_POSITION']))
 						<div class="basket-items-list-item-overlay"></div>
 					{{/SHOW_LOADING}}
 				</div>
-
-                <div class="mobile-car">
-
-                </div>
 			</td>
+
+            {{#CUSTOM_VAL}}
+                <td class="basket-items-list-item-category">
+                    <span>{{{PATH}}}</span>
+                </td>
+
+                <td class="basket-items-list-item-fasovka">
+                    <span>{{{FASOVKA}}}</span>
+                </td>
+            {{/CUSTOM_VAL}}
 			<?
 			if ($usePriceInAdditionalColumn)
 			{
@@ -448,7 +454,31 @@ if (!empty($arParams['LABEL_PROP_POSITION']))
 			?>
 		{{/SHOW_RESTORE}}
 
-        <td class="mobi-par-cart">
+        <td class="mobi-par-cart" data-blick="{{ID}}">
+
+            <div class="mobi-par-cart__info" style="display:none">
+                <div class="mobi-par-cart__info-title">
+                    <span>Информация о товаре</span>
+                </div>
+
+                {{#CUSTOM_VAL}}
+                    <div class="mobi-par-cart__info-line">
+                        <span>Категория: {{{PATH}}}</span>
+                    </div>
+
+                    <div class="mobi-par-cart__info-line">
+                        <span>Фасовка: {{{FASOVKA}}}</span>
+                    </div>
+                {{/CUSTOM_VAL}}
+
+                <div class="mobi-par-cart__info-line">
+                    <span>Скидка: 0%</span>
+                </div>
+
+                <div class="mobi-par-cart__info-line">
+                    <span>Цена со скидкой: {{{PRICE_FORMATED}}}</span>
+                </div>
+            </div>
 
             <div class="mobi-par-cart__door">
                 <span class="mobi-par-cart__door-open">Информация о товаре</span>

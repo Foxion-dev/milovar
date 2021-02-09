@@ -661,6 +661,13 @@
 						this.deleteBasketItems(result.MERGED_BASKET_ITEMS, false, true);
 					}
 
+					BX.arh_obj.forEach(function(currentValue, index, array){
+
+						if(currentValue.ID == result.BASKET_DATA.BASKET_ITEM_RENDER_DATA[0].ID){
+							result.BASKET_DATA.BASKET_ITEM_RENDER_DATA[0].CUSTOM_VAL = currentValue.CUSTOM_VAL;
+						}
+					})
+
 					var priceCArt = result.BASKET_DATA.TOTAL_RENDER_DATA.PRICE_FORMATED.replace("руб.", "Р");
 					$('#header-cart').html(priceCArt);
 					$('#header-count').html(result.BASKET_DATA.BASKET_ITEMS_COUNT);
@@ -672,12 +679,29 @@
 					this.applyPriceAnimation();
 					this.editWarnings();
 
+					$.each($('.mobi-par-cart'), function(index, value){
+						var idS = $(value).attr('data-blick');
+
+						if(BX.arh_obj_block_open[idS]){
+							$(value).find('.mobi-par-cart__info').attr('style', "");
+							$(value).find('.mobi-par-cart__door-open').attr('style', "display:none");
+							$(value).find('.mobi-par-cart__door-close').attr('style', "display:inline-block");
+						} else {
+							$(value).find('.mobi-par-cart__info').attr('style', "display:none");
+							$(value).find('.mobi-par-cart__door-open').attr('style', "display:inline-block");
+							$(value).find('.mobi-par-cart__door-close').attr('style', "display:none");
+						}
+
+					})
+
 					this.actionPool.switchTimer();
 
 					if (this.isBasketIntegrated() && this.isBasketChanged())
 					{
 						BX.Sale.OrderAjaxComponent.sendRequest();
 					}
+
+
 				}, this),
 				onfailure: BX.delegate(function() {
 					this.actionPool.doProcessing(false);

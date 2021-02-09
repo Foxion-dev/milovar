@@ -10,11 +10,25 @@
         })
 
         $(document).on('click', '.mobi-par-cart__door-open', function(){
-            $(this).css('display', "none").parents('.mobi-par-cart').find('.mobi-par-cart__door-close').css('display', "inline-block");
+            var parBlock = $(this).parents('.mobi-par-cart');
+            var parId = parBlock.attr('data-blick');
+
+            $(this).css('display', "none");
+            parBlock.find('.mobi-par-cart__door-close').css('display', "inline-block");
+            parBlock.find('.mobi-par-cart__info').slideDown();
+
+            BX.arh_obj_block_open[parId] = true;
         })
 
         $(document).on('click', '.mobi-par-cart__door-close', function(){
-            $(this).css('display', "none").parents('.mobi-par-cart').find('.mobi-par-cart__door-open').css('display', "inline-block");
+            var parBlock = $(this).parents('.mobi-par-cart');
+            var parId = parBlock.attr('data-blick');
+
+            $(this).css('display', "none");
+            parBlock.find('.mobi-par-cart__door-open').css('display', "inline-block");
+            parBlock.find('.mobi-par-cart__info').slideUp();
+
+            BX.arh_obj_block_open[parId] = false;
         })
     }
 

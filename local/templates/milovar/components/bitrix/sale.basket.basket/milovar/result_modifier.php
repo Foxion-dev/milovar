@@ -44,4 +44,10 @@ foreach ($arResult["BASKET_ITEM_RENDER_DATA"] as $keyfdgdfg => $tryr){
     $arResult["BASKET_ITEM_RENDER_DATA"][$keyfdgdfg]["COLUMN_LIST"][0]["VALUE"] = $final_arr[$key_id]['path'];
     $arResult["BASKET_ITEM_RENDER_DATA"][$keyfdgdfg]["COLUMN_LIST"][0]["VALUE_2"] = $final_arr[$key_id]['fasovka'];
     $arResult["BASKET_ITEM_RENDER_DATA"][$keyfdgdfg]["COLUMN_LIST"][0]["NAME"] = "";
+    $arResult["BASKET_ITEM_RENDER_DATA"][$keyfdgdfg]['CUSTOM_VAL'] = [
+        'PATH' => $final_arr[$key_id]['path'],
+        'FASOVKA' => $final_arr[$key_id]['fasovka'],
+    ];
+
+    $arResult['cart_block_open'][$tryr['ID']] = false;
 }

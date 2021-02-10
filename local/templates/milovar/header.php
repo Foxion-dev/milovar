@@ -94,7 +94,7 @@ if(CModule::IncludeModule("sale")){
                                 <a href="entrance.html">Вход </a>/<a href="register.html">Регистрация</a>
                             </div>
                             <div class="search">
-                                <form id="serch-form" action="/search" method="get">
+                                <form id="serch-form" action="/searh" method="get">
                                     <span class="search-form-ico"></span>
                                     <span class="search-form-ico-mobile"></span>
                                     <input type="hidden" name="tags" value="" />

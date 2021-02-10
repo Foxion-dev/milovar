@@ -171,8 +171,6 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 		{
 			var form;
 
-
-
 			if (!this.startLoader())
 				return;
 
@@ -180,9 +178,9 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 
 			action = BX.type.isNotEmptyString(action) ? action : 'refreshOrderAjax';
 
-
 			if (action === 'saveOrderAjax')
 			{
+
 				form = BX('bx-soa-order-form');
 				if (form)
 				{
@@ -355,9 +353,6 @@ BX.namespace('BX.Sale.OrderAjaxComponent');
 				this.editOrder();
 				this.mapsReady && this.initMaps();
 				BX.saleOrderAjax && BX.saleOrderAjax.initDeferredControl();
-
-
-				console.log(result)
 			}
 
 			return true;

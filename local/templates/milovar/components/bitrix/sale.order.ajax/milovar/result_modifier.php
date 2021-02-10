@@ -112,4 +112,3 @@ foreach ($arResult["GRID"]["ROWS"] as $key_prod => $key_val) {
 
     }
 }
-

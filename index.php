@@ -7,7 +7,7 @@ $APPLICATION->SetPageProperty("BODY_CLASS", "home");
 	<div class="head-title-block">
 		<h1>Всё для <strong>мыловарения <br>
 		 и косметики</strong> ручной работы</h1>
- <a href="#" class="goto-catalog">Перейти в каталог</a>
+ <a href="/catalog" class="goto-catalog">Перейти в каталог</a>
 	</div>
 </div>
  </section> <section class="home-action">
@@ -177,7 +177,7 @@ $APPLICATION->SetPageProperty("BODY_CLASS", "home");
 			<h6>Масла</h6>
  <img alt="item" src="/local/templates/milovar/images/home/catalog-image-item1.png"> </a>
 		</div>
- <a href="#" class="goto-catalog">Смотреть весь каталог</a>
+    <a href="/catalog" class="goto-catalog">Смотреть весь каталог</a>
 	</div>
 </div>
  </section> <section class="home-about">

@@ -142,6 +142,7 @@
                     $.get(link, function(data){
                         var page = $(data);
                         $('.js-load-prod').empty().append(page.find('.catalog-product__item'));
+                        $('.js-load-paging').empty().append(page.find('.js-load-paging .paging-block'))
 
                         var soob = "<span class='fil-res'>Найдено ";
                         var textFinal = page.find('.filter-block').attr('data-count') * 1;
@@ -155,6 +156,18 @@
                         $('.filter-itog__text').html(soob);
                     })
                 }
+            })
+
+            $(document).on('click', ".js-load-paging a", function(){
+                var link = $(this).attr('href');
+
+                $.get(link, function(data){
+                    var page = $(data);
+                    $('.js-load-prod').empty().append(page.find('.catalog-product__item'));
+                    $('.js-load-paging').empty().append(page.find('.js-load-paging .paging-block'))
+                })
+
+                return false;
             })
 
             $(document).on('click', ".js-filter-res", function(){
@@ -172,6 +185,8 @@
                 $.get(link, function(data){
                     var page = $(data);
                     $('.js-load-prod').empty().append(page.find('.catalog-product__item'));
+                    $('.js-load-paging').empty().append(page.find('.js-load-paging .paging-block'))
+
                     $('.filter-itog__text').empty();
                 })
             })
@@ -403,6 +418,14 @@
         $(document).on('change', ".order-row__payment-input", function () {
             $('.order-row__payment-desc').slideUp();
             $(this).parents('.order-row__payment-row').find('.order-row__payment-desc').slideDown();
+            $('.order-row__payment-row').removeClass('error');
+            BX.Sale.OrderAjaxComponent.sendRequest();
+        })
+
+        $(document).on('change', ".order-row__delivery-input", function(){
+            $('.order-row__delivery-desc').slideUp();
+            $(this).parents('.order-row__delivery-row').find('.order-row__delivery-desc').slideDown();
+            $('.order-row__delivery-row').removeClass('error');
             BX.Sale.OrderAjaxComponent.sendRequest();
         })
 
@@ -422,8 +445,135 @@
         })
 
         $(document).on('click', ".save-order-arh", function(){
+            var vihod = true;
+            var scrollElem = null;
+            var classError = "";
+
+            if($('#select-region-origin').val() == "" && !$('#kolhoz-text-chek-input').prop('checked')){
+
+                classError = '#select-region-order'
+                scrollElem = '#err-city'
+                vihod = false;
+            }
+
+            if(vihod){
+
+                $.each($('.order-row__delivery-input'), function(){
+
+                    if($(this).prop('checked')){
+                        vihod = true;
+
+                        return false;
+                    } else {
+                        classError = '.order-row__delivery-row'
+                        scrollElem = '#err-del'
+                        vihod = false;
+                    }
+                })
+            }
+
+            if(vihod){
+
+                $.each($('.order-row__payment-input'), function(){
+
+                    if($(this).prop('checked')){
+                        vihod = true;
+
+                        return false;
+                    } else {
+                        classError = '.order-row__payment-row'
+                        scrollElem = '#err-pay'
+                        vihod = false;
+                    }
+                })
+            }
+
+            if(vihod){
+                classError = [];
+
+                if($('.order-buyer-name input').val() == ""){
+                    classError.push('.order-buyer-name .order-buyer__field');
+
+                    vihod = false;
+                }
+
+                if($('.order-buyer-famil input').val() == ""){
+                    classError.push('.order-buyer-famil .order-buyer__field');
+
+                    vihod = false;
+                }
+
+                if($('.order-buyer-phone input').val() == ""){
+                    classError.push('.order-buyer-phone .order-buyer__field');
+
+                    vihod = false;
+                }
+
+                if($('.order-buyer-index input').val() == ""){
+                    classError.push('.order-buyer-index .order-buyer__field');
+
+                    vihod = false;
+                }
+
+                if($('.order-buyer-email input').val() == "" || $('.order-buyer-email input').val().indexOf("@") == -1){
+                    classError.push('.order-buyer-email .order-buyer__field');
+
+                    vihod = false;
+                }
+
+                if($('#kolhoz-text-chek-input').prop('checked')){
+
+                    if($('.order-buyer-gorod input').val() == ""){
+                        classError.push('.order-buyer-gorod .order-buyer__field');
+
+                        vihod = false;
+                    }
+
+                    if($('.order-buyer-dom input').val() == ""){
+                        classError.push('.order-buyer-dom .order-buyer__field');
+
+                        vihod = false;
+                    }
+                }
+
+                scrollElem = '#err-buyer';
+                classError = classError.join(", ");
+            }
+
+            if(vihod){
+                classError = [];
+
+                if(!$('#valid-one').prop('checked')){
+                    classError.push('.valid-order:first-child');
+                    vihod = false;
+                }
+
+                if(!$('#valid-two').prop('checked')){
+                    classError.push('.valid-order:last-child');
+                    vihod = false;
+                }
+
+                scrollElem = '#err-side';
+                classError = classError.join(", ");
+            }
+
+            if (!vihod){
+                $(classError).addClass('error');
+
+                $("html, body").animate({
+                    scrollTop: $(scrollElem).offset().top - 180 + "px"
+                }, {
+                    duration: 1000,
+                    easing: "swing"
+                });
+
+                return false;
+            }
+
             BX.Sale.OrderAjaxComponent.sendRequest('saveOrderAjax');
         })
+
+
     }
 
     function number_format(number, decimals, dec_point, thousands_sep) {

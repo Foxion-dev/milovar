@@ -429,7 +429,7 @@ else
 				<? else: ?>
 
                 <!--	DELIVERY BLOCK	-->
-                <div class="order-row  order-block__delivery">
+                <div id="err-del" class="order-row  order-block__delivery">
                     <h2 class="order-row__title">
                         <span>3 шаг: Выберите доставку</span>
                         <span class="order-row__title-sub">После выбора варианта доставки появится описание</span>
@@ -476,7 +476,7 @@ else
 
 
                     <!--	PAY SYSTEMS BLOCK	-->
-                    <div class="order-row  order-block__payment">
+                    <div id="err-pay" class="order-row  order-block__payment">
                         <h2 class="order-row__title">
                             <span>4 шаг: Выберите способ оплаты</span>
                             <span class="order-row__title-sub">После выбора варианта оплаты появится описание</span>
@@ -508,7 +508,7 @@ else
 				<? endif ?>
 
                 <!--	BUYER PROPS BLOCK	-->
-                <div class="order-row  order-block__buyer">
+                <div id="err-buyer"  class="order-row  order-block__buyer">
                     <h2 class="order-row__title">
                         <span>5 шаг: Получатель товара и адрес доставки</span>
                     </h2>
@@ -825,7 +825,7 @@ else
                 </div>
             </div>
 
-            <div class="order-row  order-block__valid">
+            <div id="err-side"  class="order-row  order-block__valid">
                 <label class="valid-order">
                     <input type="checkbox" id="valid-one" class="valid-order-origin" />
                     <span class="valid-order-fufel"></span>

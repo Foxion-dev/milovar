@@ -49,11 +49,26 @@ foreach ($arResult["SEARCH"] as $key_sech => $val_search){
     foreach ($resOffer[$prod_id] as $odin_offer){
         $fas_id = $odin_offer["PROPERTIES"]["CML2_ATTRIBUTES"]["DESCRIPTION"];
         $fas_id = array_search("Фасовка", $fas_id);
+        $link_basket =  '&action=ADD2BASKET&id=' . $odin_offer['ID'];
+        $bascet_link = urldecode($_SERVER["REQUEST_URI"]);
+		$bascet_link = explode("&", $bascet_link);
+
+ 		foreach ($bascet_link as $key_i => $va_i){
+ 			if((strripos($va_i, "uantity=") == 1) || (strripos($va_i, "ction=ADD2BASKET") == 1) || (strripos($va_i, "d=") == 1)){
+				unset($bascet_link[$key_i]);
+			}
+		}
+
+		$bascet_link = implode("&", $bascet_link) .  $link_basket;
 
         $arResult["SEARCH"][$key_sech]['OFFERS'][] = [
             'id' => $odin_offer['ID'],
             'ves' => $odin_offer["PROPERTIES"]["CML2_ATTRIBUTES"]["VALUE"][$fas_id],
-            'price' => GetCatalogProductPrice($odin_offer['ID'], 3)["PRICE"]
+			'price' => GetCatalogProductPrice($odin_offer['ID'], 3)["PRICE"],
+            'big_data' => json_encode([
+            	'price' => GetCatalogProductPrice($odin_offer['ID'], 3)["PRICE"],
+				'basket_link' => $bascet_link ,
+			]),
         ];
     }
 

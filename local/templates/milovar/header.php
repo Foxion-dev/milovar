@@ -110,7 +110,7 @@ if(CModule::IncludeModule("sale")){
                                 <span class="nav-burger__bar nav-burger__bar-3"></span>
                             </div>
                         </div>
-                        <div class="header-mobile-menu">
+                        <div class="header-mobile-menu"> 
                             <div class="container">
                                 <ul class="header-mobile-nav">
                                     <li class="mobile-register">
@@ -123,7 +123,7 @@ if(CModule::IncludeModule("sale")){
                                     <li><a href="javascript:void(0);">Рецепты</a></li>
                                     <li><a href="javascript:void(0);">Статьи</a></li>
                                     <li><a href="javascript:void(0);">Новости</a></li>
-                                    <li><a href="javascript:void(0);" class="red-label">Акции %</a></li>
+                                    <li><a href="javascript:void(0);" class="red-label">Акции%</a></li>
                                     <li><a href="javascript:void(0);">Доставка и оплата</a></li>
                                     <li><a href="javascript:void(0);">Накопительные скидки</a></li>
                                     <li><a href="javascript:void(0);">Помощь</a></li>

@@ -19,7 +19,7 @@ $APPLICATION->SetTitle("Каталог товаров");
 	<div class="catalog-full">
 		<div class="catalog-category">
             <div class="mobile-button">
-                <span class="cat-open">Меню<br />каталога</span>
+                <span class="cat-open">Меню<br />Каталога</span>
                 <span class="cat-close"></span>
             </div>
 
@@ -29,38 +29,38 @@ $APPLICATION->SetTitle("Каталог товаров");
 
 			<div class="catalog-category__block">
 				 <?$APPLICATION->IncludeComponent(
-						"bitrix:catalog.section.list", 
-						"milovar", 
-						array(
-							"ADD_SECTIONS_CHAIN" => "Y",
-							"CACHE_FILTER" => "N",
-							"CACHE_GROUPS" => "Y",
-							"CACHE_TIME" => "36000000",
-							"CACHE_TYPE" => "A",
-							"COMPONENT_TEMPLATE" => "milovar",
-							"COUNT_ELEMENTS" => "Y",
-							"COUNT_ELEMENTS_FILTER" => "CNT_ACTIVE",
-							"FILTER_NAME" => "sectionsFilter",
-							"IBLOCK_ID" => "28",
-							"IBLOCK_TYPE" => "xmlcatalog",
-							"SECTION_CODE" => "",
-							"SECTION_FIELDS" => array(
-								0 => "",
-								1 => "",
-							),
-							"SECTION_ID" => "",
-							"SECTION_URL" => "/catalog/section.php?SECTION_ID=#SECTION_ID#",
-							"SECTION_USER_FIELDS" => array(
-								0 => "",
-								1 => "UF_BROWSER_TITLE",
-								2 => "",
-							),
-							"SHOW_PARENT_NAME" => "Y",
-							"TOP_DEPTH" => "4",
-							"VIEW_MODE" => "LINE"
-						),
-						false
-					);?>
+	"bitrix:catalog.section.list", 
+	"milovar", 
+	array(
+		"ADD_SECTIONS_CHAIN" => "Y",
+		"CACHE_FILTER" => "N",
+		"CACHE_GROUPS" => "Y",
+		"CACHE_TIME" => "36000000",
+		"CACHE_TYPE" => "A",
+		"COMPONENT_TEMPLATE" => "milovar",
+		"COUNT_ELEMENTS" => "Y",
+		"COUNT_ELEMENTS_FILTER" => "CNT_ACTIVE",
+		"FILTER_NAME" => "sectionsFilter",
+		"IBLOCK_ID" => "28",
+		"IBLOCK_TYPE" => "xmlcatalog",
+		"SECTION_CODE" => "",
+		"SECTION_FIELDS" => array(
+			0 => "",
+			1 => "",
+		),
+		"SECTION_ID" => "",
+		"SECTION_URL" => "/catalog/section.php?SECTION_ID=#SECTION_ID#",
+		"SECTION_USER_FIELDS" => array(
+			0 => "",
+			1 => "UF_BROWSER_TITLE",
+			2 => "",
+		),
+		"SHOW_PARENT_NAME" => "Y",
+		"TOP_DEPTH" => "4",
+		"VIEW_MODE" => "LINE"
+	),
+	false
+);?>
 			</div>
 		</div>
 		<div class="catalog-product-block">
@@ -127,7 +127,7 @@ $APPLICATION->SetTitle("Каталог товаров");
 		"COMPONENT_TEMPLATE" => "milovar",
 		"CONVERT_CURRENCY" => "N",
 		"CUSTOM_FILTER" => "{\"CLASS_ID\":\"CondGroup\",\"DATA\":{\"All\":\"AND\",\"True\":\"True\"},\"CHILDREN\":[]}",
-		"DETAIL_URL" => "element.php?ELEMENT_ID=#ELEMENT_ID#",
+		"DETAIL_URL" => "/catalog/element.php?ELEMENT_ID=#ELEMENT_ID#",
 		"DISABLE_INIT_JS_IN_COMPONENT" => "N",
 		"DISPLAY_BOTTOM_PAGER" => "Y",
 		"DISPLAY_COMPARE" => "N",
@@ -179,9 +179,9 @@ $APPLICATION->SetTitle("Каталог товаров");
 		"RCM_PROD_ID" => $_REQUEST["PRODUCT_ID"],
 		"RCM_TYPE" => "personal",
 		"SECTION_CODE" => "",
-		"SECTION_ID" => $_REQUEST["SECTION_ID"],
+		"SECTION_ID" => "",
 		"SECTION_ID_VARIABLE" => "SECTION_ID",
-		"SECTION_URL" => "section.php?SECTION_ID=#SECTION_ID#",
+		"SECTION_URL" => "/catalog/section.php?SECTION_ID=#SECTION_ID#",
 		"SECTION_USER_FIELDS" => array(
 			0 => "",
 			1 => "",

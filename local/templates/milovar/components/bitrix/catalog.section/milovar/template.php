@@ -16,7 +16,6 @@ use Bitrix\Sale;
 //
 //echo "<pre>",var_dump($basket),"</pre>";
 ?>
-
 <div class="catalog-product__list js-load-prod">
     <?php foreach ($arResult['ITEMS'] as $item): ?>
         <? $price_min = 0; ?>

@@ -22,7 +22,7 @@ use Bitrix\Sale;
         <? if ($key < 2) continue; ?>
         <? if ($key > 4) continue; ?>
 
-        <div class="catalog-product__item catalog-product__item--big js-prod-item">
+        <div class="catalog-product__item js-prod-item">
             <div class="catalog-product__item-container">
                 <div class="catalog-product__img">
                     <div class="catalog-product__label">

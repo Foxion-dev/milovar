@@ -110,7 +110,7 @@ if(CModule::IncludeModule("sale")){
                                 <span class="nav-burger__bar nav-burger__bar-3"></span>
                             </div>
                         </div>
-                        <div class="header-mobile-menu">
+                        <div class="header-mobile-menu"> 
                             <div class="container">
                                 <ul class="header-mobile-nav">
                                     <li class="mobile-register">

@@ -26,12 +26,12 @@
 	}
 
 	.footer-content {
-		padding: 70px 0;
+		padding: 54px 0 70px 0;
 		@include flex($j-sb,$a-fs);
 
 		.footer-logo-block {
 			width: 100%;
-			max-width: 25.6410%;
+			max-width: 26.5%;
 
 			.footer-icon,
 			.footer-mail,
@@ -162,11 +162,21 @@
 
 	&-mail{
 		margin-top: 10px;
+		@include max-screen (930px) {
+			text-align: center;
+		}
+		
 	}
 
 	&__img{
 		margin-left: -7px;
 		height: 51px;
+		@include max-screen (1024px) {
+			margin-left: 0;
+			display: block;
+			width: 100%;
+		}
+		
 	}
 
 	&__link{

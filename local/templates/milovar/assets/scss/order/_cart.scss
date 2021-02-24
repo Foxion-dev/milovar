@@ -154,7 +154,7 @@
             &-name{
                 margin: 0;
                 padding: 0;
-                font-size: 13px;
+                // font-size: 13px;
                 @include museo500;
             }
 
@@ -513,7 +513,7 @@
     .basket-checkout-block-total-price{
         padding-left: 0;
         width: 100%;
-        max-width: 19.1025%;
+        max-width: 17%;
     }
 
     .basket-checkout-block-total-price-inner{

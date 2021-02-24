@@ -16,7 +16,8 @@
 	}
 
 	&__bottom{
-		background-color: $c_back;
+		// background-color: $c_back;
+		background-color: transparent;
 	}
 
 	.header-block {
@@ -93,6 +94,10 @@
 			@include max-screen (1170px) {
 				padding-right: 35px;
 			}
+		}
+		.register{
+			position: relative;
+			right: 15px;
 		}
 
 		.is-open{
@@ -306,21 +311,24 @@
 }
 
 .nav-burger{
-   	display: none;
-	height: 25px;
-	width: 25px;
+  display: none;
+	height: 20px;
+	width: 28px;
 	position: relative;
+	// transition: all .3s linear;
 	cursor: pointer;
 	z-index: 21;
 
 	&__bar{
 		display: flex;
-		width: 25px;
+		width: 28px;
 		height: 2px;
 		background-color: $c_content;
 		position: absolute;
 		left: 0;
 		transform-origin: center;
+	transition: all .1s linear;
+
 
 		&-1{
 			top: 0;
@@ -700,11 +708,12 @@
 	}
 
 	.phone-basket-block .basket-item__ico{
-		margin-right: 35px;
+		margin-right: 0;
 	}
 
 	.phone-basket-block .basket-item{
 		margin-left: auto;
+		margin-right: 35px;
 	}
 
 	.phone-basket-block .phone-item{
@@ -768,6 +777,8 @@
 			display: flex;
 			z-index: 1;
 			transition: all .5s;
+
+			
 		}
 
 		&.full-width{
@@ -808,6 +819,13 @@
 				&::after{
 					transform: translateX(-50%) translateY(-50%) rotate(-45deg);
 				}
+				@include max-screen (376px) {
+					width: 40px;
+					height: 40px;
+					left: 0;
+					top: 20%;
+				}
+				
 			}
 		}
 

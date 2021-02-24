@@ -16,12 +16,12 @@ use Bitrix\Sale;
 //
 //echo "<pre>",var_dump($basket),"</pre>";
 ?>
-<div class="catalog-product__list js-load-prod">
+<div class="catalog-product__list js-load-prod slider-sales">
     <?php foreach ($arResult['ITEMS'] as $key => $item): ?>
 
-        <? if($key >2 ) continue; ?>
+        <?// if($key >2 ) continue; ?>
 
-        <div class="catalog-product__item js-prod-item">
+        <div class="catalog-product__item catalog-product__item--big js-prod-item">
             <div class="catalog-product__item-container">
                 <div class="catalog-product__img">
                     <div class="catalog-product__label">

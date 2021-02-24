@@ -16,11 +16,90 @@ h2{
 	.head-content-nav{
 		border-bottom: 0;
 	}
-}
+
+	// TODO Слайдер скидок на главной
+
+	.slider-sales {
+		.slick-slide{
+			border: none;
+			outline: none;
+			&:focus, &:active{
+				border: none;
+				outline: none;
+			}
+		}
+		.slick-arrow{
+			width: 35px;
+			height: 35px;
+			border-radius: 50%;
+			background: $c_bg_btn;
+			transition: all 0.3s linear;	
+			cursor: pointer;
+
+			&:hover{
+				background: $c_bg_btn_hover;
+			}
+			&.custom-slick-arrow{
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				position: absolute;
+				right: 15px;
+				top: -84px;
+				span{
+					display: block;
+					width: 12px;
+					height: 12px;
+					border-right: 1px solid white;
+					border-bottom: 1px solid white;
+				}
+				&--prev{
+					right: 65px;
+					span{
+						transform: translateX(3px) rotate(135deg);
+					}
+				}
+				&--next{
+					span{
+						transform: translateX(-3px)  rotate(-45deg);
+					}
+
+				}
+			}
+		}
+		.slick-dots{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 100%;
+			li{
+				width: 15px;
+				height: 15px;
+				margin: 5px;
+				border-radius: 50%;
+				display: block;
+				border: 2px solid $c_func_color;
+				button{
+					font-size: 0;
+					height: 0;
+					width: 0;
+					border: none;
+					background: transparent;
+				}
+				&.slick-active{
+					background: $c_func_color;
+				}
+			}
+		}
+	}
+
+
+} 
 
 .home-action{
 	background-color: $c_white;
 	padding-top: 80px;
+	// padding-bottom: 90px;
 }
 
 .action-main__title{
@@ -31,8 +110,8 @@ h2{
 	background-image: url(../images/home/head-BG.png);
 	background-size: contain;
 	background-repeat: no-repeat;
-	padding: 265px 0;
-	margin-top: -80px;
+	padding: 275px 0 235px 0;
+	margin-top: -100px;
 	background-position: center;
 
 	@include max-screen (1600px) {
@@ -287,13 +366,16 @@ h2{
 	background-color: $c_white;
 	position: relative;
 	z-index: 1;
-
+	@include max-screen (768px) {
+		padding-top: 50px;
+	}
+	
 	@include max-screen (426px) {
-			padding-top: 50px;
+			padding-top: 30px;
 	}
 
 	@include max-screen (321px) {
-		padding-top: 0;
+		// padding-top: 0;
 	}
 
 	h2{
@@ -420,7 +502,7 @@ h2{
 				}
 				@include max-screen (321px) {
 					padding: 10px;
-					margin-bottom: 80px;
+					margin-bottom: 50px;
 				}
 				img{
 					right: 0;

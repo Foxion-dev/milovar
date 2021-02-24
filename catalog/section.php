@@ -21,6 +21,10 @@ $APPLICATION->SetTitle("Раздел");
                     <div class="catalog-category__title">
                         <span>Категории</span>
                     </div>
+										            <div class="mobile-button">
+                <span class="cat-open">Меню<br />каталога</span>
+                <span class="cat-close"></span>
+            </div>
                     <div class="catalog-category__block">
                         <?$APPLICATION->IncludeComponent(
 	"bitrix:catalog.section.list", 
@@ -169,7 +173,7 @@ $APPLICATION->SetTitle("Раздел");
 		"PRODUCT_SUBSCRIPTION" => "Y",
 		"RCM_PROD_ID" => $_REQUEST["PRODUCT_ID"],
 		"RCM_TYPE" => "personal",
-		"SECTION_CODE" => "",
+		"SECTION_CODE" => "/#SECTION_CODE_PATH#",
 		"SECTION_ID" => $_REQUEST["SECTION_ID"],
 		"SECTION_ID_VARIABLE" => "SECTION_ID",
 		"SECTION_URL" => "/catalog/section.php?SECTION_ID=#SECTION_ID#",
@@ -208,7 +212,9 @@ $APPLICATION->SetTitle("Раздел");
 			0 => "",
 			1 => "",
 		),
-		"PRODUCT_DISPLAY_MODE" => "N"
+		"PRODUCT_DISPLAY_MODE" => "N",
+		"SEF_RULE" => "",
+		"SECTION_CODE_PATH" => "/#ELEMENT_CODE#"
 	),
 	false
 );?>

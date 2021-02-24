@@ -25,6 +25,50 @@
             position: relative;
             padding-bottom: 173px;
         }
+        // TODO Большие карточки на главной
+        &--big{
+            .catalog-product{
+                &__list{
+                    &-container{
+                        padding-bottom: 160px;
+                    }
+                }
+                &__item-container{
+
+                }
+                &__img{
+                    background-color: #eef5f9;
+                    padding: 30px;
+
+                }
+                &__card{
+                    padding: 0 30px 30px;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    &-calc{
+                        max-width: 85px;
+                        flex-shrink: 0;
+                        margin-right: 15px;
+                    }
+                    &-boot{
+                        max-width: 150px;
+                    }
+                    &-but{
+                        justify-content: flex-end;
+                    }
+                    &-price{
+                        flex-basis: 33%;
+                    }
+                }
+                &__variation-subtitle{
+                    margin-bottom: 8px;
+                }
+                &__title-name{
+                    height: 56px;
+                }
+            }
+        }
     }
 
     &__img{
@@ -120,7 +164,11 @@
                 &-close{
                     display: flex;
                 }
+                &-hidden{
+                    display: flex!important;
+                }
             }
+
         }
 
         &-subtitle{
@@ -393,6 +441,7 @@
 
         }
     }
+
 }
 
 .catalog-product__variation-quest{
@@ -408,7 +457,8 @@
 
 .home{
     .catalog-product__variation-item{
-        max-width: 30%;
+        width: 95px;
+        flex-shrink: 0;
 
         &:nth-child(3n + 2){
             margin-left: 5%;

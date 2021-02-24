@@ -21,7 +21,7 @@ $APPLICATION->SetTitle("Раздел");
                     <div class="catalog-category__title">
                         <span>Категории</span>
                     </div>
-										            <div class="mobile-button">
+										<div class="mobile-button">
                 <span class="cat-open">Меню<br />каталога</span>
                 <span class="cat-close"></span>
             </div>

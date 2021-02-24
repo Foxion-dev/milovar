@@ -5,28 +5,26 @@
         &-content{
             background-color: #fff;
             border-radius: 10px;
-            padding: 50px 60px;
+            padding: 0 60px 50px;
             margin-bottom: 100px;
 
             h3{
-                // padding-top: 50px;
+                padding-top: 50px;
                 font-size: 24px;
-                line-height: 1;
                 @include museo700;
-                margin-bottom: 30px;
+                padding-bottom: 40px;
             }
 
             p{
                 font-size: 14px;
                 @include museo500;
                 line-height: 24px;
-                margin-bottom: 48px;
+                margin-bottom: 15px;
             }
 
             ul{
                 margin: 0;
                 padding-left: 20px;
-                margin-bottom: 25px;
             }
 
             li{
@@ -56,10 +54,7 @@
             .grey-block{
                 border-left: 2px solid $c_func_color;
                 background-color: #f6fafe;
-                padding: 20px 30px 10px 30px;
-                p{
-                    margin-bottom: 15px;
-                }
+                padding: 20px 30px;
             }
 
             .grey-label{
@@ -112,19 +107,10 @@
                 background-color: #fff;
                 max-width: 540px;
                 margin-bottom: 10px;
-      
 
-                
                 .slide-item-img{
                     height: 400px;
                     border-radius: 5px;
-                    @include max-screen (768px) {
-                        height: auto;
-                        max-width: 100%;
-                        width: 100%;
-                        display: block;
-                    }
-                    
                 }
 
                 @include max-screen (992px) {
@@ -133,28 +119,19 @@
                 }
 
                 @include max-screen (768px) {
-                 
                     max-width: 450px;
                 }
-                @include max-screen (650px) {
-                    max-width: 400px;
-                    width: 100%;
-                }
-                @include max-screen (480px) {
-                    max-width: 300px;
-                }
-                
-                
+
                 @include max-screen (426px) {
-                    max-width: 280px;
+                    max-width: 335px;
                 }
 
                 @include max-screen (375px) {
-                    max-width: 260px;
+                    max-width: 290px;
                 }
 
                 @include max-screen (321px) {
-                    // max-width: 270px;
+                    max-width: 270px;
                 }
 
                 .funcybox{
@@ -189,10 +166,7 @@
                 @include max-screen (768px) {
                     max-width: 470px;
                 }
-                @include max-screen (650px) {
-                    display: none;
-                }
-                
+
                 @include max-screen (426px) {
                     display: none;
                 }
@@ -410,23 +384,11 @@
                 @include max-screen (1024px) {
                     margin-bottom: 20px;
                 }
-                @include max-screen (992px) {
-                    max-width: 600px;
-                }
-                
 
                 .price {
                     font-size: 24px;
                     @include museo700;
                     color: $c_content;
-                    @include max-screen (768px) {
-                        font-size: 18px;
-                    }
-                    @include max-screen (360px) {
-                        width: 100%;
-                    }
-                    
-                    
                 }
 
                 .colvo {
@@ -475,17 +437,6 @@
                             outline: none;
                         }
                     }
-                    @include max-screen (1200px) {
-                        margin-right: 10px;
-                    }
-                    
-                    @include max-screen (1024px) {
-                        margin: 0px auto;
-                    }
-                    @include max-screen (360px) {
-                        // width: 100%;
-                    }
-                    
                 }
 
                 .into-basket {
@@ -513,12 +464,6 @@
                         background-color: $c_white;
                         color: $c_func_color;
                     }
-                    @include max-screen (768px) {
-                        height: 35px;
-                        width: 115px;
-                        font-size: 14px;
-                    }
-                    
                 }
             }
         }
@@ -532,10 +477,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            @include max-screen (650px) {
-                // max-width: 400px;
-                // width: 100%;
-            }
+
             &:focus{
                 outline: none;
             }
@@ -572,7 +514,7 @@
 
         .slick-prev{
             left: 15px;
-            transform: rotate(180deg) translateY(50%);
+            transform: rotate(180deg);
             transform-origin: center;
         }
 
@@ -633,7 +575,7 @@
             height: auto;
 
             .right-info .buy-price .colvo{
-                // margin-right: 10px;
+                margin-right: 10px;
             }
         }
     }
@@ -645,16 +587,17 @@
 
 @media screen and (max-width: 1024px) {
     .prod-element .block-gallery-product .right-info .buy-price .into-basket{
-        // margin-top: 20px;
-        // width: 100%;
+        margin-top: 20px;
+        width: 100%;
     }
 
     .prod-element .block-gallery-product .right-info .buy-price .price{
-        // width: 100%;
+        width: 100%;
         text-align: center;
     }
 
     .prod-element .block-gallery-product .right-info .buy-price .colvo{
+        margin: 15px auto 0;
     }
 }
 

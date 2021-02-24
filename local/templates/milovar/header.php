@@ -123,7 +123,7 @@ if(CModule::IncludeModule("sale")){
                                     <li><a href="javascript:void(0);">Рецепты</a></li>
                                     <li><a href="javascript:void(0);">Статьи</a></li>
                                     <li><a href="javascript:void(0);">Новости</a></li>
-                                    <li><a href="javascript:void(0);" class="red-label">Акции %</a></li>
+                                    <li><a href="javascript:void(0);" class="red-label">Акции%</a></li>
                                     <li><a href="javascript:void(0);">Доставка и оплата</a></li>
                                     <li><a href="javascript:void(0);">Накопительные скидки</a></li>
                                     <li><a href="javascript:void(0);">Помощь</a></li>

@@ -16,13 +16,7 @@ $strTitle = "";
 
 $TOP_DEPTH = $arResult["SECTION"]["DEPTH_LEVEL"];
 $CURRENT_DEPTH = 0;
-?>
-<!-- <div class="mobile-button">
-    <span class="cat-open">Меню<br />каталога</span>
-    <span class="cat-close"></span>
-</div> -->
 
-<?
 
 foreach($arResult["SECTIONS_CUSTOM"] as $arSection) {
 $this->AddEditAction($arSection['ID'], $arSection['EDIT_LINK'], CIBlock::GetArrayByID($arSection["IBLOCK_ID"], "SECTION_EDIT"));

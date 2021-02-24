@@ -90,12 +90,11 @@ use Bitrix\Main\Localization\Loc;
 							</div>
 						{{/DISCOUNT_PRICE_FORMATED}}
 
-						<span class="basket-checkout-block__title">Итого:</span>
-						<span class="basket-checkout-block__text">
-							<div class="basket-coupon-block-total-price-current" data-entity="basket-total-price">
-								{{{PRICE_FORMATED}}}
-							</div>
-						</span>
+
+						<div class="basket-coupon-block-total-price-current" data-entity="basket-total-price">
+							{{{PRICE_FORMATED}}}
+						</div>
+
 						{{#DISCOUNT_PRICE_FORMATED}}
 							<div class="basket-coupon-block-total-price-difference">
 								<?=Loc::getMessage('SBB_BASKET_ITEM_ECONOMY')?>
@@ -120,7 +119,7 @@ use Bitrix\Main\Localization\Loc;
 
 		<?
 		if ($arParams['HIDE_COUPON'] !== 'Y')
-		{ 
+		{
 		?>
 			<div class="basket-coupon-alert-section">
 				<div class="basket-coupon-alert-inner">

@@ -1,14 +1,5 @@
 .privacy-policy{
-    &__title{
-        @include max-screen (768px) {
-            margin-bottom: 30px;
-        }
-        @include max-screen (360px) {
-            font-size: 28px;
-        }
-        
-        
-    }
+
     &__content{
 
         strong{
